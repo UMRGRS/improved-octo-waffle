@@ -1,3 +1,2 @@
 # improved
-# octo
 # waffle
