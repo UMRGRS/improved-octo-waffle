@@ -28,9 +28,14 @@ begin
 	declare continue handler for sqlexception
 		begin
 			set Error_num = -1;
-            set Error_Text = "Ocurrio un error";
+            set Error_Text = "Ocurrio un error";
         end;
-	set tableToConsult = concat("compatibilidad_",table1"_",table2);
-	select * from tableToConsult where ID = IdToConsult;
+	prepare selectStm from 'Select * from ? where ID_Principal = ?';
+	set tableToConsult = concat("compatibilidad_",table1,"_",table2);
+    set @table1 = tableToConsult;
+    set @number1 =IdToConsult;
+    select @table1;
+    select @number1;
+    execute selectStm using @table1, @number1;
 end $$
 DELIMITER ;

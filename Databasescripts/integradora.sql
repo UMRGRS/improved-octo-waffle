@@ -100,13 +100,13 @@ DROP TABLE IF EXISTS `compatibilidad_disipador_placa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_disipador_placa` (
+  `ID_Principal` int NOT NULL,
   `ID_Disipador` int NOT NULL,
-  `ID_PlacaMadre` int NOT NULL,
-  PRIMARY KEY (`ID_Disipador`,`ID_PlacaMadre`),
-  KEY `fk_Disipador_has_PlacaMadre_PlacaMadre1_idx` (`ID_PlacaMadre`),
+  PRIMARY KEY (`ID_Principal`,`ID_Disipador`),
+  KEY `fk_Disipador_has_PlacaMadre_PlacaMadre1_idx` (`ID_Principal`),
   KEY `fk_Disipador_has_PlacaMadre_Disipador1_idx` (`ID_Disipador`),
   CONSTRAINT `fk_Disipador_has_PlacaMadre_Disipador1` FOREIGN KEY (`ID_Disipador`) REFERENCES `disipador` (`ID`),
-  CONSTRAINT `fk_Disipador_has_PlacaMadre_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `placa` (`ID`)
+  CONSTRAINT `fk_Disipador_has_PlacaMadre_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `placa` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -127,12 +127,12 @@ DROP TABLE IF EXISTS `compatibilidad_grafica_gabinete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_grafica_gabinete` (
+  `ID_Principal` int NOT NULL,
   `ID_Tarjeta_grafica` int NOT NULL,
-  `ID_Gabinete` int NOT NULL,
-  PRIMARY KEY (`ID_Tarjeta_grafica`,`ID_Gabinete`),
-  KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
+  PRIMARY KEY (`ID_Tarjeta_grafica`,`ID_Principal`),
+  KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Tarjeta_grafica`),
-  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
+  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
   CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `tarjeta_grafica` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -154,13 +154,13 @@ DROP TABLE IF EXISTS `compatibilidad_placa_gabinete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_placa_gabinete` (
-  `ID_PlacaMadre` int NOT NULL,
+  `ID_Principal` int NOT NULL,
   `ID_Gabinete` int NOT NULL,
-  PRIMARY KEY (`ID_PlacaMadre`,`ID_Gabinete`),
+  PRIMARY KEY (`ID_Principal`,`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
-  KEY `fk_PlacaMadre_has_Gabinete_PlacaMadre1_idx` (`ID_PlacaMadre`),
+  KEY `fk_PlacaMadre_has_Gabinete_PlacaMadre1_idx` (`ID_Principal`),
   CONSTRAINT `fk_PlacaMadre_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
-  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `placa` (`ID`)
+  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `placa` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -178,16 +178,16 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `compatibilidad_procesador_placa`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_procesador_placa` (
-  `ID_Procesador` int NOT NULL,
+  `ID_Principal` int NOT NULL,
   `ID_PlacaMadre` int NOT NULL,
-  PRIMARY KEY (`ID_Procesador`,`ID_PlacaMadre`),
+  PRIMARY KEY (`ID_Principal`,`ID_PlacaMadre`),
   KEY `fk_procesador_has_PlacaMadre_PlacaMadre1_idx` (`ID_PlacaMadre`),
-  KEY `fk_procesador_has_PlacaMadre_procesador1_idx` (`ID_Procesador`),
+  KEY `fk_procesador_has_PlacaMadre_procesador1_idx` (`ID_Principal`),
   CONSTRAINT `fk_procesador_has_PlacaMadre_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `placa` (`ID`),
-  CONSTRAINT `fk_procesador_has_PlacaMadre_procesador1` FOREIGN KEY (`ID_Procesador`) REFERENCES `procesador` (`ID`)
+  CONSTRAINT `fk_procesador_has_PlacaMadre_procesador1` FOREIGN KEY (`ID_Principal`) REFERENCES `procesador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -208,12 +208,12 @@ DROP TABLE IF EXISTS `compatibilidad_ram_procesador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_ram_procesador` (
+  `ID_Principal` int NOT NULL,
   `ID_Ram` int NOT NULL,
-  `ID_Procesador` int NOT NULL,
-  PRIMARY KEY (`ID_Ram`,`ID_Procesador`),
-  KEY `fk_Ram_has_procesador_procesador1_idx` (`ID_Procesador`),
+  PRIMARY KEY (`ID_Principal`,`ID_Ram`),
+  KEY `fk_Ram_has_procesador_procesador1_idx` (`ID_Principal`),
   KEY `fk_Ram_has_procesador_Ram1_idx` (`ID_Ram`),
-  CONSTRAINT `fk_Ram_has_procesador_procesador1` FOREIGN KEY (`ID_Procesador`) REFERENCES `procesador` (`ID`),
+  CONSTRAINT `fk_Ram_has_procesador_procesador1` FOREIGN KEY (`ID_Principal`) REFERENCES `procesador` (`ID`),
   CONSTRAINT `fk_Ram_has_procesador_Ram1` FOREIGN KEY (`ID_Ram`) REFERENCES `ram` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -235,12 +235,12 @@ DROP TABLE IF EXISTS `compatibilidad_ssdm2_placa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_ssdm2_placa` (
+  `ID_Principal` int NOT NULL,
   `ID_Ssdm2` int NOT NULL,
-  `ID_PlacaMadre` int NOT NULL,
-  PRIMARY KEY (`ID_Ssdm2`,`ID_PlacaMadre`),
-  KEY `fk_ssdm2_has_PlacaMadre_PlacaMadre1_idx` (`ID_PlacaMadre`),
+  PRIMARY KEY (`ID_Principal`,`ID_Ssdm2`),
+  KEY `fk_ssdm2_has_PlacaMadre_PlacaMadre1_idx` (`ID_Principal`),
   KEY `fk_ssdm2_has_PlacaMadre_ssdm21_idx` (`ID_Ssdm2`),
-  CONSTRAINT `fk_ssdm2_has_PlacaMadre_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `placa` (`ID`),
+  CONSTRAINT `fk_ssdm2_has_PlacaMadre_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `placa` (`ID`),
   CONSTRAINT `fk_ssdm2_has_PlacaMadre_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `ssdm2` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -262,12 +262,12 @@ DROP TABLE IF EXISTS `compatibilidad_ventilador_gabinete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compatibilidad_ventilador_gabinete` (
+  `ID_Principal` int NOT NULL,
   `ID_Ventilador` int NOT NULL,
-  `ID_Gabinete` int NOT NULL,
-  PRIMARY KEY (`ID_Ventilador`,`ID_Gabinete`),
-  KEY `fk_Ventilador_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
+  PRIMARY KEY (`ID_Principal`,`ID_Ventilador`),
+  KEY `fk_Ventilador_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
   KEY `fk_Ventilador_has_Gabinete_Ventilador1_idx` (`ID_Ventilador`),
-  CONSTRAINT `fk_Ventilador_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
+  CONSTRAINT `fk_Ventilador_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
   CONSTRAINT `fk_Ventilador_has_Gabinete_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `ventilador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
