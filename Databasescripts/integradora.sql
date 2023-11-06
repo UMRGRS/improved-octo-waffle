@@ -4,6 +4,10 @@
 -- ------------------------------------------------------
 -- Server version	8.0.33
 
+drop database if exists integradora;
+create database integradora;
+use integradora;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -46,7 +50,7 @@ DROP TABLE IF EXISTS `Builds`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Builds` (
   `ID` int NOT NULL,
-  `ID_Usuario` int NOT NULL,
+  `ID_Usuario` int unsigned NOT NULL,
   `ID_Almacenamiento_Sata` int NOT NULL,
   `ID_Fuentes_poder` int NOT NULL,
   `ID_Ram` int NOT NULL,
@@ -465,7 +469,7 @@ DROP TABLE IF EXISTS `Usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
-  `ID` int NOT NULL,
+  `ID` int unsigned NOT NULL auto_increment,
   `Username` varchar(50) UNIQUE NOT NULL,
   `Password` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)

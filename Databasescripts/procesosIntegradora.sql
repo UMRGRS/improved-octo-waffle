@@ -45,7 +45,7 @@ begin
             set Error_Text = "Ocurrio un error";
             select concat(Error_Text,' codigo: ',Error_num) as 'Error';
 		else
-			set @query1 = concat('SELECT * FROM ',tableToConsult,' where ID=',IDToConsult);
+			set @query1 = concat('SELECT * FROM ',tableToConsult,' WHERE ID=',IDToConsult);
             prepare stm1 from @query1;
 			execute stm1;
 			deallocate prepare stm1;
@@ -77,8 +77,8 @@ begin
 	else
 		set tab_name = concat('compatibilidad_',table1,'_',table2);
 		set columnToDrop = concat('ID_',table2);
-		set @query2 = concat('create temporary table tableToReturn as SELECT * FROM ',tab_name,' inner join ',table2,' on ','ID_',table2,'=',table2,'.ID where ID_Principal =',IDToConsult);
-		set @query3 = concat('alter table tableToReturn drop ID_Principal, drop ',columnToDrop);
+		set @query2 = concat('CREATE TEMPORARY TABLE tableToReturn AS SELECT * FROM ',tab_name,' INNER JOIN ',table2,' ON ','ID_',table2,'=',table2,'.ID WHERE ID_Principal =',IDToConsult);
+		set @query3 = concat('ALTER TABLE tableToReturn DROP ID_Principal, DROP ',columnToDrop);
 		drop table if exists tableToReturn;
 		prepare stm1 from @query2;
 		execute stm1;
@@ -91,16 +91,86 @@ begin
 end $$
 DELIMITER ;
 
+-- Use this to log in into the page
+-- Takes 1- Username 2- Password
+-- Gives 1- Aut --> True = Log in correct False --> Log in incorrect(Wrong username or/and password, user isn't register)
+-- 2 - Message --> Debug message
 DELIMITER $$
 drop procedure if exists LogIn $$
-create procedure LogIn(in user1 varchar(50),in password1 varchar(50))
+create procedure LogIn(in username varchar(50),in passIn varchar(50),out aut bool,out message varchar(50))
 begin
-	set @query4 = concat('SELECT * FROM usuarios WHERE username = "',user1,'"');
-    select @query4;
+	declare rowCount int;
+    declare pass varchar(50);
+	declare continue handler for sqlexception
+		begin
+			set aut = -1;
+            set message = "Ocurrio un error";
+            select concat(aut,' codigo: ',message) as 'Error';
+        end;
+	set @query4 = concat('CREATE TEMPORARY TABLE userExists as SELECT * FROM usuarios WHERE username = "',username,'"');
+    drop table if exists userExists;
     prepare stm1 from @query4;
 	execute stm1;
 	deallocate prepare stm1;
+    set rowCount = (select count(*) from userExists);
+    if(rowCount = 1) then
+        set pass = (select `password` from userExists);
+        if(passIn = pass) then
+			set aut = true;
+			set message = concat("Sitio web mas adelante");
+		else
+			set aut = false;
+			set message = concat("You're not welcome here");
+        end if;
+	else
+		set aut = false;
+        set message = "User doesn't exists";
+    end if;
 end $$
 DELIMITER ;
-select * from usuarios where username = "owo";
-call LogIn('owo','uwu');
+
+-- Use this to register new users
+-- Takes 1- New username 2- New password
+-- Gives aut - True --> User was registered succesfully False --> User wasn't registered
+DELIMITER $$
+drop procedure if exists UserRegister $$
+create procedure UserRegister(in username varchar(50),in passIn varchar(50),out aut bool)
+begin 
+	declare rowCount int;
+    declare pass varchar(50);
+    declare error_num int;
+    declare message varchar(50);
+    declare continue handler for 1062
+		begin
+			set error_num = 1062;
+			set aut = false;
+            set message = "User already exists try another one";
+            select concat('Code: ',error_num,' ',message);
+        end;
+	declare continue handler for 1048
+		begin
+			set error_num = 1062;
+			set aut = false;
+            set message = "Null ID, username or password";
+            select concat('Code: ',error_num,' ',message);
+        end;
+	declare continue handler for sqlexception
+		begin
+			set error_num = 1062;
+			set aut = false;
+            set message = "Ocurrio un error";
+            select concat('Code: ',error_num,' ',message);
+        end;
+	set error_num = 0;
+	set @query5 = concat('INSERT INTO usuarios (Username, Password) VALUES ("',username,'","',passIn,'")');
+    prepare stm1 from @query5;
+    execute stm1;
+    deallocate prepare stm1;
+    if(error_num = 0) then
+			set aut = true;
+            set message = "User successfully registered";
+            select concat('Code: ',error_num,' ',message);
+    end if;
+end $$
+DELIMITER ;
+
