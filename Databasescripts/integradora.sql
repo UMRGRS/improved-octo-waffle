@@ -3,9 +3,7 @@
 -- Host: localhost    Database: integradora
 -- ------------------------------------------------------
 -- Server version	8.0.33
-drop database if exists integradora;
-create database integradora;
-use integradora;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -98,10 +96,10 @@ UNLOCK TABLES;
 -- Table structure for table `compatibilidad_disipador_placa`
 --
 
-DROP TABLE IF EXISTS `Compatibilidad_Disipador_Placa`;
+DROP TABLE IF EXISTS `Compatibilidad_Placa_Disipador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Compatibilidad_Disipador_Placa` (
+CREATE TABLE `Compatibilidad_Placa_Disipador` (
   `ID_Principal` int NOT NULL,
   `ID_Disipador` int NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Disipador`),
@@ -116,26 +114,26 @@ CREATE TABLE `Compatibilidad_Disipador_Placa` (
 -- Dumping data for table `compatibilidad_disipador_placa`
 --
 
-LOCK TABLES `Compatibilidad_Disipador_Placa` WRITE;
-/*!40000 ALTER TABLE `Compatibilidad_Disipador_Placa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Compatibilidad_Disipador_Placa` ENABLE KEYS */;
+LOCK TABLES `Compatibilidad_Placa_Disipador` WRITE;
+/*!40000 ALTER TABLE `Compatibilidad_Placa_Disipador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Compatibilidad_Placa_Disipador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `compatibilidad_grafica_gabinete`
 --
 
-DROP TABLE IF EXISTS `Compatibilidad_Grafica_Gabinete`;
+DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Grafica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Compatibilidad_Grafica_Gabinete` (
+CREATE TABLE `Compatibilidad_Gabinete_Grafica` (
   `ID_Principal` int NOT NULL,
   `ID_Tarjeta_grafica` int NOT NULL,
   PRIMARY KEY (`ID_Tarjeta_grafica`,`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Tarjeta_grafica`),
   CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
-  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `tarjeta_grafica` (`ID`)
+  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `grafica` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -143,9 +141,9 @@ CREATE TABLE `Compatibilidad_Grafica_Gabinete` (
 -- Dumping data for table `compatibilidad_grafica_gabinete`
 --
 
-LOCK TABLES `Compatibilidad_Grafica_Gabinete` WRITE;
-/*!40000 ALTER TABLE `Compatibilidad_Grafica_Gabinete` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Compatibilidad_Grafica_Gabinete` ENABLE KEYS */;
+LOCK TABLES `Compatibilidad_Gabinete_Grafica` WRITE;
+/*!40000 ALTER TABLE `Compatibilidad_Gabinete_Grafica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Compatibilidad_Gabinete_Grafica` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -161,8 +159,8 @@ CREATE TABLE `Compatibilidad_Placa_Gabinete` (
   PRIMARY KEY (`ID_Principal`,`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_PlacaMadre1_idx` (`ID_Principal`),
-  CONSTRAINT `fk_PlacaMadre_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
-  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `placa` (`ID`)
+  CONSTRAINT `fk_PlacaMadre_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `Gabinete` (`ID`),
+  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `Placa` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,10 +204,10 @@ UNLOCK TABLES;
 -- Table structure for table `compatibilidad_ram_procesador`
 --
 
-DROP TABLE IF EXISTS `Compatibilidad_Ram_Procesador`;
+DROP TABLE IF EXISTS `Compatibilidad_Procesador_Ram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Compatibilidad_Ram_Procesador` (
+CREATE TABLE `Compatibilidad_Procesador_Ram` (
   `ID_Principal` int NOT NULL,
   `ID_Ram` int NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ram`),
@@ -224,19 +222,19 @@ CREATE TABLE `Compatibilidad_Ram_Procesador` (
 -- Dumping data for table `compatibilidad_ram_procesador`
 --
 
-LOCK TABLES `Compatibilidad_Ram_Procesador` WRITE;
-/*!40000 ALTER TABLE `Compatibilidad_Ram_Procesador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Compatibilidad_Ram_Procesador` ENABLE KEYS */;
+LOCK TABLES `Compatibilidad_Procesador_Ram` WRITE;
+/*!40000 ALTER TABLE `Compatibilidad_Procesador_Ram` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Compatibilidad_Procesador_Ram` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `compatibilidad_ssdm2_placa`
 --
 
-DROP TABLE IF EXISTS `Compatibilidad_Ssdm2_Placa`;
+DROP TABLE IF EXISTS `Compatibilidad_Placa_Ssdm2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Compatibilidad_Ssdm2_Placa` (
+CREATE TABLE `Compatibilidad_Placa_Ssdm2` (
   `ID_Principal` int NOT NULL,
   `ID_Ssdm2` int NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ssdm2`),
@@ -251,19 +249,19 @@ CREATE TABLE `Compatibilidad_Ssdm2_Placa` (
 -- Dumping data for table `compatibilidad_ssdm2_placa`
 --
 
-LOCK TABLES `Compatibilidad_Ssdm2_Placa` WRITE;
-/*!40000 ALTER TABLE `Compatibilidad_Ssdm2_Placa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Compatibilidad_Ssdm2_Placa` ENABLE KEYS */;
+LOCK TABLES `Compatibilidad_Placa_Ssdm2` WRITE;
+/*!40000 ALTER TABLE `Compatibilidad_Placa_Ssdm2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Compatibilidad_Placa_Ssdm2` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `compatibilidad_ventilador_gabinete`
 --
 
-DROP TABLE IF EXISTS `Compatibilidad_Ventilador_Gabinete`;
+DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Ventilador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Compatibilidad_Ventilador_Gabinete` (
+CREATE TABLE `Compatibilidad_Gabinete_Ventilador` (
   `ID_Principal` int NOT NULL,
   `ID_Ventilador` int NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ventilador`),
@@ -278,9 +276,9 @@ CREATE TABLE `Compatibilidad_Ventilador_Gabinete` (
 -- Dumping data for table `compatibilidad_ventilador_gabinete`
 --
 
-LOCK TABLES `Compatibilidad_Ventilador_Gabinete` WRITE;
-/*!40000 ALTER TABLE `Compatibilidad_Ventilador_Gabinete` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Compatibilidad_Ventilador_Gabinete` ENABLE KEYS */;
+LOCK TABLES `Compatibilidad_Gabinete_Ventilador` WRITE;
+/*!40000 ALTER TABLE `Compatibilidad_Gabinete_Ventilador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Compatibilidad_Gabinete_Ventilador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -468,6 +466,8 @@ DROP TABLE IF EXISTS `Usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
   `ID` int NOT NULL,
+  `Username` varchar(50) UNIQUE NOT NULL,
+  `Password` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
