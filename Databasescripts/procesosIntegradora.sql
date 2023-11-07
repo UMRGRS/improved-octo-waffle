@@ -91,15 +91,14 @@ DELIMITER $$
 drop procedure if exists LogIn $$
 create procedure LogIn(in username varchar(50),in passIn varchar(50),out aut bool,out message varchar(50))
 begin
-	declare rowCount int;
     declare pass varchar(50);
     declare con_table varchar(50);
 	
 	set con_table = concat('userExists',connection_id());
 	set @query4 = concat('CREATE TEMPORARY TABLE ',con_table,' as SELECT * FROM usuarios WHERE username = "',username,'"');
     set @query8 = concat('DROP TABLE IF EXISTS ', con_table);
-    set @query9 = concat('select count(*) into rowCount from ',con_table);
-    set @query10 = concat('select `password` from ',con_table);
+    set @query9 = concat('select count(*) into @rowCount from ',con_table);
+    set @query10 = concat('select `password` into @pass from ',con_table);
     prepare stm from @query8;
 	execute stm;
 	deallocate prepare stm;
@@ -111,11 +110,11 @@ begin
 	prepare stm2 from @query9;
 	execute stm2;
 	deallocate prepare stm2;
-    if(rowCount = 1) then
-		prepare stm3 from @query9;
+    if(@rowCount = 1) then
+		prepare stm3 from @query10;
 		execute stm3;
 		deallocate prepare stm3;
-        if(passIn = pass) then
+        if(passIn = @pass) then
 			set aut = true;
 			set message = concat("Sitio web mas adelante");
 		else
@@ -124,12 +123,14 @@ begin
         end if;
 	else
 		set aut = false;
-        set message = "User doesn't exists";
+        set message = "User isn't registered";
     end if;
 end $$
 DELIMITER ;
 
-call LogIn("owo","1234",@aut,@mess);
+call LogIn("owo","uwu",@aut,@mess);
+
+select concat(@aut," ",@mess);
 
 -- Implement encryptation //////
 -- Use this to register new users
