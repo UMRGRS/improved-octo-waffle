@@ -13,16 +13,10 @@ begin
             set Error_Text = "Ocurrio un error";
             select concat(Error_Text,' codigo: ',Error_num) as 'Error';
         end;
-		if (tableToConsult is null) then
-			set Error_num = -1;
-            set Error_Text = "Ocurrio un error";
-            select concat(Error_Text,' codigo: ',Error_num) as 'Error';
-		else
-			set @query0 = concat('SELECT * FROM ',tableToConsult);
-            prepare stm1 from @query0;
-			execute stm1;
-			deallocate prepare stm1;
-        end if;
+		set @query0 = concat('SELECT * FROM ',tableToConsult);
+		prepare stm1 from @query0;
+		execute stm1;
+		deallocate prepare stm1;
 end $$
 DELIMITER ;
 
@@ -40,16 +34,10 @@ begin
             set Error_Text = "Ocurrio un error";
             select concat(Error_Text,' codigo: ',Error_num) as 'Error';
         end;
-		if (tableToConsult is null or idToConsult is null) then
-			set Error_num = -1;
-            set Error_Text = "Ocurrio un error";
-            select concat(Error_Text,' codigo: ',Error_num) as 'Error';
-		else
-			set @query1 = concat('SELECT * FROM ',tableToConsult,' WHERE ID=',IDToConsult);
-            prepare stm1 from @query1;
-			execute stm1;
-			deallocate prepare stm1;
-        end if;
+		set @query1 = concat('SELECT * FROM ',tableToConsult,' WHERE ID=',IDToConsult);
+		prepare stm1 from @query1;
+		execute stm1;
+		deallocate prepare stm1;
 end $$
 DELIMITER ;
 
@@ -61,6 +49,7 @@ drop procedure if exists SelectCompatibility $$
 create procedure SelectCompatibility(in table1 varchar(20), in table2 varchar(20), in IDToConsult int)
 begin
 	declare tab_name varchar(50);
+    declare con_table varchar(50);
     declare columnToDrop varchar(50);
 	declare Error_num int;
     declare Error_Text varchar(50);
@@ -70,26 +59,29 @@ begin
             set Error_Text = "Ocurrio un error";
             select concat(Error_Text,' codigo: ',Error_num) as 'Error';
         end;
-	if(table1 is null or table2 is null or IDToConsult is null) then
-		set Error_num = -1;
-		set Error_Text = "Ocurrio un error";
-        select concat(Error_Text,' codigo: ',Error_num) as 'Error';
-	else
-		set tab_name = concat('compatibilidad_',table1,'_',table2);
-		set columnToDrop = concat('ID_',table2);
-		set @query2 = concat('CREATE TEMPORARY TABLE tableToReturn AS SELECT * FROM ',tab_name,' INNER JOIN ',table2,' ON ','ID_',table2,'=',table2,'.ID WHERE ID_Principal =',IDToConsult);
-		set @query3 = concat('ALTER TABLE tableToReturn DROP ID_Principal, DROP ',columnToDrop);
-		drop table if exists tableToReturn;
-		prepare stm1 from @query2;
-		execute stm1;
-		deallocate prepare stm1;
-		prepare stm2 from @query3;
-		execute stm2;
-		deallocate prepare stm2;
-		select * from tableToReturn;
-    end if;
+	set tab_name = concat('compatibilidad_',table1,'_',table2);
+	set columnToDrop = concat('ID_',table2);
+    set con_table = concat('tableToReturn',connection_id());
+	set @query2 = concat('CREATE TEMPORARY TABLE ',con_table,' AS SELECT * FROM ',tab_name,' INNER JOIN ',table2,' ON ','ID_',table2,'=',table2,'.ID WHERE ID_Principal =',IDToConsult);
+	set @query3 = concat('ALTER TABLE ', con_table ,' DROP ID_Principal, DROP ',columnToDrop);
+    set @query6 = concat('DROP TABLE IF EXISTS ',con_table);
+    set @query7 = concat('SELECT * FROM ',con_table);
+    prepare stm from @query6;
+	execute stm;
+	deallocate prepare stm;
+	prepare stm1 from @query2;
+	execute stm1;
+	deallocate prepare stm1;
+	prepare stm2 from @query3;
+	execute stm2;
+	deallocate prepare stm2;
+	prepare stm3 from @query7;
+	execute stm3;
+	deallocate prepare stm3;
 end $$
 DELIMITER ;
+
+call SelectCompatibility("gabinete","grafica",1);
 
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
@@ -101,20 +93,28 @@ create procedure LogIn(in username varchar(50),in passIn varchar(50),out aut boo
 begin
 	declare rowCount int;
     declare pass varchar(50);
-	declare continue handler for sqlexception
-		begin
-			set aut = -1;
-            set message = "Ocurrio un error";
-            select concat(aut,' codigo: ',message) as 'Error';
-        end;
-	set @query4 = concat('CREATE TEMPORARY TABLE userExists as SELECT * FROM usuarios WHERE username = "',username,'"');
-    drop table if exists userExists;
+    declare con_table varchar(50);
+	
+	set con_table = concat('userExists',connection_id());
+	set @query4 = concat('CREATE TEMPORARY TABLE ',con_table,' as SELECT * FROM usuarios WHERE username = "',username,'"');
+    set @query8 = concat('DROP TABLE IF EXISTS ', con_table);
+    set @query9 = concat('select count(*) into rowCount from ',con_table);
+    set @query10 = concat('select `password` from ',con_table);
+    prepare stm from @query8;
+	execute stm;
+	deallocate prepare stm;
+    
     prepare stm1 from @query4;
 	execute stm1;
 	deallocate prepare stm1;
-    set rowCount = (select count(*) from userExists);
+    
+	prepare stm2 from @query9;
+	execute stm2;
+	deallocate prepare stm2;
     if(rowCount = 1) then
-        set pass = (select `password` from userExists);
+		prepare stm3 from @query9;
+		execute stm3;
+		deallocate prepare stm3;
         if(passIn = pass) then
 			set aut = true;
 			set message = concat("Sitio web mas adelante");
@@ -129,6 +129,9 @@ begin
 end $$
 DELIMITER ;
 
+call LogIn("owo","1234",@aut,@mess);
+
+-- Implement encryptation //////
 -- Use this to register new users
 -- Takes 1- New username 2- New password
 -- Gives aut - True --> User was registered succesfully False --> User wasn't registered
