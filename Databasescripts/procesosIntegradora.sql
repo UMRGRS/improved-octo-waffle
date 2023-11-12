@@ -81,8 +81,6 @@ begin
 end $$
 DELIMITER ;
 
-call SelectCompatibility("gabinete","grafica",1);
-
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
 -- Gives 1- Aut --> True = Log in correct False --> Log in incorrect(Wrong username or/and password, user isn't register)
@@ -152,14 +150,14 @@ begin
         end;
 	declare continue handler for 1048
 		begin
-			set error_num = 1062;
+			set error_num = 1048;
 			set aut = false;
             set message = "Null ID, username or password";
             select concat('Code: ',error_num,' ',message);
         end;
 	declare continue handler for sqlexception
 		begin
-			set error_num = 1062;
+			set error_num = -1;
 			set aut = false;
             set message = "Ocurrio un error";
             select concat('Code: ',error_num,' ',message);
