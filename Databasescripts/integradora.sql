@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `Almacenamiento_sata`;
 /*!50503 SET character_set_client = utf8mb4 */;
 
 CREATE TABLE `Almacenamiento_sata` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `capacidad` varchar(100) DEFAULT NULL,
@@ -41,20 +41,20 @@ DROP TABLE IF EXISTS `Builds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `builds` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `ID_Usuario` int NOT NULL,
-  `ID_Almacenamiento_Sata` int NOT NULL,
-  `ID_Fuentes_poder` int NOT NULL,
-  `ID_Ram` int NOT NULL,
-  `ID_Tarjeta_grafica` int NOT NULL,
-  `ID_procesador` int NOT NULL,
-  `ID_PlacaMadre` int NOT NULL,
-  `ID_Disipador` int NOT NULL,
-  `ID_Gabinete` int NOT NULL,
-  `ID_Ventilador` int NOT NULL,
-  `ID_Ssdm2` int NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `decripcion` longtext,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `ID_Usuario` int unsigned NOT NULL,
+  `ID_Almacenamiento_Sata` int unsigned NOT NULL,
+  `ID_Fuentes_poder` int unsigned NOT NULL,
+  `ID_Ram` int unsigned NOT NULL,
+  `ID_Tarjeta_grafica` int unsigned,
+  `ID_procesador` int unsigned NOT NULL,
+  `ID_PlacaMadre` int unsigned NOT NULL,
+  `ID_Disipador` int unsigned NOT NULL,
+  `ID_Gabinete` int unsigned NOT NULL,
+  `ID_Ventilador` int unsigned NOT NULL,
+  `ID_Ssdm2` int unsigned NOT NULL,
+  `Nombre` varchar(100) not null,
+  `Descripcion` longtext not null,
   PRIMARY KEY (`ID`,`ID_Usuario`,`ID_Almacenamiento_Sata`,`ID_Fuentes_poder`,`ID_Ram`,`ID_Tarjeta_grafica`,`ID_procesador`,`ID_PlacaMadre`,`ID_Disipador`,`ID_Gabinete`,`ID_Ventilador`,`ID_Ssdm2`),
   KEY `fk_Builds_Usuarios1_idx` (`ID_Usuario`),
   KEY `fk_Builds_Alamacenamiento_Sata_idx` (`ID_Almacenamiento_Sata`),
@@ -92,8 +92,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Placa_Disipador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Placa_Disipador` (
-  `ID_Principal` int NOT NULL,
-  `ID_Disipador` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Disipador` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Disipador`),
   KEY `fk_Disipador_has_PlacaMadre_PlacaMadre1_idx` (`ID_Principal`),
   KEY `fk_Disipador_has_PlacaMadre_Disipador1_idx` (`ID_Disipador`),
@@ -113,8 +113,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Grafica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Gabinete_Grafica` (
-  `ID_Principal` int NOT NULL,
-  `ID_Tarjeta_grafica` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Tarjeta_grafica` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Tarjeta_grafica`,`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Tarjeta_grafica`),
@@ -135,8 +135,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Placa_Gabinete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Placa_Gabinete` (
-  `ID_Principal` int NOT NULL,
-  `ID_Gabinete` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Gabinete` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_PlacaMadre1_idx` (`ID_Principal`),
@@ -156,8 +156,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Procesador_Placa`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Procesador_Placa` (
-  `ID_Principal` int NOT NULL,
-  `ID_PlacaMadre` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_PlacaMadre` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_PlacaMadre`),
   KEY `fk_procesador_has_PlacaMadre_PlacaMadre1_idx` (`ID_PlacaMadre`),
   KEY `fk_procesador_has_PlacaMadre_procesador1_idx` (`ID_Principal`),
@@ -180,8 +180,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Procesador_Ram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Procesador_Ram` (
-  `ID_Principal` int NOT NULL,
-  `ID_Ram` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Ram` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ram`),
   KEY `fk_Ram_has_procesador_procesador1_idx` (`ID_Principal`),
   KEY `fk_Ram_has_procesador_Ram1_idx` (`ID_Ram`),
@@ -204,8 +204,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Placa_Ssdm2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Placa_Ssdm2` (
-  `ID_Principal` int NOT NULL,
-  `ID_Ssdm2` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Ssdm2` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ssdm2`),
   KEY `fk_ssdm2_has_PlacaMadre_PlacaMadre1_idx` (`ID_Principal`),
   KEY `fk_ssdm2_has_PlacaMadre_ssdm21_idx` (`ID_Ssdm2`),
@@ -225,8 +225,8 @@ DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Ventilador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Gabinete_Ventilador` (
-  `ID_Principal` int NOT NULL,
-  `ID_Ventilador` int NOT NULL,
+  `ID_Principal` int unsigned NOT NULL,
+  `ID_Ventilador` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Principal`,`ID_Ventilador`),
   KEY `fk_Ventilador_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
   KEY `fk_Ventilador_has_Gabinete_Ventilador1_idx` (`ID_Ventilador`),
@@ -246,7 +246,7 @@ DROP TABLE IF EXISTS `Disipador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Disipador` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `socket` varchar(100) DEFAULT NULL,
   `link` varchar(200) DEFAULT NULL,
@@ -266,7 +266,7 @@ DROP TABLE IF EXISTS `Fuentes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Fuentes` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `potencia` varchar(100) DEFAULT NULL,
@@ -288,7 +288,7 @@ DROP TABLE IF EXISTS `Gabinete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Gabinete` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `dimensiones` varchar(100) DEFAULT NULL,
@@ -312,7 +312,7 @@ DROP TABLE IF EXISTS `Placa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Placa` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(50) DEFAULT NULL,
@@ -339,7 +339,7 @@ DROP TABLE IF EXISTS `Procesador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Procesador` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `nucleos` varchar(30) DEFAULT NULL,
@@ -364,7 +364,7 @@ DROP TABLE IF EXISTS `Ram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ram` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(50) DEFAULT NULL,
   `tipo_ddr` varchar(30) DEFAULT NULL,
@@ -387,7 +387,7 @@ DROP TABLE IF EXISTS `Ssdm2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ssdm2` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `capacidad` varchar(50) DEFAULT NULL,
@@ -410,7 +410,7 @@ DROP TABLE IF EXISTS `Grafica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Grafica` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `ensamblador` varchar(100) DEFAULT NULL,
@@ -438,10 +438,10 @@ DROP TABLE IF EXISTS `Usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  `password` blob,
-  `correo` varchar(100) DEFAULT NULL,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) unique not null,
+  `password` blob not null,
+  `email` varchar(100) unique not null,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -457,7 +457,7 @@ DROP TABLE IF EXISTS `Ventilador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ventilador` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `marca` varchar(100) DEFAULT NULL,
   `medida` varchar(100) DEFAULT NULL,
   `consumo` varchar(50) DEFAULT NULL,
