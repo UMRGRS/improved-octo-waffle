@@ -14,11 +14,8 @@
 DROP TABLE IF EXISTS `Almacenamiento_sata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-<<<<<<< HEAD
+
 CREATE TABLE `Almacenamiento_sata` (
-  `ID` int NOT NULL,
-=======
-CREATE TABLE `almacenamiento_sata` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
@@ -27,7 +24,6 @@ CREATE TABLE `almacenamiento_sata` (
   `consumo` varchar(100) DEFAULT NULL,
   `link` varchar(200) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
->>>>>>> 570589b08230b40401c3638c0ec470861aa17347
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
