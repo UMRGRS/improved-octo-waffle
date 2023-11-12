@@ -1,4 +1,4 @@
-
+-- Done
 -- Use this to retrieve all the data from a table
 -- Takes the name of the table as argument
 DELIMITER $$
