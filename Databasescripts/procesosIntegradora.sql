@@ -99,6 +99,7 @@ begin
     set @query8 = concat('DROP TABLE IF EXISTS ', con_table);
     set @query9 = concat('select count(*) into @rowCount from ',con_table);
     set @query10 = concat('select `password` into @pass from ',con_table);
+    
     prepare stm from @query8;
 	execute stm;
 	deallocate prepare stm;
@@ -110,6 +111,7 @@ begin
 	prepare stm2 from @query9;
 	execute stm2;
 	deallocate prepare stm2;
+    
     if(@rowCount = 1) then
 		prepare stm3 from @query10;
 		execute stm3;
@@ -128,10 +130,6 @@ begin
 end $$
 DELIMITER ;
 
-call LogIn("owo","uwu",@aut,@mess);
-
-select concat(@aut," ",@mess);
-
 -- Implement encryptation //////
 -- Use this to register new users
 -- Takes 1- New username 2- New password
@@ -144,6 +142,7 @@ begin
     declare pass varchar(50);
     declare error_num int;
     declare message varchar(50);
+    
     declare continue handler for 1062
 		begin
 			set error_num = 1062;
