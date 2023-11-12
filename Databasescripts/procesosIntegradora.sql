@@ -178,3 +178,35 @@ begin
 end $$
 DELIMITER ;
 
+-- Use this to register a new build
+DELIMITER $$
+drop procedure if exists RegisterBuild $$
+create procedure RegisterBuild()
+begin
+	declare aut bool default 0;
+    declare status_code int default 0;
+    declare message varchar(50);
+    
+	declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message, aut;
+        end;
+    declare continue handler for 1062
+		begin
+			set status_code = 1062;
+            set message = "Something is null";
+            select status_code, message, aut;
+        end;
+	declare continue handler for 1048
+		begin
+			set status_code = 1048;
+            set message = "Couldn't register build";
+            select status_code, message, aut;
+        end;
+        
+    INSERT INTO `builds` (`ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_grafica`, `ID_procesador`, `ID_PlacaMadre`, `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) 
+    VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Nombre', 'descripcion');
+end $$
+DELIMITER ;
