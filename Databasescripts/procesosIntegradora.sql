@@ -181,24 +181,27 @@ DELIMITER ;
 -- Use this to register a new build
 DELIMITER $$
 drop procedure if exists RegisterBuild $$
-create procedure RegisterBuild()
+create procedure RegisterBuild(in ID_Usuario int, in ID_Almacenamiento_Sata int, in ID_Fuentes_poder int, in ID_Ram int, in ID_Tarjeta_grafica int, in ID_procesador int,
+in ID_PlacaMadre int, in ID_Disipador int, in ID_Gabinete int, in ID_Ventilador int, in ID_Ssdm2 int, in Nombre varchar(100), in Descripcion longtext)
 begin
 	declare aut bool default 0;
     declare status_code int default 0;
     declare message varchar(50);
     
-	declare continue handler for sqlexception
+    declare continue handler for sqlexception
 		begin
 			set status_code = -1;
             set message = "Ocurrio un error";
 			select status_code, message, aut;
         end;
+        
     declare continue handler for 1062
 		begin
 			set status_code = 1062;
             set message = "Something is null";
             select status_code, message, aut;
         end;
+        
 	declare continue handler for 1048
 		begin
 			set status_code = 1048;
@@ -206,7 +209,14 @@ begin
             select status_code, message, aut;
         end;
         
-    INSERT INTO `builds` (`ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_grafica`, `ID_procesador`, `ID_PlacaMadre`, `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) 
-    VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Nombre', 'descripcion');
+	set @bigQuery = concat(
+    "INSERT INTO `Builds` (`ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_grafica`, `ID_procesador`, `ID_PlacaMadre`, 
+    `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) 
+    VALUES ('",ID_Usuario,"', '",ID_Almacenamiento_Sata,"', '",ID_Fuentes_poder,"', '",ID_Ram,"', '",ID_Tarjeta_grafica,"', '",ID_procesador,"', 
+    '",ID_PlacaMadre,"', '",ID_Disipador,"', '",ID_Gabinete,"', '",ID_Ventilador,"', '",ID_Ssdm2,"', '",Nombre,"', '",Descripcion,"')");
+    
+    prepare stm from @bigQuery;
+    execute stm;
+    deallocate prepare stm;
 end $$
 DELIMITER ;

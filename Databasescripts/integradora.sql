@@ -420,7 +420,7 @@ DROP TABLE IF EXISTS `builds`;
 CREATE TABLE `Builds` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT primary key,
   `ID_Usuario` int unsigned NOT NULL,
-  `ID_Almacenamiento_Sata` int unsigned NOT NULL,
+  `ID_Almacenamiento_Sata` int unsigned,
   `ID_Fuentes_poder` int unsigned NOT NULL,
   `ID_Ram` int unsigned NOT NULL,
   `ID_Tarjeta_grafica` int unsigned,
@@ -429,7 +429,7 @@ CREATE TABLE `Builds` (
   `ID_Disipador` int unsigned NOT NULL,
   `ID_Gabinete` int unsigned NOT NULL,
   `ID_Ventilador` int unsigned NOT NULL,
-  `ID_Ssdm2` int unsigned NOT NULL,
+  `ID_Ssdm2` int unsigned,
   `Nombre` varchar(100) not null,
   `Descripcion` longtext not null,
   KEY `fk_Builds_Usuarios1_idx` (`ID_Usuario`),
