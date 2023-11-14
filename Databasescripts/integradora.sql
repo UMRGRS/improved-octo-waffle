@@ -249,6 +249,7 @@ DROP TABLE IF EXISTS `Ventilador`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ventilador` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `medida` varchar(100) DEFAULT NULL,
   `consumo` varchar(50) DEFAULT NULL,
@@ -453,7 +454,7 @@ CREATE TABLE `Builds` (
   CONSTRAINT `fk_Builds_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `Ssdm2` (`ID`),
   CONSTRAINT `fk_Builds_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `Grafica` (`ID`),
   CONSTRAINT `fk_Builds_Usuarios1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuarios` (`ID`),
-  CONSTRAINT `fk_Builds_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `Ventilador` (`ID`)
+  CONSTRAINT `fk_Builds_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `ventilador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

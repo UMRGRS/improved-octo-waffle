@@ -93,6 +93,7 @@ DELIMITER ;
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
 -- aut -> false: user isn't registered OR password isn't correct(Check message) true: login succesfull
+-- Cuidado con la inyeccion sql xd
 DELIMITER $$
 drop procedure if exists LogIn $$
 create procedure LogIn(in username varchar(50),in passIn varchar(50))
@@ -179,6 +180,7 @@ end $$
 DELIMITER ;
 
 -- Use this to register a new build
+-- Just insert the data in the right order xd
 DELIMITER $$
 drop procedure if exists RegisterBuild $$
 create procedure RegisterBuild(in ID_Usuario int, in ID_Almacenamiento_Sata int, in ID_Fuentes_poder int, in ID_Ram int, in ID_Tarjeta_grafica int, in ID_procesador int,
@@ -220,3 +222,48 @@ begin
     deallocate prepare stm;
 end $$
 DELIMITER ;
+
+-- Use this to select the neccesary data from a build
+DELIMITER $$
+drop procedure if exists SelectDataFromBuild $$
+create procedure SelectDataFromBuild(in BuildId int)
+begin
+	
+end $$
+DELIMITER ;
+
+SELECT
+    b.ID,
+    a.modelo AS AlmacenamientoModel,
+    f.modelo AS FuenteModel,
+    r.modelo AS RamModel,
+    tg.modelo AS TarjetaGraficaModel,
+    p.modelo AS ProcesadorModel,
+    pm.modelo AS PlacaMadreModel,
+    d.modelo AS DisipadorModel,
+    g.modelo AS GabineteModel,
+    v.modelo AS VentiladorModel,
+    s.modelo AS Ssdm2Model
+FROM
+    Builds b
+LEFT JOIN
+    Almacenamiento_sata a ON b.ID_Almacenamiento_Sata = a.ID
+JOIN
+    Fuentes f ON b.ID_Fuentes_poder = f.ID
+JOIN
+    Ram r ON b.ID_Ram = r.ID
+LEFT JOIN
+    grafica tg ON b.ID_Tarjeta_grafica = tg.ID
+JOIN
+    Procesador p ON b.ID_procesador = p.ID
+JOIN
+    Placa pm ON b.ID_PlacaMadre = pm.ID
+JOIN
+    Disipador d ON b.ID_Disipador = d.ID
+JOIN
+    Gabinete g ON b.ID_Gabinete = g.ID
+JOIN
+    Ventilador v ON b.ID_Ventilador = v.ID
+LEFT JOIN
+    Ssdm2 s ON b.ID_Ssdm2 = s.ID where b.ID=1;
+
