@@ -31,7 +31,7 @@ CREATE TABLE `Almacenamiento_sata` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-
+.
 LOCK TABLES `Almacenamiento_sata` WRITE;
 /*!40000 ALTER TABLE `Almacenamiento_sata` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Almacenamiento_sata` ENABLE KEYS */;
