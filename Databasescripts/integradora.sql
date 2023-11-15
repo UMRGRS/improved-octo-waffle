@@ -1,3 +1,7 @@
+drop database if exists integradora;
+create database integradora;
+use integradora;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -292,12 +296,12 @@ DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Grafica`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Gabinete_Grafica` (
   `ID_Principal` int unsigned NOT NULL,
-  `ID_Tarjeta_grafica` int unsigned NOT NULL,
-  PRIMARY KEY (`ID_Tarjeta_grafica`,`ID_Principal`),
+  `ID_Grafica` int unsigned NOT NULL,
+  PRIMARY KEY (`ID_Grafica`,`ID_Principal`),
   KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
-  KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Tarjeta_grafica`),
+  KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Grafica`),
   CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
-  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `grafica` (`ID`)
+  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Grafica`) REFERENCES `grafica` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -1,0 +1,16 @@
+INSERT INTO `integradora`.`almacenamiento_sata` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`disipador` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`fuentes` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`gabinete` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`) VALUES ('2', 'uwus');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`) VALUES ('3', 'owos');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`placa` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`procesador` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`ram` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`ssdm2` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`ventilador` (`ID`, `modelo`) VALUES ('1', 'owo');
+INSERT INTO `integradora`.`builds` (`ID`, `ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_Grafica`, `ID_procesador`, `ID_PlacaMadre`, `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'owos', 'uwus');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '3');

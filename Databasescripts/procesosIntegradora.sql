@@ -56,38 +56,23 @@ create procedure SelectCompatibility(in table1 varchar(20), in table2 varchar(20
 begin
 	declare status_code int default 0;
     declare message varchar(50);
-
+	declare tableName varchar (50);
 	declare tab_name varchar(50);
     declare con_table varchar(50);
     declare columnToDrop varchar(50);
 
-	declare continue handler for sqlexception
-		begin
-			set status_code = -1;
-            set message = "Ocurrio un error";
-            select status_code, message;
-        end;
-	set tab_name = concat('compatibilidad_',table1,'_',table2);
-	set columnToDrop = concat('ID_',table2);
-    set con_table = concat('tableToReturn',connection_id());
-	set @query2 = concat('CREATE TEMPORARY TABLE ',con_table,' AS SELECT * FROM ',tab_name,' INNER JOIN ',table2,' ON ','ID_',table2,'=',table2,'.ID WHERE ID_Principal =',IDToConsult);
-	set @query3 = concat('ALTER TABLE ', con_table ,' DROP ID_Principal, DROP ',columnToDrop);
-    set @query6 = concat('DROP TABLE IF EXISTS ',con_table);
-    set @query7 = concat('SELECT * FROM ',con_table);
-    prepare stm from @query6;
-	execute stm;
-	deallocate prepare stm;
-	prepare stm1 from @query2;
-	execute stm1;
-	deallocate prepare stm1;
-	prepare stm2 from @query3;
-	execute stm2;
-	deallocate prepare stm2;
-	prepare stm3 from @query7;
-	execute stm3;
-	deallocate prepare stm3;
+	set tableName = concat('compatibilidad_',table1,'_',table2);
+	set @compQuery = concat('select s.ID, s.modelo from ', table2,' s right join ', tableName,' comp 
+					on s.ID = comp.ID_',table2,' where comp.ID_Principal = ', IDToConsult);
+	prepare stm from @compQuery;
+    execute stm;
+    deallocate prepare stm;
 end $$
 DELIMITER ;
+
+call SelectCompatibility("gabinete","grafica",1);
+select s.ID, s.modelo from grafica s right join compatibilidad_gabinete_grafica comp on s.ID = comp.ID_Grafica where comp.ID_Principal = 1;	  
+
 
 -- Done
 -- Use this to log in into the page
@@ -109,8 +94,8 @@ begin
 			select status_code, message, aut;
         end;
     
-	set @query4 = concat('SELECT count(*), `password` FROM usuarios WHERE username = "',username,'" into @rowCount, @pass');
-    
+	set @query4 = concat('SELECT count(*), `password` FROM usuarios WHERE username = ',quote(username),' into @rowCount, @pass');
+
     prepare stm from @query4;
 	execute stm;
 	deallocate prepare stm;
@@ -130,6 +115,8 @@ begin
     end if;
 end $$
 DELIMITER ;
+
+call LogIn("owo","uwu");
 
 -- Done
 -- Use this to register new users
@@ -165,7 +152,7 @@ begin
             select status_code, message, aut;
         end;
 	
-	set @query5 = concat('INSERT INTO usuarios (username, password, email) VALUES ("',username,'",MD5("',passIn,'"), "',email,'")');
+	set @query5 = concat('INSERT INTO usuarios (username, password, email) VALUES (',quote(username),',MD5(',quote(passIn),'), ',quote(email),')');
     
     prepare stm1 from @query5;
     execute stm1;
@@ -178,6 +165,8 @@ begin
     end if;
 end $$
 DELIMITER ;
+
+call UserRegister("owos","uwu","owos@gmail.com");
 
 -- Use this to register a new build
 -- Just insert the data in the right order xd
@@ -214,8 +203,8 @@ begin
 	set @bigQuery = concat(
     "INSERT INTO `Builds` (`ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_grafica`, `ID_procesador`, `ID_PlacaMadre`, 
     `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) 
-    VALUES ('",ID_Usuario,"', '",ID_Almacenamiento_Sata,"', '",ID_Fuentes_poder,"', '",ID_Ram,"', '",ID_Tarjeta_grafica,"', '",ID_procesador,"', 
-    '",ID_PlacaMadre,"', '",ID_Disipador,"', '",ID_Gabinete,"', '",ID_Ventilador,"', '",ID_Ssdm2,"', '",Nombre,"', '",Descripcion,"')");
+    VALUES (",quote(ID_Usuario),", ",quote(ID_Almacenamiento_Sata),", ",quote(ID_Fuentes_poder),", ",quote(ID_Ram),", ",quote(ID_Tarjeta_grafica),", ",quote(ID_procesador),", 
+    ",quote(ID_PlacaMadre),", ",quote(ID_Disipador),", ",quote(ID_Gabinete),", ",quote(ID_Ventilador),", ",quote(ID_Ssdm2),", ",quote(Nombre),", ",quote(Descripcion),")");
     
     prepare stm from @bigQuery;
     execute stm;
@@ -228,31 +217,46 @@ DELIMITER $$
 drop procedure if exists SelectDataFromBuild $$
 create procedure SelectDataFromBuild(in BuildId int)
 begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message, aut;
+        end;
 	
-end $$
-DELIMITER ;
-
-SELECT
-    b.ID,
-    a.modelo AS AlmacenamientoModel,
-    f.modelo AS FuenteModel,
-    r.modelo AS RamModel,
-    tg.modelo AS TarjetaGraficaModel,
-    p.modelo AS ProcesadorModel,
-    pm.modelo AS PlacaMadreModel,
-    d.modelo AS DisipadorModel,
-    g.modelo AS GabineteModel,
-    v.modelo AS VentiladorModel,
-    s.modelo AS Ssdm2Model
+	set @fulldataquery= concat('SELECT
+    a.ID AS IDSata,
+    a.modelo AS ModeloSata,
+    f.ID AS IDFuente,
+    f.modelo AS ModeloFuente,
+    r.ID AS IDRam,
+    r.modelo AS ModeloRam,
+    tg.ID AS IDGrafica,
+    tg.modelo AS ModeloGrafica,
+    p.ID AS IDProcesador,
+    p.modelo AS ModeloProcesador,
+    pm.ID AS IDPlacaMadre,
+    pm.modelo AS ModeloPlacaMadre,
+    d.ID AS IDDisipador,
+    d.modelo AS ModeloDisipador,
+    g.ID AS IDGabinete,
+    g.modelo AS ModeloGabinete,
+    v.ID AS IDVentilador,
+    v.modelo AS ModeloVentilador,
+    s.ID AS IDSsdm2,
+    s.modelo AS ModeloSsdm2
 FROM
     Builds b
-LEFT JOIN
+JOIN
     Almacenamiento_sata a ON b.ID_Almacenamiento_Sata = a.ID
 JOIN
     Fuentes f ON b.ID_Fuentes_poder = f.ID
 JOIN
     Ram r ON b.ID_Ram = r.ID
-LEFT JOIN
+JOIN
     grafica tg ON b.ID_Tarjeta_grafica = tg.ID
 JOIN
     Procesador p ON b.ID_procesador = p.ID
@@ -264,6 +268,11 @@ JOIN
     Gabinete g ON b.ID_Gabinete = g.ID
 JOIN
     Ventilador v ON b.ID_Ventilador = v.ID
-LEFT JOIN
-    Ssdm2 s ON b.ID_Ssdm2 = s.ID where b.ID=1;
-
+JOIN
+    Ssdm2 s ON b.ID_Ssdm2 = s.ID where b.ID= ?');
+    set @param = BuildId;
+    prepare stm from @fulldataquery;
+    execute stm using @param;
+    deallocate prepare stm;
+end $$
+DELIMITER ;
