@@ -14,7 +14,7 @@ use integradora;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 DROP TABLE IF EXISTS `Almacenamiento_sata`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 
 CREATE TABLE `Almacenamiento_sata` (
@@ -38,7 +38,7 @@ LOCK TABLES `Almacenamiento_sata` WRITE;
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Disipador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Disipador` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -58,7 +58,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Fuentes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Fuentes` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -80,7 +80,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Gabinete`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Gabinete` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -104,7 +104,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Placa`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Placa` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -131,7 +131,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Procesador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Procesador` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -179,7 +179,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Ssdm2`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ssdm2` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -202,7 +202,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Grafica`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Grafica` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -230,7 +230,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -249,7 +249,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Ventilador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ventilador` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -271,7 +271,7 @@ UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 DROP TABLE IF EXISTS `Compatibilidad_Placa_Disipador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Placa_Disipador` (
   `ID_Principal` int unsigned NOT NULL,
@@ -292,7 +292,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Grafica`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Gabinete_Grafica` (
   `ID_Principal` int unsigned NOT NULL,
@@ -314,7 +314,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Compatibilidad_Placa_Gabinete`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Placa_Gabinete` (
   `ID_Principal` int unsigned NOT NULL,
@@ -359,7 +359,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `Compatibilidad_Procesador_Ram`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Procesador_Ram` (
   `ID_Principal` int unsigned NOT NULL,
@@ -400,7 +400,7 @@ UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `Compatibilidad_Gabinete_Ventilador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Compatibilidad_Gabinete_Ventilador` (
   `ID_Principal` int unsigned NOT NULL,
@@ -420,7 +420,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Builds`;
 DROP TABLE IF EXISTS `builds`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Builds` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT primary key,
@@ -465,6 +465,22 @@ CREATE TABLE `Builds` (
 LOCK TABLES `Builds` WRITE;
 /*!40000 ALTER TABLE `Builds` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Builds` ENABLE KEYS */;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `Auditoria`;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Auditoria` (
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `Accion` varchar(200) not null,
+  `Usuario` varchar(100) not null,
+  `Fecha/hora` varchar(100) not null,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+LOCK TABLES `Auditoria` WRITE;
+/*!40000 ALTER TABLE `Auditoria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Auditoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
