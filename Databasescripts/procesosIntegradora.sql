@@ -73,7 +73,6 @@ DELIMITER ;
 call SelectCompatibility("gabinete","grafica",1);
 select s.ID, s.modelo from grafica s right join compatibilidad_gabinete_grafica comp on s.ID = comp.ID_Grafica where comp.ID_Principal = 1;	  
 
-
 -- Done
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
