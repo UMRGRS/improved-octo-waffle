@@ -70,9 +70,7 @@ begin
 end $$
 DELIMITER ;
 
-call SelectCompatibility("gabinete","grafica",1);
-select s.ID, s.modelo from grafica s right join compatibilidad_gabinete_grafica comp on s.ID = comp.ID_Grafica where comp.ID_Principal = 1;	  
-
+-- call SelectCompatibility("gabinete","grafica",1);
 
 -- Done
 -- Use this to log in into the page
@@ -116,7 +114,7 @@ begin
 end $$
 DELIMITER ;
 
-call LogIn("owo","uwu");
+-- call LogIn("owo","uwu");
 
 -- Done
 -- Use this to register new users
@@ -167,6 +165,39 @@ end $$
 DELIMITER ;
 
 call UserRegister("owos","uwu","owos@gmail.com");
+
+-- Use this to update the user's data
+DELIMITER $$
+drop procedure if exists UpdateUsersInfo $$
+create procedure UpdateUsersInfo(in UserID int, in UpUsername varchar(100), in UpPassword blob,in UpEmail varchar(100))
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+        
+    set @updateQuery = concat('UPDATE usuarios SET username = ?, password = ?, email = ? where ID = ?');
+    set @param1 = UpUsername;
+    set @param2 = UpPassword;
+    set @param3 = UpEmail;
+    set @param4 = UserID;
+    
+    prepare stm from @updateQuery;
+    execute stm using @param1, @param2, @param3, @param4;
+    deallocate prepare stm;
+    if (status_code = 0) then
+		set message = "User's info updated correctly";
+        select status_code, message;
+    end if;
+end $$
+DELIMITER ; 
+
+call UpdateUsersInfo(1,"owoowo","uwusuwus","owo1@gmail.com");
 
 -- Use this to register a new build
 -- Just insert the data in the right order xd
@@ -275,4 +306,115 @@ JOIN
     execute stm using @param;
     deallocate prepare stm;
 end $$
+DELIMITER ;
+
+-- Triggers
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_almacenamiento_sata $$
+CREATE TRIGGER after_update_almacenamiento_sata
+BEFORE UPDATE ON almacenamiento_sata 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla almacenamiento_sata actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_disipador $$
+CREATE TRIGGER after_update_disipador
+BEFORE UPDATE ON disipador 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla disipador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_fuentes $$
+CREATE TRIGGER after_update_fuentes
+BEFORE UPDATE ON fuentes 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla fuentes actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_gabinete $$
+CREATE TRIGGER after_update_gabinete
+BEFORE UPDATE ON gabinete 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla gabinete actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_grafica $$
+CREATE TRIGGER after_update_grafica
+BEFORE UPDATE ON grafica 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla grafica actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_placa $$
+CREATE TRIGGER after_update_placa
+BEFORE UPDATE ON placa 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla placa actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_procesador $$
+CREATE TRIGGER after_update_procesador
+BEFORE UPDATE ON procesador 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla procesador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_ram $$
+CREATE TRIGGER after_update_ram
+BEFORE UPDATE ON ram 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla ram actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_ssdm2 $$
+CREATE TRIGGER after_update_ssdm2
+BEFORE UPDATE ON ssdm2 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla ssdm2 actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS after_update_ventilador $$
+CREATE TRIGGER after_update_ventilador
+BEFORE UPDATE ON ventilador 
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    VALUES (concat('Tabla ventilador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
+END $$
 DELIMITER ;
