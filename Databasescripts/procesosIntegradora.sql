@@ -1,4 +1,4 @@
--- Done
+-- Done/Hos
 -- Use this to retrieve all the data from a table
 -- Takes the name of the table as argument
 DELIMITER $$
@@ -22,7 +22,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done
+-- Done/Hos
 -- Use this to retieve the data of a certain row of any table
 -- Takes 1-The table you want to consult 2-The id of the row you want to consult as arguments
 DELIMITER $$
@@ -47,7 +47,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done
+-- Done/Hos
 -- Use this to retrieve every compatible component with the one you give it
 -- SelectCompatibility("Placa","Disipador",1) --> This searches for the heatsinks compatible with the motherboard with the ID 1
 DELIMITER $$
@@ -56,10 +56,15 @@ create procedure SelectCompatibility(in table1 varchar(20), in table2 varchar(20
 begin
 	declare status_code int default 0;
     declare message varchar(50);
+    
 	declare tableName varchar (50);
-	declare tab_name varchar(50);
-    declare con_table varchar(50);
-    declare columnToDrop varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+            select status_code, message;
+        end;
 
 	set tableName = concat('compatibilidad_',table1,'_',table2);
 	set @compQuery = concat('select s.ID, s.modelo from ', table2,' s right join ', tableName,' comp 
@@ -72,7 +77,7 @@ DELIMITER ;
 
 -- call SelectCompatibility("gabinete","grafica",1);
 
--- Done
+-- Done/Hos
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
 -- aut -> false: user isn't registered OR password isn't correct(Check message) true: login succesfull
@@ -116,13 +121,13 @@ DELIMITER ;
 
 -- call LogIn("owo","uwu");
 
--- Done
+-- Done/Hos
 -- Use this to register new users
 -- Takes 1- username 2- password 3- email
 -- aut -> false: user wasn't registered true: user was registered successfully
 DELIMITER $$
 drop procedure if exists UserRegister $$
-create procedure UserRegister(in username varchar(50),in passIn varchar(50),in email varchar(100))
+create procedure UserRegister(in username varchar(50),in passIn blob,in email varchar(100))
 begin 
 	declare rowCount int;
     declare pass varchar(50);
@@ -166,6 +171,7 @@ DELIMITER ;
 
 call UserRegister("owos","uwu","owos@gmail.com");
 
+-- Done/Hos
 -- Use this to update the user's data
 DELIMITER $$
 drop procedure if exists UpdateUsersInfo $$
@@ -199,6 +205,7 @@ DELIMITER ;
 
 call UpdateUsersInfo(1,"owoowo","uwusuwus","owo1@gmail.com");
 
+-- Done/Hos
 -- Use this to register a new build
 -- Just insert the data in the right order xd
 DELIMITER $$
@@ -243,6 +250,7 @@ begin
 end $$
 DELIMITER ;
 
+-- Done/Hos
 -- Use this to select the neccesary data from a build
 DELIMITER $$
 drop procedure if exists SelectDataFromBuild $$
