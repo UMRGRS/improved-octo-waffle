@@ -19,9 +19,7 @@
   color: #f8f5f5;
   font-family: Arial, sans-serif;
   font-weight: bold;
-  margin-top: -50px; /* Ajusta la distancia hacia abajo según tus necesidades */
-    margin-left: 90px; /* Ajusta la distancia hacia la derecha según tus necesidades */
-    font-size: 16px;
+  font-size: 16px;
  }
  /*fin de las clases porpias*/
 .owl-carousel {
