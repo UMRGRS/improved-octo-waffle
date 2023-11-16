@@ -27,8 +27,6 @@ CREATE TABLE `Almacenamiento_sata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
-
 LOCK TABLES `Almacenamiento_sata` WRITE;
 /*!40000 ALTER TABLE `Almacenamiento_sata` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Almacenamiento_sata` ENABLE KEYS */;

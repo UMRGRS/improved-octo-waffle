@@ -75,7 +75,8 @@ begin
 end $$
 DELIMITER ;
 
--- call SelectCompatibility("gabinete","grafica",1);
+call SelectCompatibility("gabinete","grafica",1);
+select s.ID, s.modelo from grafica s right join compatibilidad_gabinete_grafica comp on s.ID = comp.ID_Grafica where comp.ID_Principal = 1;	  
 
 -- Done/Hos
 -- Use this to log in into the page
