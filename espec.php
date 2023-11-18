@@ -52,55 +52,7 @@
       </div>
     </div>
   </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Procesador</h5>
-      <p class="card-text">
-        modelo<br> marca<br> nucleos<br> socket<br> igpu<br> disipador<br> consumo<br> link
-      </p>
-    </div>
-
-<<<<<<< HEAD
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-=======
-<div class="container-fluid mt-4 mb-4">
-    <div class="card">
-      <div class="row g-0">
-        <div class="d-flex col-3 justify-content-center align-self-center">
-          <img src="assets/images/defec.jpeg" class="img rounded" style="height: 400px; width:400px;">
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <h5 class="card-title fs-1">Placa madre</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item fs-5">Modelo</li>
-              <li class="list-group-item fs-5">**Modelo**</li>
-              <li class="list-group-item fs-5">Chipset</li>
-              <li class="list-group-item fs-5">**Chipset**</li>
-              <li class="list-group-item fs-5">Socket</li>
-              <li class="list-group-item fs-5">**Socket**</li>
-              <li class="list-group-item fs-5">DDR</li>
-              <li class="list-group-item fs-5">**DDR**</li>
-              <li class="list-group-item fs-5">Slots RAM</li>
-              <li class="list-group-item fs-5">**Slots RAM**</li>
-              <li class="list-group-item fs-5">Wifi</li>
-              <li class="list-group-item fs-5">**Wifi**</li>
-              <li class="list-group-item fs-5">Bluetooth</li>
-              <li class="list-group-item fs-5">**Bluetooth**</li>
-              <li class="list-group-item fs-5">Slots nvme</li>
-              <li class="list-group-item fs-5">**Slots nvme**</li>
-              <li class="list-group-item fs-5">Consumo</li>
-              <li class="list-group-item fs-5">**Consumo**</li>
-            </ul>
-            <a href="#" class="btn btn-primary mt-3">Link</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
   <div class="container-fluid mt-4 mb-4">
     <div class="card">
@@ -169,108 +121,13 @@
       </div>
     </div>
   </div>
->>>>>>> 68a7ec8 (correcion)
 
-    </div>
-  </div>
 
-<<<<<<< HEAD
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Targeta grafica</h5>
-      <p class="card-text">
-        modelo<br> marca<br> ensamblador<br> vram<br> gddr<br> displayport<br> hdmi<br> slots<br>
-        consumo<br> longitud<br> link
-      </p>
-    </div>
 
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
 
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Ram</h5>
-      <p class="card-text">
-        modelo<br> marca<br> tipo_ddr<br> frecuencia<br> consumo<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
+  
+  
 
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">gabinete</h5>
-      <p class="card-text">
-        modelo<br> marca<br> dimensiones<br> factor_de_forma<br> ventana<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">SSD</h5>
-      <p class="card-text">
-        modelo<br> marca<br> capacidad<br> velocidad<br> consumo<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">ventilador</h5>
-      <p class="card-text">
-        marca<br> medida<br> consumo<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">dicipador</h5>
-      <p class="card-text">
-        modelo<br> socket<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="assets/images/defec.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">fuente</h5>
-      <p class="card-text">
-        modelo<br> marca<br> potencia<br> certificacion<br> link
-      </p>
-    </div>
-    <div class="card-body">
-      <a href="#" class="card-link">link</a>
-    </div>
-  </div>
-  <?php
-  include("footer.html");
-  ?>
-=======
   <div class="container-fluid mt-4 mb-4">
     <div class="card">
       <div class="row g-0">
@@ -429,7 +286,9 @@
 
 
 
->>>>>>> 68a7ec8 (correcion)
+  <?php
+  include("footer.html");
+  ?>
 </body>
 
 </html>
