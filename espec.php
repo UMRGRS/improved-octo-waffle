@@ -27,15 +27,24 @@
           <div class="card-body">
             <h5 class="card-title fs-1">Placa madre</h5>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item fs-5">Modelo</li><br>
-              <li class="list-group-item fs-5">Chipset</li><br>
-              <li class="list-group-item fs-5">Socket</li><br>
-              <li class="list-group-item fs-5">DDR</li><br>
-              <li class="list-group-item fs-5">Slots RAM</li><br>
-              <li class="list-group-item fs-5">Wifi</li><br>
-              <li class="list-group-item fs-5">Bluetooth</li><br>
-              <li class="list-group-item fs-5">Slots nvme</li><br>
+              <li class="list-group-item fs-5">Modelo</li>
+              <li class="list-group-item fs-5">**Modelo**</li>
+              <li class="list-group-item fs-5">Chipset</li>
+              <li class="list-group-item fs-5">**Chipset**</li>
+              <li class="list-group-item fs-5">Socket</li>
+              <li class="list-group-item fs-5">**Socket**</li>
+              <li class="list-group-item fs-5">DDR</li>
+              <li class="list-group-item fs-5">**DDR**</li>
+              <li class="list-group-item fs-5">Slots RAM</li>
+              <li class="list-group-item fs-5">**Slots RAM**</li>
+              <li class="list-group-item fs-5">Wifi</li>
+              <li class="list-group-item fs-5">**Wifi**</li>
+              <li class="list-group-item fs-5">Bluetooth</li>
+              <li class="list-group-item fs-5">**Bluetooth**</li>
+              <li class="list-group-item fs-5">Slots nvme</li>
+              <li class="list-group-item fs-5">**Slots nvme**</li>
               <li class="list-group-item fs-5">Consumo</li>
+              <li class="list-group-item fs-5">**Consumo**</li>
               <li><a href="#" class="btn btn-primary mt-3">Link</a></li>
             </ul>
           </div>
