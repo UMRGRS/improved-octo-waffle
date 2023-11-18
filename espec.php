@@ -45,8 +45,8 @@
               <li class="list-group-item fs-5">**Slots nvme**</li>
               <li class="list-group-item fs-5">Consumo</li>
               <li class="list-group-item fs-5">**Consumo**</li>
-              <li><a href="#" class="btn btn-primary mt-3">Link</a></li>
             </ul>
+            <a href="#" class="btn btn-primary mt-3">Link</a>
           </div>
         </div>
       </div>
