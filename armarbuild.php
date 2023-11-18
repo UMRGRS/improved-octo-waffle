@@ -37,7 +37,7 @@ include("header.html");
                                         <h5 class="card-title">Placa base</h5>
                                         <p class="card-text">modelo: </p>
                                         <a href="#" class="btn btn-primary">Agregar</a>
-                                        <a href="#" class="btn btn-primary">Ver especificaciones</a>
+                                        <a href="espec.php" class="btn btn-primary">Ver especificaciones</a>
                                     </div>
                                 </div>
                             </div>
