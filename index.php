@@ -23,8 +23,8 @@
             <h6>Arma tu propio equipo</h6>
             <div class="line-dec"></div>
             <h4>Armala es mas<em> barato</em><br>y<span>potente</span></h4>
-            <p>Somos la mejor opcion en el mercado de armado junto con los mejores precios en <a href="index.html">Componentes</a> 
-            y <a href="faqs.html">armados completos</a>.</p>
+            <p>Somos la mejor opcion en el mercado de armado junto con los mejores precios en <a href="index.html">Componentes</a>
+              y <a href="faqs.html">armados completos</a>.</p>
             <div class="main-button"><a href="#services">Inicia sesion</a></div>
             <div class="second-button"><a href="faqs.html">Registrate</a></div>
           </div>
@@ -38,7 +38,7 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-6">
           <div class="row">
-            <div class="col-lg-12"> 
+            <div class="col-lg-12">
               <div class='section-heading'>
                 <h2>Te otorgamos las mejores <em>heramientas</em> y
                   <em>componentes</em> para la computadora de tus sueños
