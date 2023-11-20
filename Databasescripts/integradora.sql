@@ -10,99 +10,101 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-DROP TABLE IF EXISTS `Almacenamiento_sata`;
+DROP TABLE IF EXISTS `almacenamiento_sata`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 
-CREATE TABLE `Almacenamiento_sata` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `almacenamiento_sata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `almacenamiento_sata` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `capacidad` varchar(100) DEFAULT NULL,
   `velocidad` varchar(100) DEFAULT NULL,
-  `consumo` varchar(100) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `Almacenamiento_sata` WRITE;
-/*!40000 ALTER TABLE `Almacenamiento_sata` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Almacenamiento_sata` ENABLE KEYS */;
+LOCK TABLES `almacenamiento_sata` WRITE;
+/*!40000 ALTER TABLE `almacenamiento_sata` DISABLE KEYS */;
+/*!40000 ALTER TABLE `almacenamiento_sata` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `Disipador`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `disipador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Disipador` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `disipador` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
+  `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(100) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Disipador` WRITE;
-/*!40000 ALTER TABLE `Disipador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Disipador` ENABLE KEYS */;
+LOCK TABLES `disipador` WRITE;
+/*!40000 ALTER TABLE `disipador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `disipador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Fuentes`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `fuentes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Fuentes` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `fuentes` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `potencia` varchar(100) DEFAULT NULL,
   `certificacion` varchar(100) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Fuentes` WRITE;
-/*!40000 ALTER TABLE `Fuentes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Fuentes` ENABLE KEYS */;
+LOCK TABLES `fuentes` WRITE;
+/*!40000 ALTER TABLE `fuentes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fuentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Gabinete`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `gabinete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Gabinete` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gabinete` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `dimensiones` varchar(100) DEFAULT NULL,
   `factor_de_forma` varchar(100) DEFAULT NULL,
   `ventana` tinyint DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-
-LOCK TABLES `Gabinete` WRITE;
-/*!40000 ALTER TABLE `Gabinete` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Gabinete` ENABLE KEYS */;
+LOCK TABLES `gabinete` WRITE;
+/*!40000 ALTER TABLE `gabinete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gabinete` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Placa`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `placa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Placa` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `placa` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(50) DEFAULT NULL,
@@ -112,24 +114,24 @@ CREATE TABLE `Placa` (
   `wifi` tinyint DEFAULT NULL,
   `bluetooth` tinyint DEFAULT NULL,
   `slots_nvme` varchar(20) DEFAULT NULL,
-  `consumo` varchar(50) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `Placa` WRITE;
-/*!40000 ALTER TABLE `Placa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Placa` ENABLE KEYS */;
+
+LOCK TABLES `placa` WRITE;
+/*!40000 ALTER TABLE `placa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `placa` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Procesador`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `procesador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Procesador` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `procesador` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `nucleos` varchar(30) DEFAULT NULL,
@@ -137,70 +139,69 @@ CREATE TABLE `Procesador` (
   `igpu` tinyint DEFAULT '0',
   `disipador` tinyint DEFAULT '0',
   `consumo` varchar(50) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Procesador` WRITE;
-/*!40000 ALTER TABLE `Procesador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Procesador` ENABLE KEYS */;
+LOCK TABLES `procesador` WRITE;
+/*!40000 ALTER TABLE `procesador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `procesador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Ram`;
+DROP TABLE IF EXISTS `ram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ram` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ram` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(50) DEFAULT NULL,
   `tipo_ddr` varchar(30) DEFAULT NULL,
   `frecuencia` varchar(40) DEFAULT NULL,
   `consumo` varchar(40) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Ram` WRITE;
-/*!40000 ALTER TABLE `Ram` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Ram` ENABLE KEYS */;
+LOCK TABLES `ram` WRITE;
+/*!40000 ALTER TABLE `ram` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Ssdm2`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `ssdm2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ssdm2` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ssdm2` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `capacidad` varchar(50) DEFAULT NULL,
   `velocidad` varchar(50) DEFAULT NULL,
-  `consumo` varchar(50) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Ssdm2` WRITE;
-/*!40000 ALTER TABLE `Ssdm2` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Ssdm2` ENABLE KEYS */;
+LOCK TABLES `ssdm2` WRITE;
+/*!40000 ALTER TABLE `ssdm2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ssdm2` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Grafica`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `tarjeta_grafica`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Grafica` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tarjeta_grafica` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `ensamblador` varchar(100) DEFAULT NULL,
@@ -211,16 +212,16 @@ CREATE TABLE `Grafica` (
   `slots` varchar(20) DEFAULT NULL,
   `consumo` varchar(50) DEFAULT NULL,
   `longitud` varchar(50) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Grafica` WRITE;
-/*!40000 ALTER TABLE `Grafica` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Grafica` ENABLE KEYS */;
+LOCK TABLES `tarjeta_grafica` WRITE;
+/*!40000 ALTER TABLE `tarjeta_grafica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tarjeta_grafica` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -243,25 +244,24 @@ LOCK TABLES `Usuarios` WRITE;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Ventilador`;
-/*!40101 SET @saved_cs_client = @@character_set_client */;
+DROP TABLE IF EXISTS `ventilador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Ventilador` (
-  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ventilador` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `medida` varchar(100) DEFAULT NULL,
-  `consumo` varchar(50) DEFAULT NULL,
-  `link` varchar(200) DEFAULT NULL,
+  `link` varchar(400) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Ventilador` WRITE;
-/*!40000 ALTER TABLE `Ventilador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Ventilador` ENABLE KEYS */;
+LOCK TABLES `ventilador` WRITE;
+/*!40000 ALTER TABLE `ventilador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ventilador` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
