@@ -26,15 +26,63 @@ font & reset css
 --------------------------------------------- 
 */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800");
+
 /* 
 ---------------------------------------------
 reset
 --------------------------------------------- 
 */
-html, body, div, span, applet, object, iframe, p, blockquote, div
-pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
-s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-figure, nav, section, article, aside, footer, figcaption {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
   margin: 0;
   padding: 0;
   border: 0;
@@ -62,7 +110,8 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 
-ul, li {
+ul,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -74,7 +123,8 @@ ul, li {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: 'Open Sans', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -121,7 +171,8 @@ body {
 }
 
 .templatemo-feature {
-	max-width: 66px; border-radius: 50%;
+  max-width: 66px;
+  border-radius: 50%;
 }
 
 .main-button a {
@@ -180,8 +231,8 @@ body {
   width: 60px;
   height: 2px;
   margin-bottom: 20px;
-  background: rgb(85,0,227);
-  background: linear-gradient(90deg, rgba(85,0,227,1) 0%, rgba(198,61,255,1) 100%);
+  background: rgb(85, 0, 227);
+  background: linear-gradient(90deg, rgba(85, 0, 227, 1) 0%, rgba(198, 61, 255, 1) 100%);
 }
 
 .section-heading h2 {
@@ -213,7 +264,7 @@ Pre-loader Style
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.99);
+  background-color: rgba(0, 0, 0, 0.99);
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -235,29 +286,29 @@ Pre-loader Style
 
 @-webkit-keyframes dot {
   50% {
-      -webkit-transform: translateX(96px);
-      transform: translateX(96px);
+    -webkit-transform: translateX(96px);
+    transform: translateX(96px);
   }
 }
 
 @keyframes dot {
   50% {
-      -webkit-transform: translateX(96px);
-      transform: translateX(96px);
+    -webkit-transform: translateX(96px);
+    transform: translateX(96px);
   }
 }
 
 @-webkit-keyframes dots {
   50% {
-      -webkit-transform: translateX(-31px);
-      transform: translateX(-31px);
+    -webkit-transform: translateX(-31px);
+    transform: translateX(-31px);
   }
 }
 
 @keyframes dots {
   50% {
-      -webkit-transform: translateX(-31px);
-      transform: translateX(-31px);
+    -webkit-transform: translateX(-31px);
+    transform: translateX(-31px);
   }
 }
 
@@ -310,8 +361,8 @@ Header Style
 */
 
 .header-area {
-  background: rgb(85,0,227);
-  background: linear-gradient(90deg, rgba(85,0,227,1) 0%, rgba(198,61,255,1) 100%);
+  background: rgb(85, 0, 227);
+  background: linear-gradient(90deg, rgba(85, 0, 227, 1) 0%, rgba(198, 61, 255, 1) 100%);
   height: 110px;
 }
 
@@ -327,7 +378,7 @@ Banner Style
 }
 
 .main-banner:after {
-  content: url(../images/banner-right3.png);
+  content: url(../images/frontpageimage.png);
   top: -1px;
   right: 0;
   position: absolute;
@@ -744,8 +795,8 @@ Contact Style
 
 .contact-us-content .more-info {
   text-align: center;
-  background: rgb(85,0,227);
-  background: linear-gradient(90deg, rgba(85,0,227,1) 0%, rgba(198,61,255,1) 100%);
+  background: rgb(85, 0, 227);
+  background: linear-gradient(90deg, rgba(85, 0, 227, 1) 0%, rgba(198, 61, 255, 1) 100%);
   border-radius: 0px 0px 23px 23px;
   padding: 45px 30px 15px 30px;
 }
@@ -1232,13 +1283,13 @@ Most Asked Style
 }
 
 .most-asked .accordion-head {
-  padding: 35px 0px !important;  
+  padding: 35px 0px !important;
   font-size: 22px;
   font-weight: 700;
   color: #2a2a2a;
   cursor: pointer;
   transition: color 200ms ease-in-out;
-  
+
 }
 
 @media screen and (min-width: 768px) {
@@ -1270,7 +1321,7 @@ Most Asked Style
   border-bottom: 1px solid #fff;
 }
 
-.most-asked .accordion-body > .content p {
+.most-asked .accordion-body>.content p {
   padding: 0px 0px 30px 0px;
   padding-top: 0;
 }
@@ -1334,19 +1385,24 @@ body {
     padding-right: 10px;
     margin-right: 10px;
   }
+
   .pre-header .left-info ul li a {
     font-size: 13px;
   }
+
   .main-banner .caption {
     padding: 30px !important;
     text-align: center;
   }
+
   .main-banner p {
     padding-right: 0%;
   }
+
   .main-banner .line-dec {
     margin: 30px auto 20px auto;
   }
+
   .projects .owl-nav {
     text-align: center;
     right: auto;
@@ -1354,61 +1410,78 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
+
   .projects .section-heading {
     text-align: center;
   }
+
   .projects .section-heading .line-dec {
     margin: 0px auto 20px auto;
   }
+
   .infos .main-content .left-image img {
     display: inline-block;
   }
+
   .contact-us .contact-us-content,
   .contact-us .contact-us-content #contact-form {
     padding: 30px;
   }
+
   .contact-us #map {
     margin-bottom: 30px;
   }
+
   .contact-us-content .more-info .info-item {
     margin-bottom: 45px;
   }
+
   .page-heading img {
     margin-top: 45px;
   }
+
   .video-info .section-heading {
     padding: 60px 0px 30px 0px;
   }
+
   .video-info .skills {
     padding: 0px;
   }
+
   .happy-clients .naccs .menu div {
     width: 100% !important;
     margin: 15px 0px;
   }
+
   .happy-clients .naccs .menu {
     padding: 15px;
   }
+
   .happy-clients ul.nacc li img {
     padding-left: 0px;
     margin-top: 45px;
   }
+
   .cta h4,
   .cta .main-button {
     text-align: center;
   }
+
   .happy-steps .steps .item {
     margin-right: 0px;
     border-right: none;
     margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgba(250, 250, 250, 0.2);;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+    ;
   }
+
   .happy-steps .steps .last-item {
     border-bottom: none;
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
+
   .most-asked #free-quote {
     margin-left: 0px;
     margin-top: 45px;
