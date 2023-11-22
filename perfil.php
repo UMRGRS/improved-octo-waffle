@@ -11,7 +11,7 @@
 </head>
 
 <body style="background-color: #eee;">
-  <?php include("header.html"); ?>
+<?php include("header.html"); ?>
   <div class="container py-5">
     <div class="row">
       <!-- Este es el recuadro de la foto del usuario-->
