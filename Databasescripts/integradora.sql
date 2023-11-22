@@ -196,10 +196,10 @@ LOCK TABLES `ssdm2` WRITE;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `tarjeta_grafica`;
+DROP TABLE IF EXISTS `grafica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tarjeta_grafica` (
+CREATE TABLE `grafica` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
@@ -218,9 +218,9 @@ CREATE TABLE `tarjeta_grafica` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `tarjeta_grafica` WRITE;
-/*!40000 ALTER TABLE `tarjeta_grafica` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tarjeta_grafica` ENABLE KEYS */;
+LOCK TABLES `grafica` WRITE;
+/*!40000 ALTER TABLE `grafica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grafica` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -292,10 +292,10 @@ CREATE TABLE `Compatibilidad_Gabinete_Grafica` (
   `ID_Principal` int unsigned NOT NULL,
   `ID_Grafica` int unsigned NOT NULL,
   PRIMARY KEY (`ID_Grafica`,`ID_Principal`),
-  KEY `fk_Tarjeta_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
-  KEY `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1_idx` (`ID_Grafica`),
-  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
-  CONSTRAINT `fk_Tarjeta_grafica_has_Gabinete_Tarjeta_grafica1` FOREIGN KEY (`ID_Grafica`) REFERENCES `grafica` (`ID`)
+  KEY `fk_grafica_has_Gabinete_Gabinete1_idx` (`ID_Principal`),
+  KEY `fk_grafica_has_Gabinete_grafica1_idx` (`ID_Grafica`),
+  CONSTRAINT `fk_grafica_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Principal`) REFERENCES `gabinete` (`ID`),
+  CONSTRAINT `fk_grafica_has_Gabinete_grafica1` FOREIGN KEY (`ID_Grafica`) REFERENCES `grafica` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -422,7 +422,7 @@ CREATE TABLE `Builds` (
   `ID_Almacenamiento_Sata` int unsigned,
   `ID_Fuentes_poder` int unsigned NOT NULL,
   `ID_Ram` int unsigned NOT NULL,
-  `ID_Tarjeta_grafica` int unsigned,
+  `ID_grafica` int unsigned,
   `ID_procesador` int unsigned NOT NULL,
   `ID_PlacaMadre` int unsigned NOT NULL,
   `ID_Disipador` int unsigned NOT NULL,
@@ -435,7 +435,7 @@ CREATE TABLE `Builds` (
   KEY `fk_Builds_Almacenamiento_Sata_idx` (`ID_Almacenamiento_Sata`),
   KEY `fk_Builds_Fuentes_poder1_idx` (`ID_Fuentes_poder`),
   KEY `fk_Builds_Ram1_idx` (`ID_Ram`),
-  KEY `fk_Builds_Tarjeta_grafica1_idx` (`ID_Tarjeta_grafica`),
+  KEY `fk_Builds_grafica1_idx` (`ID_grafica`),
   KEY `fk_Builds_procesador1_idx` (`ID_procesador`),
   KEY `fk_Builds_PlacaMadre1_idx` (`ID_PlacaMadre`),
   KEY `fk_Builds_Disipador1_idx` (`ID_Disipador`),
@@ -450,7 +450,7 @@ CREATE TABLE `Builds` (
   CONSTRAINT `fk_Builds_procesador1` FOREIGN KEY (`ID_procesador`) REFERENCES `Procesador` (`ID`),
   CONSTRAINT `fk_Builds_Ram1` FOREIGN KEY (`ID_Ram`) REFERENCES `Ram` (`ID`),
   CONSTRAINT `fk_Builds_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `Ssdm2` (`ID`),
-  CONSTRAINT `fk_Builds_Tarjeta_grafica1` FOREIGN KEY (`ID_Tarjeta_grafica`) REFERENCES `Grafica` (`ID`),
+  CONSTRAINT `fk_Builds_grafica1` FOREIGN KEY (`ID_grafica`) REFERENCES `Grafica` (`ID`),
   CONSTRAINT `fk_Builds_Usuarios1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuarios` (`ID`),
   CONSTRAINT `fk_Builds_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `ventilador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
