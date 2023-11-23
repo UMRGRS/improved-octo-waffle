@@ -7,11 +7,23 @@ function GetDBC(){
       }
     return $dbc;
 }
-$DBC = GetDBC();
-$result = mysqli_query($DBC,'CALL SelectEverythingFromTable("disipador")');
 
-while($row = $result->fetch_assoc())
-{
-echo $row["ID"];
+//Get user's ID with login function 
+function UserData($id){
+  $DBC = GetDBC();
+  $data   = $DBC->query("CALL SelectInfo('usuarios','$id')");
+  $row = $data -> fetch_assoc();
+  //You're going to use $row["ID"],$row["username"], $row["password"],$row["email"];
+  $DBC -> close();
+}
+//Get user's ID with login function 
+function UserBuilds($id){
+  $DBC = GetDBC();
+  $data = $DBC->query("CALL GetUserBuilds($id)");
+  while($row = $data -> fetch_assoc()){
+    foreach($row as $key => $value){
+      echo $row[$key]."<br>";
+    }
+  }
 }
 ?>
