@@ -75,9 +75,6 @@ begin
 end $$
 DELIMITER ;
 
-call SelectCompatibility("gabinete","grafica",1);
-select s.ID, s.modelo from grafica s right join compatibilidad_gabinete_grafica comp on s.ID = comp.ID_Grafica where comp.ID_Principal = 1;	  
-
 -- Done/Hos
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
@@ -170,8 +167,6 @@ begin
 end $$
 DELIMITER ;
 
-call UserRegister("owos","uwu","owos@gmail.com");
-
 -- Done/Hos
 -- Use this to update the user's data
 DELIMITER $$
@@ -204,7 +199,6 @@ begin
 end $$
 DELIMITER ; 
 
-call UpdateUsersInfo(1,"owoowo","uwusuwus","owo1@gmail.com");
 
 -- Done/Hos
 -- Use this to register a new build
