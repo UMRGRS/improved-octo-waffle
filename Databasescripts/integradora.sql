@@ -107,6 +107,7 @@ CREATE TABLE `placa` (
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(50) DEFAULT NULL,
+  `forma` varchar(20) DEFAULT NULL,
   `ddr` varchar(10) DEFAULT NULL,
   `chipset` varchar(20) DEFAULT NULL,
   `slots_ram` varchar(10) DEFAULT NULL,
@@ -196,10 +197,10 @@ LOCK TABLES `ssdm2` WRITE;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `tarjeta_grafica`;
+DROP TABLE IF EXISTS `grafica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tarjeta_grafica` (
+CREATE TABLE `grafica` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
@@ -218,9 +219,9 @@ CREATE TABLE `tarjeta_grafica` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `tarjeta_grafica` WRITE;
-/*!40000 ALTER TABLE `tarjeta_grafica` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tarjeta_grafica` ENABLE KEYS */;
+LOCK TABLES `grafica` WRITE;
+/*!40000 ALTER TABLE `grafica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grafica` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

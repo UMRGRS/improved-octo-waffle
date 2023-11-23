@@ -2,9 +2,9 @@ INSERT INTO `integradora`.`procesador` (`ID`, `modelo`, `marca`, `nucleos`, `soc
 INSERT INTO `integradora`.`procesador` (`ID`, `modelo`, `marca`, `nucleos`, `socket`, `igpu`, `disipador`, `consumo`, `link`, `imagen`) VALUES ('2', 'Ryzen 5 7600X', 'AMD', '6 (12)', 'AM5', '1', '0', '105 W', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Procesadores/Procesadores-para-PC/Procesador-AMD-Ryzen-5-7600X-S-AM5-4-70GHz-Six-Core-32MB-L3-Cache-no-Incluye-Disipador.html', '7600X.jpg');
 INSERT INTO `integradora`.`procesador` (`ID`, `modelo`, `marca`, `nucleos`, `socket`, `igpu`, `disipador`, `consumo`, `link`, `imagen`) VALUES ('3', 'Ryzen 7 7700', 'AMD', '8 (16)', 'AM5', '1', '1', '65 W ', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Procesadores/Procesadores-para-PC/Procesador-AMD-Ryzen-7-7700-S-AM5-3-80GHz-8-Core-32MB-Cache-con-Disipador-Wraith-Prism.html', '7700.jpg');
 
-INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('1', 'PRO A620M-E', 'MSI', 'AM5', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-MSI-Mini-ATX-PRO-A620M-E-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'PRO A620M-E.jpg');
-INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('2', 'A620M S2H', 'Gigabyte', 'AM5', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-Gigabyte-Micro-ATX-A620M-S2H-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'A620M S2H.jpg');
-INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('3', 'A620M-HDV/M.2', 'ASRock', 'AM5', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-ASRock-Micro-ATX-A620M-HDV-M-2-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'A620M-HDV.jpg');
+INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `forma`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('1', 'PRO A620M-E', 'MSI', 'AM5', 'Micro-ATX', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-MSI-Mini-ATX-PRO-A620M-E-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'PRO A620M-E.jpg');
+INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `forma`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('2', 'A620M S2H', 'Gigabyte', 'AM5', 'Micro-ATX', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-Gigabyte-Micro-ATX-A620M-S2H-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'A620M S2H.jpg');
+INSERT INTO `integradora`.`placa` (`ID`, `modelo`, `marca`, `socket`, `forma`, `ddr`, `chipset`, `slots_ram`, `wifi`, `bluetooth`, `slots_nvme`, `link`, `imagen`) VALUES ('3', 'A620M-HDV/M.2', 'ASRock', 'AM5', 'Micro-ATX', 'DDR5', 'A620', '2', '0', '0', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-Madre/Tarjeta-Madre-ASRock-Micro-ATX-A620M-HDV-M-2-S-AM5-AMD-A620-HDMI-96GB-DDR5-para-AMD.html', 'A620M-HDV.jpg');
 
 INSERT INTO `integradora`.`almacenamiento_sata` (`ID`, `modelo`, `marca`, `capacidad`, `velocidad`, `link`, `imagen`) VALUES ('1', 'WDS240G3G0A', 'Western Digital', '240 GB', '545 MB/s', 'https://www.cyberpuerta.mx/Computo-Hardware/Discos-Duros-SSD-NAS/SSD/SSD-Western-Digital-WD-Green-240GB-SATA-III-2-5.html', 'WDS240G3G0A.jpg');
 INSERT INTO `integradora`.`almacenamiento_sata` (`ID`, `modelo`, `marca`, `capacidad`, `velocidad`, `link`, `imagen`) VALUES ('2', 'SanDisk Plus', 'Western Digital', '240 GB', '530 MB/s', 'https://www.cyberpuerta.mx/Computo-Hardware/Discos-Duros-SSD-NAS/SSD/SSD-SanDisk-Plus-240GB-SATA-III-2-5-7mm.html#emdetails_attributes', 'SanDisk Plus.jpg');
@@ -30,9 +30,9 @@ INSERT INTO `integradora`.`ssdm2` (`ID`, `modelo`, `marca`, `capacidad`, `veloci
 INSERT INTO `integradora`.`ssdm2` (`ID`, `modelo`, `marca`, `capacidad`, `velocidad`, `link`, `imagen`) VALUES ('2', 'P3', 'Crucial', '500GB', '3500 MB/s', 'https://www.cyberpuerta.mx/Computo-Hardware/Discos-Duros-SSD-NAS/SSD/SSD-Crucial-P3-NVMe-500GB-PCI-Express-3-0-M-2.html', 'P3.jpg');
 INSERT INTO `integradora`.`ssdm2` (`ID`, `modelo`, `marca`, `capacidad`, `velocidad`, `link`, `imagen`) VALUES ('3', '980 NVMe', 'Samsung', '250GB', '2900 MB/s', 'https://www.cyberpuerta.mx/Computo-Hardware/Discos-Duros-SSD-NAS/SSD/SSD-Samsung-980-NVMe-250GB-PCI-Express-3-0-M-2.html', '980 NVMe.jpg');
 
-INSERT INTO `integradora`.`tarjeta_grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('1', 'ARC A750', 'Intel', 'Intel', '8 GB', 'GDDR6 ', '1', '1', '2', '225 W', '268.6 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Intel-ARC-A750-8GB-256-bit-GDDR6-PCI-Express-x16-4-0.html#emdetails_attributes', 'ARC A750.jpg');
-INSERT INTO `integradora`.`tarjeta_grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('2', 'RX 7600 Pulse', 'AMD', 'Sapphire', '8GB', 'GDDR6', '3', '1', '2', '550 W', '240 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Sapphire-AMD-Radeon-RX-7600-Pulse-8GB-128-bit-GDDR6-PCI-Express-4-0.html', 'RX 7600 Pulse.jpg');
-INSERT INTO `integradora`.`tarjeta_grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('3', 'RTX 4060', 'NVIDIA', 'Zotac', '8GB', 'GDDR6', '3', '1', '2', '500 W', '221.4 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Zotac-NVIDIA-GeForce-RTX-4060-8GB-Twin-Edge-OC-8GB-128-bit-GDDR6-PCI-Express-4-0.html', 'RTX 4060.jpg');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('1', 'ARC A750', 'Intel', 'Intel', '8 GB', 'GDDR6 ', '1', '1', '2', '225 W', '268.6 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Intel-ARC-A750-8GB-256-bit-GDDR6-PCI-Express-x16-4-0.html#emdetails_attributes', 'ARC A750.jpg');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('2', 'RX 7600 Pulse', 'AMD', 'Sapphire', '8GB', 'GDDR6', '3', '1', '2', '550 W', '240 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Sapphire-AMD-Radeon-RX-7600-Pulse-8GB-128-bit-GDDR6-PCI-Express-4-0.html', 'RX 7600 Pulse.jpg');
+INSERT INTO `integradora`.`grafica` (`ID`, `modelo`, `marca`, `ensamblador`, `vram`, `gddr`, `displayport`, `hdmi`, `slots`, `consumo`, `longitud`, `link`, `imagen`) VALUES ('3', 'RTX 4060', 'NVIDIA', 'Zotac', '8GB', 'GDDR6', '3', '1', '2', '500 W', '221.4 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Zotac-NVIDIA-GeForce-RTX-4060-8GB-Twin-Edge-OC-8GB-128-bit-GDDR6-PCI-Express-4-0.html', 'RTX 4060.jpg');
 
 INSERT INTO `integradora`.`ventilador` (`ID`, `modelo`, `marca`, `medida`, `link`, `imagen`) VALUES ('1', 'MasterFan MF120 S2 ARGB', 'Cooler Master', '120 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Enfriamiento-y-Ventilacion/Ventiladores/Ventilador-Cooler-Master-MasterFan-MF120-S2-ARGB-120mm-1200RPM-Negro.html', 'MasterFan MF120 S2 ARGB.jpg');
 INSERT INTO `integradora`.`ventilador` (`ID`, `modelo`, `marca`, `medida`, `link`, `imagen`) VALUES ('2', 'Pure Wings 2', 'quiet!', '120 mm', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Enfriamiento-y-Ventilacion/Ventiladores/Ventilador-be-quiet-Pure-Wings-2-PWM-120mm-2000RPM-Negro.html', 'Pure Wings 2.jpg');
@@ -51,3 +51,63 @@ INSERT INTO `integradora`.`compatibilidad_placa_disipador` (`ID_Principal`, `ID_
 INSERT INTO `integradora`.`compatibilidad_placa_disipador` (`ID_Principal`, `ID_Disipador`) VALUES ('2', '3');
 INSERT INTO `integradora`.`compatibilidad_placa_disipador` (`ID_Principal`, `ID_Disipador`) VALUES ('3', '3');
 
+
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('1', '3');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_gabinete` (`ID_Principal`, `ID_Gabinete`) VALUES ('3', '3');
+
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('3', '3');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_placa_ssdm2` (`ID_Principal`, `ID_Ssdm2`) VALUES ('1', '3');
+
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('1', '3');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_placa` (`ID_Principal`, `ID_PlacaMadre`) VALUES ('3', '3');
+
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('1', '3');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('3', '3');
+
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('1', '3');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_ventilador` (`ID_Principal`, `ID_Ventilador`) VALUES ('3', '3');
+
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('1', '3');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('2', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('2', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('2', '3');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('3', '1');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('3', '2');
+INSERT INTO `integradora`.`compatibilidad_gabinete_grafica` (`ID_Principal`, `ID_Grafica`) VALUES ('3', '3');
