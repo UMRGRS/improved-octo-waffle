@@ -17,7 +17,7 @@
             <div class="col">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img src="../assets/images/defec.jpeg" class="rounded-circle img-fluid" style="width: 150px;">
+                        <img src="../assets/images/defec.jpeg" class="img-fluid rounded-circle" style="width: 150px;">
                         <h5 class="my-3">John Smith</h5>
                     </div>
                 </div>
