@@ -21,7 +21,6 @@ function RegisterUser($username,$password,$email){
     return $row["message"];
   }
 }
-
 //connect with login form
 function LogIn($username,$password){
   $DBC = GetDBC();
@@ -36,7 +35,6 @@ function LogIn($username,$password){
     return $row["message"];
   }
 }
-
 //Get user's ID from LogIn or Register function
 function UserData($id){
   $DBC = GetDBC();
@@ -47,7 +45,6 @@ function UserData($id){
   $IDOut = $row["ID"];
   return $IDOut;
 }
-
 //Get user's ID from LogIn function or Register function
 function UserBuilds($id){
   $DBC = GetDBC();

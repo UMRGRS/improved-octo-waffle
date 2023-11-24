@@ -12,23 +12,31 @@
 </head>
 
 <body>
-    <?php include("../html/header.html");?>
+    <?php include("../Archives_include/header.php");?>
     <div class="main-banner" id="top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                     <div class="caption header-text">
                         <h6>Arma tu propio equipo</h6>
                         <div class="line-dec"></div>
                         <h4>Armala es mas<em> barato</em><br>y<span>potente</span></h4>
-                        <p>Somos la mejor opcion en el mercado de armado junto con los mejores precios en <a href="index.html">Componentes</a>
-                            y <a href="faqs.html">armados completos</a>.</p>
-                        <div class="main-button"><a href="#services">Inicia sesion</a></div>
-                        <div class="second-button"><a href="faqs.html">Registrate</a></div>
+                        <p>Somos la mejor opcion en el mercado de armado junto con los mejores precios en componentes y armados completos.</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Iniciar sesion</button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Crear cuenta</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="services section" id="services">
