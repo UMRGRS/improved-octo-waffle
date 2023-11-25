@@ -13,9 +13,7 @@
 </head>
 
 <body>
-    <?php
-    include("../Archives_include/header.php");
-    ?>
+    <?php include("../Archives_include/header.php");?>
     <!--Use this one!-->
     <div class="container-fluid mt-4 mb-4">
         <div class="card">

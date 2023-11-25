@@ -9,12 +9,12 @@
                 <form method="post" action="../php_important/connection.php">
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="staticEmail" name="username" placeholder="Usuario">
+                            <input type="text" class="form-control" id="staticEmail" name="username" placeholder="Usuario" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <div class="d-grid gap-2">
@@ -37,21 +37,21 @@
             </div>
             <div class="modal-body">
                 <!--inicio formulario-->
-                <form method="post" action="../php_important/connection.php">
+                <form method="post" action="../php_important/connection.php" onsubmit>
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="Name" name="newusername" placeholder="Nombre de usuario">
+                            <input type="text" class="form-control" id="Name" name="newusername" placeholder="Nombre de usuario" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="password" class="form-control" id="inputPassword" name="newpassword" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="inputPassword" name="newpassword" placeholder="Contraseña" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="staticEmail" name="newemail" placeholder="Correo electronico">
+                            <input type="email" class="form-control" id="staticEmail" name="newemail" placeholder="Correo electronico" required>
                         </div>
                     </div>
 

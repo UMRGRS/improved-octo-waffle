@@ -16,11 +16,18 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
       $username = $_POST["username"];
       $password = $_POST["password"];
       LogIn($username,$password);
-    }else if(isset($_POST["LogOut"])){
+    }
+    else if(isset($_POST["LogOut"])){
       session_start();
       session_destroy();
       header("Refresh:0; url=../php/index.php");
       exit();
+    }
+    else if(isset($_POST["SignUp"])){
+      $newusername = $_POST["newusername"];
+      $newpassword = $_POST["newpassword"];
+      $newemail = $_POST["newemail"];
+      RegisterUser($newusername, $newpassword, $newemail);
     }
 }
 
@@ -36,7 +43,7 @@ function RegisterUser($username,$password,$email){
     header("Location: ../php/perfil.php");
   }
   else{
-    //retornar mensaje de fallo
+    header("Location: ../php/index.php?failed=true");
   }
 }
 //Login into an existing account
@@ -52,7 +59,7 @@ function LogIn($username,$password){
     exit();
   }
   else{
-    //retornar mensaje de fallo
+    echo $row["message"];
   }
 }
 
