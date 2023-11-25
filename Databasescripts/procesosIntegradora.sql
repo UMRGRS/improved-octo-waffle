@@ -95,7 +95,7 @@ begin
 			select status_code, message, aut;
         end;
     
-	set @query4 = concat('SELECT count(*), `password` FROM usuarios WHERE username = ',quote(username),' into @rowCount, @pass');
+	set @query4 = concat('SELECT count(*), ID, `password` FROM usuarios WHERE username = ',quote(username),' into @rowCount, @id, @pass');
 
     prepare stm from @query4;
 	execute stm;
@@ -105,7 +105,7 @@ begin
         if(MD5(passIn) = @pass) then
 			set aut = true;
 			set message = "Sitio web mas adelante";
-            select status_code, message, aut;
+            select status_code, message, aut, @id;
 		else
 			set message = "You're not welcome here";
             select status_code, message, aut;
@@ -117,8 +117,9 @@ begin
 end $$
 DELIMITER ;
 
--- call LogIn("owo","uwu");
-
+select * from usuarios;
+call LogIn("umrgrs","owo1");
+ call UserRegister("umrgrs123","owo1","umrgrs122@gmail.com");
 -- Done/Hos
 -- Use this to register new users
 -- Takes 1- username 2- password 3- email
@@ -153,16 +154,24 @@ begin
             select status_code, message, aut;
         end;
 	
-	set @query5 = concat('INSERT INTO usuarios (username, password, email) VALUES (',quote(username),',MD5(',quote(passIn),'), ',quote(email),')');
-    
-    prepare stm1 from @query5;
-    execute stm1;
-    deallocate prepare stm1;
-    
+	set @insertQuery = 'INSERT INTO usuarios (username, password, email) VALUES ( ? , MD5(?), ?)';
+    set @idQuery = 'SELECT ID FROM usuarios where username = ? into @id'; 
+   
+   	set @param = username;
+   	set @param1 = passIn;
+   	set @param2 = email;
+   
+    prepare stm from @insertQuery;
+    execute stm using @param, @param1, @param2;
+   	deallocate prepare stm;
+
     if(status_code = 0) then
 			set aut = true;
             set message = "User successfully registered";
-            select status_code, message, aut;
+           	prepare stm1 from @idQuery;
+    		execute stm1 using @param;
+   			deallocate prepare stm1;
+            select status_code, message, aut, @id;
     end if;
 end $$
 DELIMITER ;
@@ -199,6 +208,7 @@ begin
 end $$
 DELIMITER ; 
 
+call UpdateUsersInfo(1,"owoowo","uwusuwus","owo1@gmail.com");
 
 -- Done/Hos
 -- Use this to register a new build
@@ -308,6 +318,28 @@ JOIN
     prepare stm from @fulldataquery;
     execute stm using @param;
     deallocate prepare stm;
+end $$
+DELIMITER ;
+
+-- Use this to get name and description of every build the user has created
+DELIMITER $$
+drop procedure if exists GetUserBuilds $$
+create procedure GetUserBuilds(in UserID int)
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message, aut;
+        end;
+    set @buildsquery = ('SELECT Nombre, Descripcion from builds where ID_Usuario = ?');
+   	set @param =  UserID;
+   	prepare stm from @buildsquery;
+  	execute stm using @param;
+  	deallocate prepare stm;
 end $$
 DELIMITER ;
 
