@@ -6,11 +6,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action>
-
+                <form method="post" action="../php_important/connection.php">
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="staticEmail" name="Usuario" placeholder="Usuario">
+                            <input type="text" class="form-control" id="staticEmail" name="username" placeholder="Usuario">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -18,15 +17,13 @@
                             <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
                         </div>
                     </div>
-
                     <div class="d-grid gap-2">
-                        <input type="submit" class="btn btn-outline-success" value="Iniciar sesion">
+                        <input type="submit" class="btn btn-outline-success" name="LogIn" value="Iniciar sesion">
                     </div>
-
                 </form>
             </div>
             <div class="d-grid gap-2 px-3 mb-3">
-                <button class="btn btn-outline-info" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Crear cuenta</button>
+                <button class="btn btn-outline-info" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">¿No tienes cuenta? Crea una</button>
             </div>
         </div>
     </div>
@@ -40,31 +37,31 @@
             </div>
             <div class="modal-body">
                 <!--inicio formulario-->
-                <form method="post" action>
+                <form method="post" action="../php_important/connection.php">
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="Name" placeholder="Nombre de usuario">
+                            <input type="text" class="form-control" id="Name" name="newusername" placeholder="Nombre de usuario">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="inputPassword" name="newpassword" placeholder="Contraseña">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <div class="col-sm">
-                            <input type="text" class="form-control" id="staticEmail" placeholder="Correo electronico">
+                            <input type="text" class="form-control" id="staticEmail" name="newemail" placeholder="Correo electronico">
                         </div>
                     </div>
 
                     <div class="d-grid gap-2">
-                        <input type="submit" class="btn btn-outline-info" value="Registrate">
+                        <input type="submit" class="btn btn-outline-info" name="SignUp" value="Registrate">
                     </div>
                 </form>
             </div>
             <div class="d-grid gap-2 px-3 mb-3">
-                <button class="btn btn-outline-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Iniciar sesion</button>
+                <button class="btn btn-outline-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">¿Ya tienes cuenta? Inicia sesion</button>
             </div>
         </div>
     </div>

@@ -7,6 +7,15 @@ function GetDBC(){
       }
     return $dbc;
 }
+
+if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
+    if(isset($_POST["LogIn"])){
+      $username = $_POST["username"];
+      $password = $_POST["password"];
+      LogIn($username,$password);
+    }
+}
+
 //connect with register form
 function RegisterUser($username,$password,$email){
   $DBC = GetDBC();
@@ -18,7 +27,6 @@ function RegisterUser($username,$password,$email){
   }
   else{
     //retornar mensaje de fallo
-    return $row["message"];
   }
 }
 //connect with login form
@@ -28,11 +36,13 @@ function LogIn($username,$password){
   $DBC -> close();
   $row = $data->fetch_assoc();
   if($row["aut"] == true){
-    return $row["@id"];
+    session_start();
+    $_SESSION["userID"] = $row["@id"];
+    header("Location: ../php/perfil.php");
+    exit();
   }
   else{
     //retornar mensaje de fallo
-    return $row["message"];
   }
 }
 //Get user's ID from LogIn or Register function
