@@ -1,4 +1,3 @@
-<?php if(session_status() != PHP_SESSION_ACTIVE){session_start();};?>
 <nav class="navbar navbar-expand-md" style="background: rgb(85, 0, 227); background: linear-gradient(90deg, rgba(85, 0, 227, 1) 0%, rgba(198, 61, 255, 1) 100%);">
     <div class="container-fluid">
         <div class="container-fluid">
@@ -21,14 +20,15 @@
                     <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                             <li class="nav-item">
-                                <a class='nav-link text-white fs-5 mx-2 mt-2' href='#'>Inicio</a>
+                                <a class='nav-link text-white fs-5 mx-2 mt-2' href='index.php'>Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class='nav-link text-white fs-5 mx-2 mt-2' href='armarbuild.php'>Nosotros</a>
+                                <!--Change for about page-->
+                                <a class='nav-link text-white fs-5 mx-2 mt-2' href='#'>Nosotros</a>
                             </li>
                             <li class="me-3">
                                 <?php
-                                    if(session_status() == PHP_SESSION_ACTIVE & isset($_SESSION["userID"])){
+                                    if(session_status() == PHP_SESSION_ACTIVE and isset($_SESSION["userID"])){
                                         include_once("../Archives_include/profilebutton.html");
                                     }
                                     else{

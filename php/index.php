@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +24,68 @@
                         <div class="line-dec"></div>
                         <h4>Armala es mas<em> barato</em><br>y<span>potente</span></h4>
                         <p>Somos la mejor opcion en el mercado de armado junto con los mejores precios en componentes y armados completos.</p>
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="row">
-                                <div class="col">
-                                    <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Iniciar sesion</button>
+                                <?php
+                                    if(session_status() == PHP_SESSION_ACTIVE and isset($_SESSION["userID"])){
+                                        include_once("../Archives_include/CreateBuildButton.html");
+                                    }
+                                    else{
+                                        include_once("../Archives_include/LoginRegisterButtons.html");
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="services section" id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class='section-heading'>
+                                    <h2>Te otorgamos las mejores <em>heramientas</em> y
+                                        <em>componentes</em> para la computadora de tus sueños
+                                    </h2>
+                                    <div class="line-dec"></div>
+                                    <p>Nuestros servicios son: </p>
                                 </div>
-                                <div class="col">
-                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Crear cuenta</button>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="service-item">
+                                    <div class="icon">
+                                        <img src="../assets/images/services-01.jpg" alt="discover SEO" class="templatemo-feature">
+                                    </div>
+                                    <h4>Conexion con las mejores tiendas de componentes</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="service-item">
+                                    <div class="icon">
+                                        <img src="../assets/images/services-02.jpg" alt="data analysis" class="templatemo-feature">
+                                    </div>
+                                    <h4>Compatibilidad de los componentes garantizada </h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="service-item">
+                                    <div class="icon">
+                                        <img src="../assets/images/services-03.jpg" alt="precise data" class="templatemo-feature">
+                                    </div>
+                                    <h4>Una gran cantidad de componentes a tu alcance</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="service-item">
+                                    <div class="icon">
+                                        <img src="../assets/images/services-04.jpg" alt="SEO marketing" class="templatemo-feature">
+                                    </div>
+                                    <h4>Guardado de los armados que gustes</h4>
                                 </div>
                             </div>
                         </div>
@@ -37,61 +93,7 @@
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="services section" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-6">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class='section-heading'>
-                                <h2>Te otorgamos las mejores <em>heramientas</em> y
-                                    <em>componentes</em> para la computadora de tus sueños
-                                </h2>
-                                <div class="line-dec"></div>
-                                <p>Nuestros servicios son: </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="service-item">
-                                <div class="icon">
-                                    <img src="../assets/images/services-01.jpg" alt="discover SEO" class="templatemo-feature">
-                                </div>
-                                <h4>Conexion con las mejores tiendas de componentes</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="service-item">
-                                <div class="icon">
-                                    <img src="../assets/images/services-02.jpg" alt="data analysis" class="templatemo-feature">
-                                </div>
-                                <h4>Compatibilidad de los componentes garantizada </h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="service-item">
-                                <div class="icon">
-                                    <img src="../assets/images/services-03.jpg" alt="precise data" class="templatemo-feature">
-                                </div>
-                                <h4>Una gran cantidad de componentes a tu alcance</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="service-item">
-                                <div class="icon">
-                                    <img src="../assets/images/services-04.jpg" alt="SEO marketing" class="templatemo-feature">
-                                </div>
-                                <h4>Guardado de los armados que gustes</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php include("../Archives_include/footer.html"); ?>
+        <?php include("../Archives_include/footer.html"); ?>
 </body>
 
 </html>

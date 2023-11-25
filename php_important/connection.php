@@ -1,4 +1,5 @@
 <?php
+//Get database connection wherever you want by calling this
 function GetDBC(){
     include_once("cred.php");
     $dbc = new mysqli($servername,$username,$password,$database);
@@ -8,28 +9,37 @@ function GetDBC(){
     return $dbc;
 }
 
+//Here every form submit input is processed
+//Maybe change this later
 if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     if(isset($_POST["LogIn"])){
       $username = $_POST["username"];
       $password = $_POST["password"];
       LogIn($username,$password);
+    }else if(isset($_POST["LogOut"])){
+      session_start();
+      session_destroy();
+      header("Refresh:0; url=../php/index.php");
+      exit();
     }
 }
 
-//connect with register form
+//Register a new user
 function RegisterUser($username,$password,$email){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL UserRegister('$username','$password','$email')");
   $DBC -> close();
   $row = $data->fetch_assoc();
   if($row["aut"] == true){
-    return $row["@id"];
+    session_start();
+    $_SESSION["userID"] = $row["@id"];
+    header("Location: ../php/perfil.php");
   }
   else{
     //retornar mensaje de fallo
   }
 }
-//connect with login form
+//Login into an existing account
 function LogIn($username,$password){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL LogIn('$username','$password')");
@@ -45,6 +55,7 @@ function LogIn($username,$password){
     //retornar mensaje de fallo
   }
 }
+
 //Get user's ID from LogIn or Register function
 function UserData($id){
   $DBC = GetDBC();

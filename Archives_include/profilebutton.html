@@ -4,8 +4,14 @@
             <img src="../assets/images/defec.jpeg" alt="mdo" class="rounded-circle ms-2" style="height: 50px; width: 50px ;">
         </a>
         <ul class="dropdown-menu text-small" style>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+            <li>
+                <a class="dropdown-item" href="../php/perfil.php">Perfil</a>
+            </li>
+            <li>
+                <form method="post" action="../php_important/connection.php">
+                    <input class="dropdown-item" type="submit" name="LogOut" value="Cerrar sesion">
+                </form>
+            </li>
         </ul>
     </div>
 </a>
