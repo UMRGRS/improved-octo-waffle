@@ -1,7 +1,7 @@
 <?php
 //Get database connection wherever you want by calling this
 function GetDBC(){
-    include_once("cred.php");
+    include("cred.php");
     $dbc = new mysqli($servername,$username,$password,$database);
     if ($dbc->connect_error) {
         die("Connection failed: " . $dbc->connect_error);
@@ -43,7 +43,7 @@ function RegisterUser($username,$password,$email){
     header("Location: ../php/perfil.php");
   }
   else{
-    header("Location: ../php/index.php?failed=true");
+    header("Location: ../php/index.php?SignUpFailed=true");
   }
 }
 //Login into an existing account
@@ -59,31 +59,24 @@ function LogIn($username,$password){
     exit();
   }
   else{
-    echo $row["message"];
+    header("Location: ../php/index.php?LogInFailed=true");
   }
 }
-
-//Get user's ID from LogIn or Register function
+//Get ID from session global variable
+//Get neccesary data of the user form the database
 function UserData($id){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL SelectInfo('usuarios','$id')");
   $DBC -> close();
   $row = $data -> fetch_assoc();
-  //You're going to use $row["ID"],$row["username"], $row["password"],$row["email"];
-  $IDOut = $row["ID"];
-  return $IDOut;
+  return $row;
 }
-//Get user's ID from LogIn function or Register function
+//Get ID from session global variable
+//Get builds data of the user form the database
 function UserBuilds($id){
   $DBC = GetDBC();
   $data = $DBC->query("CALL GetUserBuilds($id)");
   $DBC -> close();
-  while($row = $data -> fetch_assoc()){
-    foreach($row as $key => $value){
-      echo $row[$key]."<br>";
-    }
-  }
+  return $data;
 }
-
-
 ?>
