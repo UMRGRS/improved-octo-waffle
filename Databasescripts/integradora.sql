@@ -224,10 +224,10 @@ LOCK TABLES `grafica` WRITE;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `Usuarios`;
+DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Usuarios` (
+CREATE TABLE `usuarios` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(100) unique not null,
   `password` blob not null,
@@ -237,9 +237,9 @@ CREATE TABLE `Usuarios` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-LOCK TABLES `Usuarios` WRITE;
-/*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -430,7 +430,7 @@ CREATE TABLE `builds` (
   `ID_Ssdm2` int unsigned,
   `Nombre` varchar(100) not null,
   `Descripcion` longtext not null,
-  KEY `fk_builds_Usuarios1_idx` (`ID_Usuario`),
+  KEY `fk_builds_usuarios1_idx` (`ID_Usuario`),
   KEY `fk_builds_Almacenamiento_Sata_idx` (`ID_Almacenamiento_Sata`),
   KEY `fk_builds_Fuentes_poder1_idx` (`ID_Fuentes_poder`),
   KEY `fk_builds_Ram1_idx` (`ID_Ram`),
@@ -450,7 +450,7 @@ CREATE TABLE `builds` (
   CONSTRAINT `fk_builds_Ram1` FOREIGN KEY (`ID_Ram`) REFERENCES `Ram` (`ID`),
   CONSTRAINT `fk_builds_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `Ssdm2` (`ID`),
   CONSTRAINT `fk_builds_grafica1` FOREIGN KEY (`ID_grafica`) REFERENCES `Grafica` (`ID`),
-  CONSTRAINT `fk_builds_Usuarios1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuarios` (`ID`),
+  CONSTRAINT `fk_builds_usuarios1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID`),
   CONSTRAINT `fk_builds_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `ventilador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
