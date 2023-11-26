@@ -1,4 +1,3 @@
--- Done/Hos
 -- Use this to retrieve all the data from a table
 -- Takes the name of the table as argument
 DELIMITER $$
@@ -22,7 +21,6 @@ begin
 end $$
 DELIMITER ;
 
--- Done/Hos
 -- Use this to retieve the data of a certain row of any table
 -- Takes 1-The table you want to consult 2-The id of the row you want to consult as arguments
 DELIMITER $$
@@ -47,7 +45,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done/Hos
+
 -- Use this to retrieve every compatible component with the one you give it
 -- SelectCompatibility("Placa","Disipador",1) --> This searches for the heatsinks compatible with the motherboard with the ID 1
 DELIMITER $$
@@ -75,7 +73,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done/Hos
+
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
 -- aut -> false: user isn't registered OR password isn't correct(Check message) true: login succesfull
@@ -117,10 +115,10 @@ begin
 end $$
 DELIMITER ;
 
-select * from usuarios;
-call LogIn("umrgrs","owo1");
- call UserRegister("umrgrs123","owo1","umrgrs122@gmail.com");
--- Done/Hos
+-- delete from usuarios where ID=3; 
+-- call LogIn("umrgrs","owo1");
+-- call UserRegister("umrgrs","owo1","umrgrs@gmail.com");
+
 -- Use this to register new users
 -- Takes 1- username 2- password 3- email
 -- aut -> false: user wasn't registered true: user was registered successfully
@@ -176,7 +174,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done/Hos
+
 -- Use this to update the user's data
 DELIMITER $$
 drop procedure if exists UpdateUsersInfo $$
@@ -192,7 +190,7 @@ begin
 			select status_code, message;
         end;
         
-    set @updateQuery = concat('UPDATE usuarios SET username = ?, password = ?, email = ? where ID = ?');
+    set @updateQuery = concat('UPDATE usuarios SET username = ?, password = MD5(?), email = ? where ID = ?');
     set @param1 = UpUsername;
     set @param2 = UpPassword;
     set @param3 = UpEmail;
@@ -208,9 +206,7 @@ begin
 end $$
 DELIMITER ; 
 
-call UpdateUsersInfo(1,"owoowo","uwusuwus","owo1@gmail.com");
 
--- Done/Hos
 -- Use this to register a new build
 -- Just insert the data in the right order xd
 DELIMITER $$
@@ -255,7 +251,7 @@ begin
 end $$
 DELIMITER ;
 
--- Done/Hos
+
 -- Use this to select the neccesary data from a build
 DELIMITER $$
 drop procedure if exists SelectDataFromBuild $$
@@ -335,7 +331,7 @@ begin
             set message = "Ocurrio un error";
 			select status_code, message, aut;
         end;
-    set @buildsquery = ('SELECT Nombre, Descripcion from builds where ID_Usuario = ?');
+    set @buildsquery = ('SELECT ID, Nombre, Descripcion from builds where ID_Usuario = ?');
    	set @param =  UserID;
    	prepare stm from @buildsquery;
   	execute stm using @param;
@@ -350,7 +346,7 @@ CREATE TRIGGER after_update_almacenamiento_sata
 BEFORE UPDATE ON almacenamiento_sata 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla almacenamiento_sata actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -361,7 +357,7 @@ CREATE TRIGGER after_update_disipador
 BEFORE UPDATE ON disipador 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla disipador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -372,7 +368,7 @@ CREATE TRIGGER after_update_fuentes
 BEFORE UPDATE ON fuentes 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla fuentes actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -383,7 +379,7 @@ CREATE TRIGGER after_update_gabinete
 BEFORE UPDATE ON gabinete 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla gabinete actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -394,7 +390,7 @@ CREATE TRIGGER after_update_grafica
 BEFORE UPDATE ON grafica 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla grafica actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -405,7 +401,7 @@ CREATE TRIGGER after_update_placa
 BEFORE UPDATE ON placa 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla placa actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -416,7 +412,7 @@ CREATE TRIGGER after_update_procesador
 BEFORE UPDATE ON procesador 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla procesador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -427,7 +423,7 @@ CREATE TRIGGER after_update_ram
 BEFORE UPDATE ON ram 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla ram actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -438,7 +434,7 @@ CREATE TRIGGER after_update_ssdm2
 BEFORE UPDATE ON ssdm2 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla ssdm2 actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
@@ -449,7 +445,7 @@ CREATE TRIGGER after_update_ventilador
 BEFORE UPDATE ON ventilador 
 FOR EACH ROW
 BEGIN
-    INSERT INTO Auditoria (`Accion`, `Usuario`, `Fecha/hora`)
+    INSERT INTO auditoria (`Accion`, `Usuario`, `Fecha/hora`)
     VALUES (concat('Tabla ventilador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
