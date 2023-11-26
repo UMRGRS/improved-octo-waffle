@@ -79,4 +79,12 @@ function UserBuilds($id){
   $DBC -> close();
   return $data;
 }
+//Use this to get model,img and id of ever component of a build
+function GetBuildDetails($buildID){
+  $DBC = GetDBC();
+  $data = $DBC->query("CALL SelectDataFromBuild($buildID)");
+  $DBC -> close();
+  $row = $data -> fetch_assoc();
+  return $row;
+}
 ?>

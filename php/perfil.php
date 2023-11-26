@@ -51,19 +51,19 @@ $buildData = UserBuilds($_SESSION["userID"]);
                             <div class="col-sm-3">
                                 <p class="mb-0">Correo</p>
                             </div>
-                            <div class="col-sm-9">
+                            <div class="col-lg-9">
                                 <p class="text-muted mb-0"><?php echo $userData["email"]?></p>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-sm-3 d-flex align-items-center">
+                            <div class="col-lg-3 d-flex align-items-center">
                                 <p class="mb-0">Contraseña</p>
                             </div>
-                            <div class="col-sm-2 d-flex align-items-center">
+                            <div class="col-lg-2 d-flex align-items-center">
                                 <p class="text-muted mb-0">***************</p>
                             </div>
-                            <div class="col-sm-3 d-flex justify-content-start">
+                            <div class="col-lg-3 d-flex justify-content-start">
                                 <form method="post" action="">
                                     <input class=" btn btn-primary" type="submit" name="updateInfo" value="Cambiar contraseña">
                                 </form>
@@ -93,9 +93,9 @@ $buildData = UserBuilds($_SESSION["userID"]);
                         <div class='card-body text-center'>
                             <img src='../assets/images/defec.jpeg' class='card-img-top rounded'>
                             <h5 class='card-title mt-4 text-black'>".$row["Nombre"]."</h5>
-                            <p class='card-text mt-1 mb-3'>".$row["Descripcion"]."</p>
-                            <a href='buildDetails.php?buildID=".$row["ID"]."' class='btn btn-primary mt-2'>Detalles</a>
+                            <p class='card-text mt-1'>".$row["Descripcion"]."</p>
                         </div>
+                        <a href='buildDetails.php?buildID=".$row["ID"]."&buildName=".$row["Nombre"]."' class='btn btn-primary mb-2 mx-2'>Detalles</a>
                     </div>
                 </div>";
               }
@@ -107,7 +107,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                     <a href="armarbuild.php">
                         <div class="card-body text-center">
                             <img src="../assets/images/defec.jpeg" class="rounded">
-                            <h5 class="card-title mt-4 text-black">Crear nueva build</h5>
+                            <p class="card-title mt-4 text-black h5 fs-5">Nuevo ensamble</p>
                         </div>
                     </a>
                 </div>

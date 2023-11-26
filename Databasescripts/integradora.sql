@@ -107,6 +107,7 @@ CREATE TABLE `placa` (
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(50) DEFAULT NULL,
+  `forma` varchar(20) DEFAULT NULL,
   `ddr` varchar(10) DEFAULT NULL,
   `chipset` varchar(20) DEFAULT NULL,
   `slots_ram` varchar(10) DEFAULT NULL,
@@ -316,8 +317,8 @@ CREATE TABLE `compatibilidad_placa_gabinete` (
   PRIMARY KEY (`ID_Principal`,`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_Gabinete1_idx` (`ID_Gabinete`),
   KEY `fk_PlacaMadre_has_Gabinete_PlacaMadre1_idx` (`ID_Principal`),
-  CONSTRAINT `fk_PlacaMadre_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `Gabinete` (`ID`),
-  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `Placa` (`ID`)
+  CONSTRAINT `fk_PlacaMadre_has_Gabinete_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
+  CONSTRAINT `fk_PlacaMadre_has_Gabinete_PlacaMadre1` FOREIGN KEY (`ID_Principal`) REFERENCES `placa` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,10 +348,6 @@ LOCK TABLES `compatibilidad_procesador_placa` WRITE;
 /*!40000 ALTER TABLE `compatibilidad_procesador_placa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `compatibilidad_procesador_placa` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `compatibilidad_ram_procesador`
---
 
 DROP TABLE IF EXISTS `compatibilidad_procesador_ram`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
@@ -441,15 +438,15 @@ CREATE TABLE `builds` (
   KEY `fk_builds_Gabinete1_idx` (`ID_Gabinete`),
   KEY `fk_builds_Ventilador1_idx` (`ID_Ventilador`),
   KEY `fk_builds_ssdm21_idx` (`ID_Ssdm2`),
-  CONSTRAINT `fk_builds_Almacenamiento_Sata` FOREIGN KEY (`ID_Almacenamiento_Sata`) REFERENCES `Almacenamiento_sata` (`ID`),
-  CONSTRAINT `fk_builds_Disipador1` FOREIGN KEY (`ID_Disipador`) REFERENCES `Disipador` (`ID`),
-  CONSTRAINT `fk_builds_Fuentes_poder1` FOREIGN KEY (`ID_Fuentes_poder`) REFERENCES `Fuentes` (`ID`),
-  CONSTRAINT `fk_builds_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `Gabinete` (`ID`),
-  CONSTRAINT `fk_builds_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `Placa` (`ID`),
-  CONSTRAINT `fk_builds_procesador1` FOREIGN KEY (`ID_procesador`) REFERENCES `Procesador` (`ID`),
-  CONSTRAINT `fk_builds_Ram1` FOREIGN KEY (`ID_Ram`) REFERENCES `Ram` (`ID`),
-  CONSTRAINT `fk_builds_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `Ssdm2` (`ID`),
-  CONSTRAINT `fk_builds_grafica1` FOREIGN KEY (`ID_grafica`) REFERENCES `Grafica` (`ID`),
+  CONSTRAINT `fk_builds_Almacenamiento_Sata` FOREIGN KEY (`ID_Almacenamiento_Sata`) REFERENCES `almacenamiento_sata` (`ID`),
+  CONSTRAINT `fk_builds_Disipador1` FOREIGN KEY (`ID_Disipador`) REFERENCES `disipador` (`ID`),
+  CONSTRAINT `fk_builds_Fuentes_poder1` FOREIGN KEY (`ID_Fuentes_poder`) REFERENCES `fuentes` (`ID`),
+  CONSTRAINT `fk_builds_Gabinete1` FOREIGN KEY (`ID_Gabinete`) REFERENCES `gabinete` (`ID`),
+  CONSTRAINT `fk_builds_PlacaMadre1` FOREIGN KEY (`ID_PlacaMadre`) REFERENCES `placa` (`ID`),
+  CONSTRAINT `fk_builds_procesador1` FOREIGN KEY (`ID_procesador`) REFERENCES `procesador` (`ID`),
+  CONSTRAINT `fk_builds_Ram1` FOREIGN KEY (`ID_Ram`) REFERENCES `ram` (`ID`),
+  CONSTRAINT `fk_builds_ssdm21` FOREIGN KEY (`ID_Ssdm2`) REFERENCES `ssdm2` (`ID`),
+  CONSTRAINT `fk_builds_grafica1` FOREIGN KEY (`ID_grafica`) REFERENCES `grafica` (`ID`),
   CONSTRAINT `fk_builds_usuarios1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID`),
   CONSTRAINT `fk_builds_Ventilador1` FOREIGN KEY (`ID_Ventilador`) REFERENCES `ventilador` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
