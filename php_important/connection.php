@@ -32,6 +32,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
 }
 
 //Register a new user
+//Done
 function RegisterUser($username,$password,$email){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL UserRegister('$username','$password','$email')");
@@ -47,6 +48,7 @@ function RegisterUser($username,$password,$email){
   }
 }
 //Login into an existing account
+//Done
 function LogIn($username,$password){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL LogIn('$username','$password')");
@@ -62,8 +64,9 @@ function LogIn($username,$password){
     header("Location: ../php/index.php?LogInFailed=true");
   }
 }
-//Get ID from session global variable
+//Get userID from session global variable
 //Get neccesary data of the user form the database
+//Done
 function UserData($id){
   $DBC = GetDBC();
   $data   = $DBC->query("CALL SelectInfo('usuarios','$id')");
@@ -71,8 +74,9 @@ function UserData($id){
   $row = $data -> fetch_assoc();
   return $row;
 }
-//Get ID from session global variable
+//Get userID from session global variable
 //Get builds data of the user form the database
+//Done
 function UserBuilds($id){
   $DBC = GetDBC();
   $data = $DBC->query("CALL GetUserBuilds($id)");
@@ -80,11 +84,65 @@ function UserBuilds($id){
   return $data;
 }
 //Use this to get model,img and id of ever component of a build
+//Done
 function GetBuildDetails($buildID){
   $DBC = GetDBC();
   $data = $DBC->query("CALL SelectDataFromBuild($buildID)");
   $DBC -> close();
   $row = $data -> fetch_assoc();
   return $row;
+}
+//Use this to get the data of certain component
+function ComponentDetails($componentType, $componentID){
+  $DBC = GetDBC();
+  $data = $DBC->query("CALL SelectInfo('$componentType','$componentID')");
+  $DBC -> close();
+  $row = $data -> fetch_assoc();
+  return $row;
+}
+//Use this to determine which component template to use
+//Done
+function ComponentTemplate($componentType){
+    switch($componentType){
+      case "procesador":
+        include("../php/componentsTemplates/procesador.php");
+        break;
+      case "placa":
+        include("../php/componentsTemplates/placa.php");
+        break;
+      case "ram":
+        include("../php/componentsTemplates/ram.php");
+        break;
+      case "disipador":
+        include("../php/componentsTemplates/disipador.php");
+        break;
+      case "ssdm2":
+        include("../php/componentsTemplates/ssdm2.php");
+        break;
+      case "almacenamiento_sata":
+        include("../php/componentsTemplates/sata.php");
+        break;
+      case "gabinete":
+        include("../php/componentsTemplates/gabinete.php");
+        break;
+      case "grafica":
+        include("../php/componentsTemplates/tarjetaGrafica.php");
+        break;
+      case "ventilador":
+        include("../php/componentsTemplates/ventiladores.php");
+        break;
+      case "fuentes":
+        include("../php/componentsTemplates/fuente.php");
+        break;
+    }
+}
+//Use this to print yes or no in boolean fields
+function YesNo($param){
+  if($param == 1){
+    return "Si";
+  }
+  else{
+    return "No";
+  }
 }
 ?>

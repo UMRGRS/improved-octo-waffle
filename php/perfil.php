@@ -32,9 +32,8 @@ $buildData = UserBuilds($_SESSION["userID"]);
                 </div>
             </div>
         </div>
-
+        <!-- Este es el recuadro de la info del usuario-->
         <div class="row">
-            <!-- Este es el recuadro de la info del usuario-->
             <div class="col-lg">
                 <div class="card mb-4">
                     <div class="card-body">
@@ -114,6 +113,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
             </div>
         </div>
     </div>
+    <?php include("../Archives_include/footer.html");?>
 </body>
 
 </html>
