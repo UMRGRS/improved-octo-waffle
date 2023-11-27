@@ -107,6 +107,7 @@ CREATE TABLE `placa` (
   `modelo` varchar(100) DEFAULT NULL,
   `marca` varchar(100) DEFAULT NULL,
   `socket` varchar(50) DEFAULT NULL,
+  `forma` varchar(50) DEFAULT NULL,
   `ddr` varchar(10) DEFAULT NULL,
   `chipset` varchar(20) DEFAULT NULL,
   `slots_ram` varchar(10) DEFAULT NULL,
