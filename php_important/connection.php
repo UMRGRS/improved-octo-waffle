@@ -136,6 +136,7 @@ function ComponentTemplate($componentType){
         break;
     }
 }
+
 //Use this to print yes or no in boolean fields
 function YesNo($param){
   if($param == 1){
@@ -144,5 +145,12 @@ function YesNo($param){
   else{
     return "No";
   }
+}
+//Get some components as recomendations
+function GetRecomendations($table){
+  $DBC = GetDBC(); 
+  $data = $DBC->query("CALL GetRecomendations('$table')");
+  $DBC->close();
+  return $data;
 }
 ?>
