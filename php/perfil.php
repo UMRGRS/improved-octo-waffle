@@ -72,7 +72,6 @@ $buildData = UserBuilds($_SESSION["userID"]);
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-lg">
                 <div class="card mb-4">
@@ -82,12 +81,11 @@ $buildData = UserBuilds($_SESSION["userID"]);
                 </div>
             </div>
         </div>
-
         <div class="row">
             <?php
             while($row = $buildData -> fetch_assoc()){
                 echo "
-                <div class='col-4 d-flex justify-content-center mb-4'>
+                <div class='col-lg-4 d-flex justify-content-center mb-4'>
                     <div class='card' style='width: 2000px;'>
                         <div class='card-body text-center'>
                             <img src='../assets/images/defec.jpeg' class='card-img-top rounded'>
@@ -100,7 +98,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
               }
             ?>
             <!--Siempre mostrar por defecto-->
-            <div class="col-4 d-flex justify-content-center mb-4">
+            <div class="col-lg-4 d-flex justify-content-center mb-4">
                 <div class="card" style="width: 2000px;">
                     <!--Cambiar por agregar build-->
                     <a href="armarbuild.php">

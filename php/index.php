@@ -13,7 +13,7 @@
     <title>Welcome</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php 
     include("../Archives_include/header.php");
     ?>

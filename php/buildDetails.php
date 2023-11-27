@@ -16,7 +16,7 @@ $row = GetBuildDetails($_GET["buildID"]);
     <title>Detalles</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php include("../Archives_include/header.php"); ?>
     <div class="container-fluid">
         <div class="container-fluid mt-4">
@@ -34,7 +34,7 @@ $row = GetBuildDetails($_GET["buildID"]);
         <!--Rows componentes-->
         <!--Procesador-->
         <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -75,7 +75,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Placa-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -116,7 +116,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--RAM-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -157,7 +157,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Disipador opc-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -198,12 +198,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--SSDM2 opc-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <img src="../assets/images/nvme/<?php echo $row["imgSsdm2"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
+                                <img src="../assets/images/ssdm2/<?php echo $row["imgSsdm2"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
@@ -239,12 +239,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--SATA opc-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <img src="../assets/images/sata/<?php echo $row["imgSata"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
+                                <img src="../assets/images/almacenamiento_sata/<?php echo $row["imgSata"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
@@ -280,7 +280,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Gabinete-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -321,12 +321,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Grafica opc-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <img src="../assets/images/tarjeta grafica/<?php echo $row["imgGrafica"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
+                                <img src="../assets/images/grafica/<?php echo $row["imgGrafica"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
@@ -362,7 +362,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Ventilacion-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
@@ -403,7 +403,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                 </div>
             </div>
             <!--Fuente de poder-->
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="container-fluid mt-4 mb-4">
                     <div class="card">
                         <div class="row g-0">
