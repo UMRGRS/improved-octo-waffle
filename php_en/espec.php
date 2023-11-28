@@ -21,7 +21,8 @@ $reco = GetRecomendations($_GET["componentType"]);
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
-    <?php include("../Archives_include/header.php");?>
+    <?php include("../Archives_include_en/header.php");?>
+    <!--Cambiar funcion para desplegar correctamente español/ingles-->
     <?php echo ComponentTemplate($_GET["componentType"]);?>
     <!--Recuadro recomendaciones-->
     <div class="container-fluid">
@@ -83,7 +84,7 @@ $reco = GetRecomendations($_GET["componentType"]);
             ?>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html");?>
+    <?php include("../Archives_include_en/footer.html");?>
 </body>
 
 </html>

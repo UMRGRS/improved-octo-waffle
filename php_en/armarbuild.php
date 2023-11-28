@@ -21,7 +21,7 @@ include_once("../php_important/connection.php");
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
 
-    <?php include("../Archives_include/header.php"); ?>
+    <?php include("../Archives_include_en/header.php"); ?>
     <div class="container-fluid mt-4">
         <div class="row mx-0 mb-4">
             <div class="card">
@@ -674,6 +674,7 @@ include_once("../php_important/connection.php");
                     </div>
                     <div class="col-lg-12">
                         <?php
+                        //Crear funcion para traducir al ingles el tipo de componente
                         if(isset( $_SESSION["buildArray"])){
                             $parameters = $_SESSION["buildArray"];
                             foreach($parameters as $paramName => $value){
@@ -719,7 +720,7 @@ include_once("../php_important/connection.php");
             </div>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html");?>
+    <?php include("../Archives_include_en/footer.html");?>
 </body>
 
 </html>

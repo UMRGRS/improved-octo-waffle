@@ -16,7 +16,7 @@ header("Refresh:5; url=index.php");
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
-    <?php include("../Archives_include/header.php"); ?>
+    <?php include("../Archives_include_en/header.php"); ?>
     <div class="container-fluid">
         <div class="row mt-2">
             <div class="row">
@@ -49,7 +49,7 @@ header("Refresh:5; url=index.php");
         </div>
     </div>
     <?php 
-    include("../Archives_include/footer.html");
+    include("../Archives_include_en/footer.html");
     ?>
 </body>
 

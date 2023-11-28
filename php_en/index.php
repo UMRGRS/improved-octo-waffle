@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php 
+session_start();
+$_SESSION ["Idioma"] = "EN";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     <?php 
-    include("../Archives_include/header.php");
+    include("../Archives_include_en/header.php");
     ?>
     <div class="main-banner">
         <div class="container">
@@ -30,10 +33,10 @@
                             <div class="row">
                                 <?php
                                     if(session_status() == PHP_SESSION_ACTIVE and isset($_SESSION["userID"])){
-                                        include_once("../Archives_include/CreateBuildButton.html");
+                                        include_once("../Archives_include_en/CreateBuildButton.html");
                                     }
                                     else{
-                                        include_once("../Archives_include/LoginRegisterButtons.html");
+                                        include_once("../Archives_include_en/LoginRegisterButtons.html");
                                     }
                                     if(isset($_GET["LogInFailed"]) and $_GET["LogInFailed"] == true){
                                         echo "
@@ -110,7 +113,7 @@
             </div>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html"); ?>
+    <?php include("../Archives_include_en/footer.html"); ?>
 </body>
 
 </html>

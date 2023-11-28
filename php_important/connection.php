@@ -28,6 +28,19 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
   else if(isset($_POST["updatePwd"])){
     UpdatePwd();
   }
+  else if(isset($_POST["changeLan"])){
+    session_start();
+    switch($_SESSION["Idioma"]){
+      case "EN":
+        $_SESSION["Idioma"] = "ES";
+        header("Location: ../php/index.php");
+        break;
+      case "ES":
+        $_SESSION["Idioma"] = "EN";
+        header("Location: ../php_en/index.php");
+        break;
+    }
+  }
 }
 
 //Get database connection wherever you want by calling this

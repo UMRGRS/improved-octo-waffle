@@ -33,12 +33,12 @@
                 </form>
             </div>
             <div class="d-grid gap-2 px-3 mb-3">
-                <button class="btn btn-outline-info" data-bs-target="#exampleModalToggle1" data-bs-toggle="modal">¿No tienes cuenta? Crea una</button>
+                <button class="btn btn-outline-info" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">¿No tienes cuenta? Crea una</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalToggle1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,5 +86,5 @@
     </div>
 </div>
 <li>
-    <button class="btn fs-5 mx-3 mt-2 text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Iniciar sesion</button>
+    <button class="btn fs-5 mx-3 mt-3 text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Iniciar sesion</button>
 </li>

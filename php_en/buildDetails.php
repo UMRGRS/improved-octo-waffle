@@ -20,7 +20,7 @@ $row = GetBuildDetails($_GET["buildID"]);
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
-    <?php include("../Archives_include/header.php"); ?>
+    <?php include("../Archives_include_en/header.php"); ?>
     <div class="container-fluid">
         <div class="container-fluid mt-4">
             <!--Recuadro nombre de la build-->
@@ -448,7 +448,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html");?>
+    <?php include("../Archives_include_en/footer.html");?>
 </body>
 
 </html>
