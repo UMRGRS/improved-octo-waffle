@@ -63,10 +63,32 @@ $buildData = UserBuilds($_SESSION["userID"]);
                                 <p class="text-muted mb-0">***************</p>
                             </div>
                             <div class="col-lg-3 d-flex justify-content-start">
+                                <div class="col d-flex justify-content-center">
+                                    <button class="btn text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Cambiar contraseña</button>
+                                </div>
                                 <!--Hacer un modal OwO-->
-                                <form method="post" action="">
-                                    <input class=" btn btn-primary" type="submit" name="updateInfo" value="Cambiar contraseña">
-                                </form>
+                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Introduce tu nueva contraseña</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="../php_important/connection.php">
+                                                    <div class="mb-3 row">
+                                                        <div class="col-sm">
+                                                            <input type="password" class="form-control" id="inputPassword" name="newPwd" placeholder="Contraseña" maxlength="20" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-grid gap-2">
+                                                        <input type="submit" class="btn btn-outline-success" name="updatePwd" value="Confirmar">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

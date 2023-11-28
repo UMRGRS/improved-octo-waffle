@@ -23,7 +23,10 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     SaveBuild();
   }
   else if(isset($_POST["delBuild"])){
-      DelBuild();
+    DelBuild();
+  }
+  else if(isset($_POST["updatePwd"])){
+    UpdatePwd();
   }
 }
 
@@ -244,6 +247,16 @@ function DelBuild(){
   $DBC = GetDBC();
   $ID_Build = $_POST['delBuild'];
   $DBC ->query("CALL deleteBuild('$ID_Build')");
+  $DBC -> close();
+  header("Location: ../php/perfil.php");
+}
+//Use this to update user password
+function UpdatePwd(){
+  session_start();
+  $DBC = GetDBC();
+  $ID_User = $_SESSION["userID"];
+  $New_Pwd = $_POST["newPwd"];
+  $DBC -> query("CALL UpdateUserInfo('$ID_User','$New_Pwd')");
   $DBC -> close();
   header("Location: ../php/perfil.php");
 }

@@ -300,8 +300,8 @@ DELIMITER ;
 -- Use this to update the user's data
 -- Change to only password
 DELIMITER $$
-drop procedure if exists UpdateUsersInfo $$
-create procedure UpdateUsersInfo(in UserID int, in UpPassword varchar(20))
+drop procedure if exists UpdateUserInfo $$
+create procedure UpdateUserInfo(in UserID int, in UpPassword varchar(20))
 begin
 	declare status_code int default 0;
     declare message varchar(50);
@@ -315,9 +315,9 @@ begin
         
     set @updateQuery = ('UPDATE usuarios SET password = MD5(?) where ID = ?');
     set @param = UpPassword;
-
+	set @param1 = UserID;
     prepare stm from @updateQuery;
-    execute stm using @param;
+    execute stm using @param, @param1;
     deallocate prepare stm;
 end $$
 DELIMITER ; 
