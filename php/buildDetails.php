@@ -38,7 +38,7 @@ $row = GetBuildDetails($_GET["buildID"]);
         <!--Procesador-->
         <div class="row">
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -79,7 +79,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Placa-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -120,7 +120,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--RAM-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -161,7 +161,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Disipador opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -202,7 +202,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--SSDM2 opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -243,7 +243,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--SATA opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -284,7 +284,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Gabinete-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -325,7 +325,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Grafica opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -366,7 +366,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Ventilacion-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -407,7 +407,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Fuente de poder-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">

@@ -25,7 +25,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Medida</p>
+                            <p class="fs-5">Diametro</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["medida"];?></p>

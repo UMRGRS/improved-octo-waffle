@@ -16,7 +16,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Marca</p>
+                            <p class="fs-5">Brand</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["marca"];?></p>
@@ -25,7 +25,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Dimensiones</p>
+                            <p class="fs-5">Dimensions</p>
                         </div>
                         <div class="col-lg-4">
                             <p class="fs-5"><?php echo $row["dimensiones"];?></p>
@@ -34,7 +34,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Factor de forma</p>
+                            <p class="fs-5">Form factor</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["factor_de_forma"];?></p>
@@ -43,7 +43,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Ventana</p>
+                            <p class="fs-5">Window</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo YesNo($row["ventana"]);?></p>
@@ -52,7 +52,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Links de compra
+                            Purchase links
                         </button>
                         <ul class="dropdown-menu">
                             <!--Link owo-->

@@ -49,7 +49,7 @@ $reco = GetRecomendations($_GET["componentType"]);
                                     <div class='card-body'>
                                         <h5 class='card-title fs-2 mb-4'>Recommended</h5>
                                         <div class='row'>
-                                            <div class='col'>
+                                            <div class='col-4'>
                                                 <p class='mb-3 fs-5'>Model</p>
                                             </div>
                                             <div class='col'>

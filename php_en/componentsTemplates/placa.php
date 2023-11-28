@@ -16,10 +16,19 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Marca</p>
+                            <p class="fs-5">Brand</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["marca"];?></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p class="fs-5">Form factor</p>
+                        </div>
+                        <div class="col-lg-2">
+                            <p class="fs-5"><?php echo $row["forma"];?></p>
                         </div>
                     </div>
                     <hr>
@@ -34,7 +43,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Tipo de memoria</p>
+                            <p class="fs-5">Type of memory</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["ddr"];?></p>
@@ -43,7 +52,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-3">
-                            <p class="fs-5">Numero de ranuras de memoria</p>
+                            <p class="fs-5">Number of memory slots</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["slots_ram"];?></p>
@@ -79,7 +88,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-3">
-                            <p class="fs-5">Numero de ranuras NVME</p>
+                            <p class="fs-5">Number of NVMe slots</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["slots_nvme"];?></p>
@@ -88,7 +97,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Links de compra
+                            Purchase links
                         </button>
                         <ul class="dropdown-menu">
                             <!--Link owo-->

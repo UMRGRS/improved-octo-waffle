@@ -34,6 +34,15 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
+                            <p class="fs-5">Factor de forma</p>
+                        </div>
+                        <div class="col-lg-2">
+                            <p class="fs-5"><?php echo $row["forma"];?></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-3">
                             <p class="fs-5">Tipo de memoria</p>
                         </div>
                         <div class="col-lg-2">
@@ -42,7 +51,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <p class="fs-5">Numero de ranuras de memoria</p>
                         </div>
                         <div class="col-lg-2">

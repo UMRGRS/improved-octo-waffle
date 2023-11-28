@@ -16,7 +16,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Marca</p>
+                            <p class="fs-5">Brand</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["marca"];?></p>
@@ -25,7 +25,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Potencia</p>
+                            <p class="fs-5">Wattage</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["potencia"];?></p>
@@ -34,7 +34,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Certificacion</p>
+                            <p class="fs-5">Certification</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["certificacion"];?></p>
@@ -43,7 +43,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Links de compra
+                            Purchase links
                         </button>
                         <ul class="dropdown-menu">
                             <!--Link owo-->

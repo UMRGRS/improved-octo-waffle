@@ -39,7 +39,7 @@ $reco = GetRecomendations($_GET["componentType"]);
         while($row= $reco -> fetch_assoc()){
             echo "
                 <div class='col-lg-4'>
-                    <div class='container-fluid mt-4 mb-4'>
+                    <div class='container-fluid mb-4'>
                         <div class='card'>
                             <div class='row g-0'>
                                 <div class='col-lg-4 d-flex justify-content-center align-items-center'>
@@ -49,7 +49,7 @@ $reco = GetRecomendations($_GET["componentType"]);
                                     <div class='card-body'>
                                         <h5 class='card-title fs-2 mb-4'>Recomendado</h5>
                                         <div class='row'>
-                                            <div class='col'>
+                                            <div class='col-4'>
                                                 <p class='mb-3 fs-5'>Modelo</p>
                                             </div>
                                             <div class='col'>

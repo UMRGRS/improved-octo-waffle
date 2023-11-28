@@ -42,7 +42,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fs-5">Graficos integrados</p>
                         </div>
                         <div class="col-lg-2">
