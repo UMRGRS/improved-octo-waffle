@@ -234,3 +234,8 @@ INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_R
 INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('5', '3');
 INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('5', '4');
 INSERT INTO `integradora`.`compatibilidad_procesador_ram` (`ID_Principal`, `ID_Ram`) VALUES ('5', '5');
+
+INSERT INTO `integradora`.`gabinete` (`ID`, `modelo`, `marca`, `dimensiones`, `factor_de_forma`, `ventana`, `link`, `imagen`) VALUES ('4', 'H5 Flow', 'NZXT', '464 mm x 446 mm x 227 mm', 'ATX', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Gabinetes/Gabinete-NZXT-H5-Flow-con-Ventana-Midi-Tower-Mini-ITX-Micro-ATX-ATX-EATX-USB-3-2-sin-Fuente-Negro.html#emdetails_attributes', 'H5 Flow.jpg');
+INSERT INTO `integradora`.`gabinete` (`ID`, `modelo`, `marca`, `dimensiones`, `factor_de_forma`, `ventana`, `link`, `imagen`) VALUES ('5', 'LANCOOL 216 RGB', 'Lian Li', '491.7 mm x 480.9 mm x 235 mm', 'ATX', '1', 'https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Gabinetes/Gabinete-Lian-Li-LANCOOL-216-RGB-con-Ventana-Midi-Tower-ATX-Micro-ATX-Mini-ITX-USB-3-0-sin-Fuente-3-Ventiladores-Instalados-2x-ARGB-Blanco.html', 'LANCOOL 216 RGB.jpg');
+
+
