@@ -19,6 +19,9 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     $newemail = $_POST["newemail"];
     RegisterUser($newusername, $newpassword, $newemail);
   }
+  else if(isset($_POST["saveBuild"])){
+    SaveBuild();
+  }
 }
 
 //Get database connection wherever you want by calling this
@@ -180,6 +183,18 @@ function UnlockPower(){
     return false;
   }
 }
+//Use this to unlock save button
+function UnlockSave(){
+  if(!isset($_SESSION['buildArray']['procesador']) || !isset($_SESSION['buildArray']['placa']) || !isset($_SESSION['buildArray']['ram']) 
+  || !isset($_SESSION['buildArray']['disipador']) || !isset($_SESSION['buildArray']['ssdm2']) || !isset($_SESSION['buildArray']['almacenamiento sata']) 
+  || !isset($_SESSION['buildArray']['gabinete']) || !isset($_SESSION['buildArray']['grafica']) || !isset($_SESSION['buildArray']['ventilador'])
+  || !isset($_SESSION['buildArray']['fuentes'])){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 //Use this to included a check or x mark
 function XorR($bool){
   if($bool){
@@ -199,7 +214,26 @@ function XorR($bool){
 
 //Use this to save a complete bluid
 function SaveBuild(){
+  session_start();
   $DBC = GetDBC();
-  $data = $DBC->query("CALL RegisterBuild('')");
+  $ID_Usuario = $_SESSION["userID"];
+  $ID_Almacenamiento_Sata = $_SESSION['buildArray']['almacenamiento sata'];
+  $ID_Fuentes_poder = $_SESSION['buildArray']['fuentes'];
+  $ID_Ram = $_SESSION['buildArray']['ram'];
+  $ID_Grafica = $_SESSION['buildArray']['grafica'];
+  $ID_Procesador = $_SESSION['buildArray']['procesador'];
+  $ID_PlacaMadre = $_SESSION['buildArray']['placa'];
+  $ID_Disipador = $_SESSION['buildArray']['disipador'];
+  $ID_Gabinete = $_SESSION['buildArray']['gabinete'];
+  $ID_Ventilador = $_SESSION['buildArray']['ventilador'];
+  $ID_Ssdm2 = $_SESSION['buildArray']['ssdm2'];
+  $name = $_POST['buildName'];
+  $description =$_POST['description'];
+  $DBC->query("CALL RegisterBuild('$ID_Usuario','$ID_Almacenamiento_Sata','$ID_Fuentes_poder','$ID_Ram','$ID_Grafica','$ID_Procesador',
+  '$ID_PlacaMadre','$ID_Disipador','$ID_Gabinete','$ID_Ventilador','$ID_Ssdm2','$name','$description','3000D.jpg')");
+  $DBC ->close();
+  $_SESSION = [];
+  $_SESSION["userID"] = $ID_Usuario;
+  header("Location: ../php/perfil.php");
 }
 ?>

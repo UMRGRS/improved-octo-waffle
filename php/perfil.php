@@ -88,7 +88,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                 <div class='col-lg-4 d-flex justify-content-center mb-4'>
                     <div class='card' style='width: 2000px;'>
                         <div class='card-body text-center'>
-                            <img src='../assets/images/defec.jpeg' class='card-img-top rounded'>
+                            <img src='../assets/images/gabinete/".$row["imagen"]."' class='card-img-top rounded'>
                             <h5 class='card-title mt-4 text-black'>".$row["Nombre"]."</h5>
                             <p class='card-text mt-1'>".$row["Descripcion"]."</p>
                         </div>
@@ -103,7 +103,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                     <!--Cambiar por agregar build-->
                     <a href="armarbuild.php">
                         <div class="card-body text-center">
-                            <img src="../assets/images/defec.jpeg" class="rounded">
+                            <img src="../assets/images/addBuild.webp" class="rounded">
                             <p class="card-title mt-4 text-black h5 fs-5">Nuevo ensamble</p>
                         </div>
                     </a>

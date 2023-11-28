@@ -17,6 +17,7 @@ include_once("../php_important/connection.php");
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+
     <?php include("../Archives_include/header.php"); ?>
     <div class="container-fluid mt-4">
         <div class="row mx-0 mb-4">
@@ -631,6 +632,34 @@ include_once("../php_important/connection.php");
                 </div>
             </div>
             <div class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <h4 class="mb-0">Guarda tu PC</h4>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <form method="post" action="../php_important/connection.php">
+                        <div class="mb-4">
+                            <label class="form-label fs-5 fw-bold">Nombre</label>
+                            <input class="form-control" type="text" name="buildName" maxlength="30" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fs-5 fw-bold">Descripcion</label>
+                            <input class="form-control" type="text" name="description" maxlength="50" required>
+                        </div>
+                        <div class="mb-4">
+                            <button class="btn btn-primary" type="submit" name="saveBuild" <?php if(UnlockSave()){echo"disabled";}?>>Guardar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body border border-info">
+                        <p class="mb-0 fs-5">Recuerda seguir las instrucciones del configurador de PC en todo momento, puedes explorar componentes tanto como quieras, tus cambios siempre se guardaran!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
                 <!--Columna componentes agregados-->
                 <div class="row">
                     <div class="col-lg-12">
