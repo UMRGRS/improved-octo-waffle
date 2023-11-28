@@ -18,8 +18,7 @@
                             <a class='nav-link d-flex text-white fs-5 ms-2 mt-2' href='index.php'>Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <!--Change for about page-->
-                            <a class='nav-link d-flex text-white fs-5 ms-2 mt-2' href='#'>Nosotros</a>
+                            <a class='nav-link d-flex text-white fs-5 ms-2 mt-2' href='about.php'>Nosotros</a>
                         </li>
                         <li class="d-flex justify-content-center me-3">
                             <?php

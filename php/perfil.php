@@ -66,7 +66,6 @@ $buildData = UserBuilds($_SESSION["userID"]);
                                 <div class="col d-flex justify-content-center">
                                     <button class="btn text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Cambiar contraseña</button>
                                 </div>
-                                <!--Hacer un modal OwO-->
                                 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
