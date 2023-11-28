@@ -1,6 +1,9 @@
 <?php 
 session_start();
 include_once("../php_important/connection.php");
+if(!isset($_SESSION["userID"])){
+    header("Location: error.php");
+}
 $userData = UserData($_SESSION["userID"]);
 $buildData = UserBuilds($_SESSION["userID"]);
 ?>

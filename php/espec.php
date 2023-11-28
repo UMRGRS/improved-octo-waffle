@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION["userID"])){
+    header("Location: error.php");
+}
 include_once("../php_important/connection.php");
 $reco = GetRecomendations($_GET["componentType"]);
 ?>
