@@ -198,4 +198,8 @@ function XorR($bool){
 }
 
 //Use this to save a complete bluid
+function SaveBuild(){
+  $DBC = GetDBC();
+  $data = $DBC->query("CALL RegisterBuild('')");
+}
 ?>
