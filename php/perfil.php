@@ -18,7 +18,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
     <title>Tu perfil</title>
 </head>
 
-<body style="background-color: #eee;">
+<body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
     <?php include("../Archives_include/header.php"); ?>
     <div class="container py-5">
         <div class="row">

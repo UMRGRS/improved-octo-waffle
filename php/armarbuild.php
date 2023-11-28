@@ -16,7 +16,7 @@ include_once("../php_important/connection.php");
     <title>Nueva build</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
 
     <?php include("../Archives_include/header.php"); ?>
     <div class="container-fluid mt-4">

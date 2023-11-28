@@ -16,7 +16,7 @@ $row = GetBuildDetails($_GET["buildID"]);
     <title>Detalles</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
     <?php include("../Archives_include/header.php"); ?>
     <div class="container-fluid">
         <div class="container-fluid mt-4">
