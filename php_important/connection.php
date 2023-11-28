@@ -63,10 +63,10 @@ function RegisterUser($username,$password,$email){
   if($row["aut"] == true){
     session_start();
     $_SESSION["userID"] = $row["@id"];
-    if($_SESSION["Idioma"]="ES"){
+    if($_SESSION["Idioma"] == "ES"){
       header("Location: ../php/perfil.php");
     }
-    else if($_SESSION["Idioma"]="EN"){
+    else if($_SESSION["Idioma"] == "EN"){
       header("Location: ../php_en/perfil.php");
     }
   }
@@ -84,15 +84,20 @@ function LogIn($username,$password){
   if($row["aut"] == true){
     session_start();
     $_SESSION["userID"] = $row["@id"];
-    if($_SESSION["Idioma"]="ES"){
+    if($_SESSION["Idioma"] == "ES"){
       header("Location: ../php/perfil.php");
     }
-    else if($_SESSION["Idioma"]="EN"){
+    else if($_SESSION["Idioma"] == "EN"){
       header("Location: ../php_en/perfil.php");
     }
   }
   else{
-    header("Location: ../php/index.php?LogInFailed=true");
+    if($_SESSION["Idioma"] == "ES"){
+      header("Location: ../php/index.php?LogInFailed=true");
+    }
+    else if($_SESSION["Idioma"] == "EN"){
+      header("Location: ../php_en/index.php?LogInFailed=true");
+    }
   }
 }
 //Get userID from session global variable
@@ -126,36 +131,42 @@ function GetBuildDetails($buildID){
 //Use this to determine which component template to use
 //Done
 function ComponentTemplate($componentType){
+  if($_SESSION["Idioma"] == "ES"){
+    $add = "";
+  }
+  else if($_SESSION["Idioma"] == "EN"){
+    $add = "_en";
+  }
     switch($componentType){
       case "procesador":
-        include("../php/componentsTemplates/procesador.php");
+        include("../php".$add."/componentsTemplates/procesador.php");
         break;
       case "placa":
-        include("../php/componentsTemplates/placa.php");
+        include("../php".$add."/componentsTemplates/placa.php");
         break;
       case "ram":
-        include("../php/componentsTemplates/ram.php");
+        include("../php".$add."/componentsTemplates/ram.php");
         break;
       case "disipador":
-        include("../php/componentsTemplates/disipador.php");
+        include("../php".$add."/componentsTemplates/disipador.php");
         break;
       case "ssdm2":
-        include("../php/componentsTemplates/ssdm2.php");
+        include("../php".$add."/componentsTemplates/ssdm2.php");
         break;
       case "almacenamiento sata":
-        include("../php/componentsTemplates/sata.php");
+        include("../php".$add."/componentsTemplates/sata.php");
         break;
       case "gabinete":
-        include("../php/componentsTemplates/gabinete.php");
+        include("../php".$add."/componentsTemplates/gabinete.php");
         break;
       case "grafica":
-        include("../php/componentsTemplates/tarjetaGrafica.php");
+        include("../php".$add."/componentsTemplates/tarjetaGrafica.php");
         break;
       case "ventilador":
-        include("../php/componentsTemplates/ventiladores.php");
+        include("../php".$add."/componentsTemplates/ventiladores.php");
         break;
       case "fuentes":
-        include("../php/componentsTemplates/fuente.php");
+        include("../php".$add."/componentsTemplates/fuente.php");
         break;
     }
 }
@@ -163,7 +174,12 @@ function ComponentTemplate($componentType){
 //Done
 function YesNo($param){
   if($param == 1){
-    return "Si";
+    if($_SESSION["Idioma"] == "ES"){
+      return "Si";
+    }
+    else if($_SESSION["Idioma"] == "EN"){
+      return "Yes";
+    }
   }
   else{
     return "No";

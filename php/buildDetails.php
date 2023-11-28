@@ -251,7 +251,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Alamacenamiento SATA</h5>
+                                    <h5 class="card-title fs-2 mb-4">Almacenamiento SATA</h5>
                                     <div class="row">
                                         <div class="col">
                                             <p class="mb-3 fs-5">Modelo</p>

@@ -4,6 +4,7 @@ include_once("../php_important/connection.php");
 if(!isset($_SESSION["userID"])){
     header("Location: error.php");
 }
+
 $userData = UserData($_SESSION["userID"]);
 $buildData = UserBuilds($_SESSION["userID"]);
 ?>
@@ -42,7 +43,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Nombre de usuario</p>
+                                <p class="mb-0">Username</p>
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0"><?php echo $userData["username"]?></p>
@@ -51,7 +52,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Correo</p>
+                                <p class="mb-0">Email</p>
                             </div>
                             <div class="col-lg-9">
                                 <p class="text-muted mb-0"><?php echo $userData["email"]?></p>
@@ -60,31 +61,31 @@ $buildData = UserBuilds($_SESSION["userID"]);
                         <hr>
                         <div class="row">
                             <div class="col-lg-3 d-flex align-items-center">
-                                <p class="mb-0">Contraseña</p>
+                                <p class="mb-0">Password</p>
                             </div>
                             <div class="col-lg-2 d-flex align-items-center">
                                 <p class="text-muted mb-0">***************</p>
                             </div>
                             <div class="col-lg-3 d-flex justify-content-start">
                                 <div class="col d-flex justify-content-center">
-                                    <button class="btn text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Cambiar contraseña</button>
+                                    <button class="btn text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background: rgb(85, 0, 227);">Change password</button>
                                 </div>
                                 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Introduce tu nueva contraseña</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Enter your new password.</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form method="post" action="../php_important/connection.php">
                                                     <div class="mb-3 row">
                                                         <div class="col-sm">
-                                                            <input type="password" class="form-control" id="inputPassword" name="newPwd" placeholder="Contraseña" maxlength="20" required>
+                                                            <input type="password" class="form-control" id="inputPassword" name="newPwd" placeholder="Password" maxlength="20" required>
                                                         </div>
                                                     </div>
                                                     <div class="d-grid gap-2">
-                                                        <input type="submit" class="btn btn-outline-success" name="updatePwd" value="Confirmar">
+                                                        <input type="submit" class="btn btn-outline-success" name="updatePwd" value="Confirm">
                                                     </div>
                                                 </form>
                                             </div>
@@ -101,7 +102,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
             <div class="col-lg">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <h2 class="mb-0">Tus ensambles</h2>
+                        <h2 class="mb-0">Your PC's</h2>
                     </div>
                 </div>
             </div>
@@ -119,11 +120,11 @@ $buildData = UserBuilds($_SESSION["userID"]);
                         </div>
                         <div class='row'>
                             <div class='col-lg-6 d-flex justify-content-center'>
-                                <a href='buildDetails.php?buildID=".$row["ID"]."&buildName=".$row["Nombre"]."' class='btn btn-primary mb-2 mx-2'>Detalles</a>
+                                <a href='buildDetails.php?buildID=".$row["ID"]."&buildName=".$row["Nombre"]."' class='btn btn-primary mb-2 mx-2'>Details</a>
                             </div>
                             <div class='col-lg-6 d-flex justify-content-center'>
                                 <form method='post' action='../php_important/connection.php'>
-                                    <button class='btn btn-secondary mb-2 mx-2' name='delBuild' value='".$row["ID"]."'>Eliminar</button>
+                                    <button class='btn btn-secondary mb-2 mx-2' name='delBuild' value='".$row["ID"]."'>Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -138,7 +139,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                     <a href="armarbuild.php">
                         <div class="card-body text-center">
                             <img src="../assets/images/addBuild.webp" class="rounded">
-                            <p class="card-title mt-4 text-black h5 fs-5">Nuevo ensamble</p>
+                            <p class="card-title mt-4 text-black h5 fs-5">New PC</p>
                         </div>
                     </a>
                 </div>

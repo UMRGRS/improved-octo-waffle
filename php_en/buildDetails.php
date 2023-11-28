@@ -38,7 +38,7 @@ $row = GetBuildDetails($_GET["buildID"]);
         <!--Procesador-->
         <div class="row">
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -46,10 +46,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Procesador</h5>
+                                    <h5 class="card-title fs-2 mb-4">CPU</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloProcesador"];?></p>
@@ -58,12 +58,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDProcesador"];?>&componentType=procesador" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDProcesador"];?>&componentType=procesador" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkProcesador"];?>" target="blanck">Cyberpuerta</a></li>
@@ -79,7 +79,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Placa-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -87,10 +87,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Placa madre</h5>
+                                    <h5 class="card-title fs-2 mb-4">Motherboard</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloPlacaMadre"];?></p>
@@ -99,12 +99,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDPlacaMadre"];?>&componentType=placa" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDPlacaMadre"];?>&componentType=placa" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkPlacaMadre"];?>" target="blanck">Cyberpuerta</a></li>
@@ -120,7 +120,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--RAM-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -131,7 +131,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <h5 class="card-title fs-2 mb-4">RAM</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloRam"];?></p>
@@ -140,12 +140,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDRam"];?>&componentType=ram" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDRam"];?>&componentType=ram" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkRam"];?>" target="blanck">Cyberpuerta</a></li>
@@ -161,7 +161,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Disipador opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -169,10 +169,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Disipador</h5>
+                                    <h5 class="card-title fs-2 mb-4">Cooler</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloDisipador"];?></p>
@@ -181,12 +181,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDDisipador"];?>&componentType=disipador" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDDisipador"];?>&componentType=disipador" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkDisipador"];?>" target="blanck">Cyberpuerta</a></li>
@@ -202,7 +202,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--SSDM2 opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -213,7 +213,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <h5 class="card-title fs-2 mb-4">SSDM2</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloSsdm2"];?></p>
@@ -222,12 +222,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDSsdm2"];?>&componentType=ssdm2" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDSsdm2"];?>&componentType=ssdm2" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkSsdm2"];?>" target="blanck">Cyberpuerta</a></li>
@@ -243,7 +243,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--SATA opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -251,10 +251,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Alamacenamiento SATA</h5>
+                                    <h5 class="card-title fs-2 mb-4">SATA storage</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloSata"];?></p>
@@ -263,12 +263,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDSata"];?>&componentType=almacenamiento%20sata" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDSata"];?>&componentType=almacenamiento%20sata" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkSata"];?>" target="blanck">Cyberpuerta</a></li>
@@ -284,7 +284,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Gabinete-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -292,10 +292,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Gabinete</h5>
+                                    <h5 class="card-title fs-2 mb-4">Case</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloGabinete"];?></p>
@@ -304,12 +304,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDGabinete"];?>&componentType=gabinete" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDGabinete"];?>&componentType=gabinete" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkGabinete"];?>" target="blanck">Cyberpuerta</a></li>
@@ -325,7 +325,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Grafica opc-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -333,10 +333,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Grafica</h5>
+                                    <h5 class="card-title fs-2 mb-4">GPU</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloGrafica"];?></p>
@@ -345,12 +345,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDGrafica"];?>&componentType=grafica" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDGrafica"];?>&componentType=grafica" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkGrafica"];?>" target="blanck">Cyberpuerta</a></li>
@@ -366,7 +366,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Ventilacion-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -374,10 +374,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Ventiladores</h5>
+                                    <h5 class="card-title fs-2 mb-4">Fans</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloVentilador"];?></p>
@@ -386,12 +386,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDVentilador"];?>&componentType=ventilador" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDVentilador"];?>&componentType=ventilador" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkVentilador"];?>" target="blanck">Cyberpuerta</a></li>
@@ -407,7 +407,7 @@ $row = GetBuildDetails($_GET["buildID"]);
             </div>
             <!--Fuente de poder-->
             <div class="col-lg-6">
-                <div class="container-fluid mt-4 mb-4">
+                <div class="container-fluid mb-4">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -415,10 +415,10 @@ $row = GetBuildDetails($_GET["buildID"]);
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-2 mb-4">Fuente de poder</h5>
+                                    <h5 class="card-title fs-2 mb-4">Power supply</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-3 fs-5">Modelo</p>
+                                            <p class="mb-3 fs-5">Model</p>
                                         </div>
                                         <div class="col">
                                             <p class="text-muted mb-0"><?php echo $row["modeloFuente"];?></p>
@@ -427,12 +427,12 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDFuente"];?>&componentType=fuentes" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDFuente"];?>&componentType=fuentes" class="btn btn-primary mb-2">Full specifications</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Links de compra
+                                                    Purchase links
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item" href="<?php echo $row["linkFuente"];?>" target="blanck">Cyberpuerta</a></li>

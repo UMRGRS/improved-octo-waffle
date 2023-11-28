@@ -16,7 +16,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Marca</p>
+                            <p class="fs-5">Brand</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["marca"];?></p>
@@ -24,10 +24,10 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-2">
-                            <p class="fs-5">Nucleos</p>
+                        <div class="col-lg-3">
+                            <p class="fs-5">CPU Cores/treads</p>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fs-5"><?php echo $row["nucleos"];?></p>
                         </div>
                     </div>
@@ -42,8 +42,8 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-2">
-                            <p class="fs-5">Graficos integrados</p>
+                        <div class="col-lg-3">
+                            <p class="fs-5">Integrated graphics</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo YesNo($row["igpu"]);?></p>
@@ -52,7 +52,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fs-5">Disipador</p>
+                            <p class="fs-5">Cooler</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo YesNo($row["disipador"]);?></p>
@@ -60,8 +60,8 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-2">
-                            <p class="fs-5">Consumo</p>
+                        <div class="col-lg-3">
+                            <p class="fs-5">Power consumption</p>
                         </div>
                         <div class="col-lg-2">
                             <p class="fs-5"><?php echo $row["consumo"];?></p>
@@ -70,7 +70,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
                     <hr>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Links de compra
+                            Purchase links
                         </button>
                         <ul class="dropdown-menu">
                             <!--Link owo-->
