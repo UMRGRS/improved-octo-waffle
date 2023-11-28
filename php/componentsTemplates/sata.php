@@ -6,7 +6,7 @@ $row = ComponentDetails($_GET["componentType"],$_GET["componentID"]);
     <div class="card">
         <div class="row g-0 card-body">
             <div class="d-flex col-3 justify-content-center align-items-center">
-                <img src="../assets/images/sata/<?php echo $row["imagen"];?>" class="img-fluid rounded" style="max-height: 230px; max-width:230px;">
+                <img src="../assets/images/almacenamiento sata/<?php echo $row["imagen"];?>" class="img-fluid rounded" style="max-height: 230px; max-width:230px;">
             </div>
             <div class="col-9">
                 <div class="container-fluid">

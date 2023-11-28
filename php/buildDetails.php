@@ -260,7 +260,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="espec.php?componentID=<?php echo $row["IDSata"];?>&componentType=almacenamiento_sata" class="btn btn-primary mb-2">Especificaciones completas</a>
+                                            <a href="espec.php?componentID=<?php echo $row["IDSata"];?>&componentType=almacenamiento%20sata" class="btn btn-primary mb-2">Especificaciones completas</a>
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
