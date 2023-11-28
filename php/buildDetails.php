@@ -244,7 +244,7 @@ $row = GetBuildDetails($_GET["buildID"]);
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <img src="../assets/images/almacenamiento_sata/<?php echo $row["imgSata"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
+                                <img src="../assets/images/almacenamiento sata/<?php echo $row["imgSata"];?>" class="img-fluid rounded py-4" style="max-width:200px; max-height:230px">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
