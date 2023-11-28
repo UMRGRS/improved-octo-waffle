@@ -298,4 +298,38 @@ function UpdatePwd(){
   $DBC -> close();
   header("Location: ../php/perfil.php");
 }
+//Use this to get correct name for en or es
+function GetComponentName($paramName){
+  switch($_SESSION["Idioma"]){
+    case "ES":
+      return $paramName;
+    case "EN":
+      return SelectEnWord($paramName);
+  }
+}
+function SelectEnWord($paramName){
+  switch($paramName){
+    case "procesador":
+      return "CPU";
+    case "placa":
+      return "motherboard";
+    case "ram":
+      return "RAM";
+    case "disipador":
+      return "cooler";
+    case "ssdm2":
+      return "ssdm2";
+    case "almacenamiento sata":
+      return "SATA storage";
+    case "gabinete":
+      return "case";
+    case "grafica":
+      return "GPU";
+    case "ventilador":
+      return "fan";
+    case "fuentes":
+      return "Power supply";
+  }
+}
+
 ?>

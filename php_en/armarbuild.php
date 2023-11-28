@@ -687,7 +687,7 @@ include_once("../php_important/connection.php");
                                         </div>
                                         <div class='col-lg-8'>
                                             <div class='card-body'>
-                                                <h5 class='card-title fs-5 mb-4 text-capitalize'>".$paramName."</h5>
+                                                <h5 class='card-title fs-5 mb-4 text-capitalize'>".GetComponentName($paramName)."</h5>
                                                 <div class='row'>
                                                     <div class='col'>
                                                         <p class='mb-3 fs-5'>Modelo</p>
