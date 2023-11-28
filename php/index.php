@@ -105,7 +105,7 @@ $_SESSION ["Idioma"] = "ES";
                                 <div class="icon">
                                     <img src="../assets/images/services-04.jpg" alt="SEO marketing" class="templatemo-feature">
                                 </div>
-                                <h4>Guardado de los armados que gustes</h4>
+                                <h4>Guardado de tus ensambles</h4>
                             </div>
                         </div>
                     </div>

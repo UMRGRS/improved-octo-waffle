@@ -25,10 +25,10 @@ $_SESSION ["Idioma"] = "EN";
             <div class="row">
                 <div class="col-lg-6">
                     <div class="container bg-white" style="border-radius: 25px">
-                        <h6 class="pt-4 ps-3">Arma tu propio equipo</h6>
+                        <h6 class="pt-4 ps-3">Build your own PC</h6>
                         <div class="line-dec"></div>
-                        <h4 class="text-break ps-3">Armala es mas<em> barato</em><br>y<span>potente</span></h4>
-                        <p class="text-break ps-3 fs-5">Somos la mejor opcion en el mercado de armado junto con los mejores precios en componentes y armados completos.</p>
+                        <h4 class="text-break ps-3">Build it, it is <em>cheaper</em><br>and more<span>powerful</span> than buying</h4>
+                        <p class="text-break ps-3 fs-5">We are the best option in the assembly market along with the best prices for components and complete assemblies</p>
                         <div class="container-fluid">
                             <div class="row">
                                 <?php
@@ -71,9 +71,9 @@ $_SESSION ["Idioma"] = "EN";
                     <div class="row">
                         <div class="col-lg-12">
                             <div class='section-heading'>
-                                <h2 class="text-break">Te otorgamos las mejores<em> heramientas </em> y <em> componentes </em>para armar la computadora de tus sueños</h2>
+                                <h2 class="text-break">We provide you with the best <em>tools</em> and <em>components</em> to build the computer of your dreams.</h2>
                                 <div class="line-dec"></div>
-                                <p>Nuestros servicios son: </p>
+                                <p>Our services include:</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -81,7 +81,7 @@ $_SESSION ["Idioma"] = "EN";
                                 <div class="icon">
                                     <img src="../assets/images/services-01.jpg" alt="discover SEO" class="templatemo-feature">
                                 </div>
-                                <h4>Conexion con las mejores tiendas de componentes</h4>
+                                <h4>Connection with the best component stores</h4>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -89,7 +89,7 @@ $_SESSION ["Idioma"] = "EN";
                                 <div class="icon">
                                     <img src="../assets/images/services-02.jpg" alt="data analysis" class="templatemo-feature">
                                 </div>
-                                <h4>Compatibilidad de los componentes garantizada </h4>
+                                <h4>Guaranteed component compatibility</h4>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -97,7 +97,7 @@ $_SESSION ["Idioma"] = "EN";
                                 <div class="icon">
                                     <img src="../assets/images/services-03.jpg" alt="precise data" class="templatemo-feature">
                                 </div>
-                                <h4>Una gran cantidad de componentes a tu alcance</h4>
+                                <h4>A vast array of components at your fingertips</h4>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6">
@@ -105,7 +105,7 @@ $_SESSION ["Idioma"] = "EN";
                                 <div class="icon">
                                     <img src="../assets/images/services-04.jpg" alt="SEO marketing" class="templatemo-feature">
                                 </div>
-                                <h4>Guardado de los armados que gustes</h4>
+                                <h4>Saving your PC's</h4>
                             </div>
                         </div>
                     </div>

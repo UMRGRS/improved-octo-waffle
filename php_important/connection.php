@@ -63,7 +63,12 @@ function RegisterUser($username,$password,$email){
   if($row["aut"] == true){
     session_start();
     $_SESSION["userID"] = $row["@id"];
-    header("Location: ../php/perfil.php");
+    if($_SESSION["Idioma"]="ES"){
+      header("Location: ../php/perfil.php");
+    }
+    else if($_SESSION["Idioma"]="EN"){
+      header("Location: ../php_en/perfil.php");
+    }
   }
   else{
     header("Location: ../php/index.php?SignUpFailed=true");
@@ -79,8 +84,12 @@ function LogIn($username,$password){
   if($row["aut"] == true){
     session_start();
     $_SESSION["userID"] = $row["@id"];
-    header("Location: ../php/perfil.php");
-    exit();
+    if($_SESSION["Idioma"]="ES"){
+      header("Location: ../php/perfil.php");
+    }
+    else if($_SESSION["Idioma"]="EN"){
+      header("Location: ../php_en/perfil.php");
+    }
   }
   else{
     header("Location: ../php/index.php?LogInFailed=true");
