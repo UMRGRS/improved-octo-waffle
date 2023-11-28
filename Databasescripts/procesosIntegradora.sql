@@ -289,7 +289,7 @@ begin
             set message = "Ocurrio un error";
 			select status_code, message, aut;
         end;
-    set @buildsquery = ('SELECT ID, Nombre, Descripcion from builds where ID_Usuario = ?');
+    set @buildsquery = ('SELECT ID, Nombre, Descripcion, imagen from builds where ID_Usuario = ?');
    	set @param =  UserID;
    	prepare stm from @buildsquery;
   	execute stm using @param;
