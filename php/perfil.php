@@ -63,6 +63,7 @@ $buildData = UserBuilds($_SESSION["userID"]);
                                 <p class="text-muted mb-0">***************</p>
                             </div>
                             <div class="col-lg-3 d-flex justify-content-start">
+                                <!--Hacer un modal OwO-->
                                 <form method="post" action="">
                                     <input class=" btn btn-primary" type="submit" name="updateInfo" value="Cambiar contraseña">
                                 </form>
@@ -92,7 +93,16 @@ $buildData = UserBuilds($_SESSION["userID"]);
                             <h5 class='card-title mt-4 text-black'>".$row["Nombre"]."</h5>
                             <p class='card-text mt-1'>".$row["Descripcion"]."</p>
                         </div>
-                        <a href='buildDetails.php?buildID=".$row["ID"]."&buildName=".$row["Nombre"]."' class='btn btn-primary mb-2 mx-2'>Detalles</a>
+                        <div class='row'>
+                            <div class='col-lg-6 d-flex justify-content-center'>
+                                <a href='buildDetails.php?buildID=".$row["ID"]."&buildName=".$row["Nombre"]."' class='btn btn-primary mb-2 mx-2'>Detalles</a>
+                            </div>
+                            <div class='col-lg-6 d-flex justify-content-center'>
+                                <form method='post' action='../php_important/connection.php'>
+                                    <button class='btn btn-secondary mb-2 mx-2' name='delBuild' value='".$row["ID"]."'>Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>";
               }

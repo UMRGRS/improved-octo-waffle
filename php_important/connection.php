@@ -22,6 +22,9 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
   else if(isset($_POST["saveBuild"])){
     SaveBuild();
   }
+  else if(isset($_POST["delBuild"])){
+      DelBuild();
+  }
 }
 
 //Get database connection wherever you want by calling this
@@ -234,6 +237,14 @@ function SaveBuild(){
   $DBC ->close();
   $_SESSION = [];
   $_SESSION["userID"] = $ID_Usuario;
+  header("Location: ../php/perfil.php");
+}
+//Use this to delete registered builds
+function DelBuild(){
+  $DBC = GetDBC();
+  $ID_Build = $_POST['delBuild'];
+  $DBC ->query("CALL deleteBuild('$ID_Build')");
+  $DBC -> close();
   header("Location: ../php/perfil.php");
 }
 ?>

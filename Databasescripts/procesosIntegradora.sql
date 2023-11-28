@@ -301,7 +301,7 @@ DELIMITER ;
 -- Change to only password
 DELIMITER $$
 drop procedure if exists UpdateUsersInfo $$
-create procedure UpdateUsersInfo(in UserID int, in UpUsername varchar(100), in UpPassword blob,in UpEmail varchar(100))
+create procedure UpdateUsersInfo(in UserID int, in UpPassword varchar(20))
 begin
 	declare status_code int default 0;
     declare message varchar(50);
@@ -313,19 +313,36 @@ begin
 			select status_code, message;
         end;
         
-    set @updateQuery = concat('UPDATE usuarios SET username = ?, password = MD5(?), email = ? where ID = ?');
-    set @param1 = UpUsername;
-    set @param2 = UpPassword;
-    set @param3 = UpEmail;
-    set @param4 = UserID;
-    
+    set @updateQuery = ('UPDATE usuarios SET password = MD5(?) where ID = ?');
+    set @param = UpPassword;
+
     prepare stm from @updateQuery;
-    execute stm using @param1, @param2, @param3, @param4;
+    execute stm using @param;
     deallocate prepare stm;
-    if (status_code = 0) then
-		set message = "User's info updated correctly";
-        select status_code, message;
-    end if;
+end $$
+DELIMITER ; 
+
+-- Use this to delete builds
+DELIMITER $$
+drop procedure if exists deleteBuild $$
+create procedure deleteBuild(in buildID int)
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+        
+    set @deleteQuery = ('DELETE FROM builds where ID = ?');
+    set @param = buildID;
+
+    prepare stm from @deleteQuery;
+    execute stm using @param;
+    deallocate prepare stm;
 end $$
 DELIMITER ; 
 
