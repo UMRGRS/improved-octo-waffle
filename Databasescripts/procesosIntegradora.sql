@@ -1,3 +1,31 @@
+-- ---------
+-- Utilidad
+-- ---------
+
+-- Use this to retieve the data of a certain row of any table
+-- Takes 1-The table you want to consult 2-The id of the row you want to consult as arguments
+DELIMITER $$
+drop procedure if exists SelectInfo $$
+create procedure SelectInfo(in tableToConsult varchar(50), in IDToConsult int)
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+	declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+            select status_code, message;
+        end;
+        
+	set @query1 = concat('SELECT * FROM `',tableToConsult,'` WHERE ID=',IDToConsult);
+    
+	prepare stm1 from @query1;
+	execute stm1;
+	deallocate prepare stm1;
+end $$
+DELIMITER ;
+
 -- Use this to retrieve all the data from a table
 -- Takes the name of the table as argument
 DELIMITER $$
@@ -21,63 +49,132 @@ begin
 end $$
 DELIMITER ;
 
--- Use this to retieve the data of a certain row of any table
--- Takes 1-The table you want to consult 2-The id of the row you want to consult as arguments
+-- ---------
+-- Utilidad
+-- ---------
+
+-- -----------------
+-- Creador de builds
+-- -----------------
+
+-- Use this to retrieve every compatible component with the one you give it, works in both directions
+-- SelectCompatibility("placa","disipador",1,1) --> This searches for the heatsinks compatible with the motherboard with the ID 1
+-- SelectCompatibility("placa","disipador",1,2) --> This searches for the motherboards compatible with the heatksink with the ID 1
 DELIMITER $$
-drop procedure if exists SelectInfo $$
-create procedure SelectInfo(in tableToConsult varchar(50), in IDToConsult int)
+drop procedure if exists SelectCompatibility $$
+create procedure SelectCompatibility(in table1 varchar(20), in table2 varchar(20), in IDToConsult int, in direction int)
 begin
 	declare status_code int default 0;
     declare message varchar(50);
     
+	declare tableName varchar (50);
+	
 	declare continue handler for sqlexception
 		begin
 			set status_code = -1;
             set message = "Ocurrio un error";
             select status_code, message;
         end;
-        
-	set @query1 = concat('SELECT * FROM ',tableToConsult,' WHERE ID=',IDToConsult);
-    
-	prepare stm1 from @query1;
-	execute stm1;
-	deallocate prepare stm1;
-end $$
-DELIMITER ;
-
-
--- Use this to retrieve every compatible component with the one you give it
--- SelectCompatibility("Placa","Disipador",1) --> This searches for the heatsinks compatible with the motherboard with the ID 1
-DELIMITER $$
-drop procedure if exists SelectCompatibility $$
-create procedure SelectCompatibility(in table1 varchar(20), in table2 varchar(20), in IDToConsult int)
-begin
-	declare status_code int default 0;
-    declare message varchar(50);
-    
-	declare tableName varchar (50);
-    
-    declare continue handler for sqlexception
-		begin
-			set status_code = -1;
-            set message = "Ocurrio un error";
-            select status_code, message;
-        end;
-
+       
 	set tableName = concat('compatibilidad_',table1,'_',table2);
-	set @compQuery = concat('select s.ID, s.modelo from ', table2,' s right join ', tableName,' comp 
-					on s.ID = comp.ID_',table2,' where comp.ID_Principal = ', IDToConsult);
+    if(direction = 1) then
+   		set @compQuery = concat('select s.ID, s.modelo, s.marca, s.imagen from ',table2,' s join ',tableName,' comp on s.ID = comp.ID_',table2,' where comp.ID_Principal = ',IDToConsult);
+    elseif(direction = 2) then
+    	set @compQuery = concat('select s.ID, s.modelo, s.marca, s.imagen from ',table1,' s join ',tableName,' comp on s.ID = comp.ID_Principal where comp.ID_',table2,' = ',IDToConsult);
+    end if;
+
 	prepare stm from @compQuery;
     execute stm;
     deallocate prepare stm;
 end $$
 DELIMITER ;
 
+-- Use this to register a new build
+-- Just insert the data in the right order xd
+DELIMITER $$
+drop procedure if exists RegisterBuild $$
+create procedure RegisterBuild(in ID_Usuario int, in ID_Almacenamiento_Sata int, in ID_Fuentes_poder int, in ID_Ram int, in ID_Grafica int, in ID_Procesador int,
+in ID_PlacaMadre int, in ID_Disipador int, in ID_Gabinete int, in ID_Ventilador int, in ID_Ssdm2 int, in Nombre varchar(100), in Descripcion longtext,in Imagen varchar(100))
+begin
+    declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+    declare continue handler for 1062
+		begin
+			set status_code = 1062;
+            set message = "Something is null";
+            select status_code, message;
+        end;
+        
+	declare continue handler for 1048
+		begin
+			set status_code = 1048;
+            set message = "Couldn't register build";
+            select status_code, message;
+        end;
+        
+	set @bigQuery = ("INSERT INTO `builds` VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+   
+   	set @param = ID_Usuario;
+   	set @param1 = ID_Almacenamiento_Sata;
+   	set @param2 = ID_Fuentes_poder;
+   	set @param3 = ID_Ram;
+    set @param4 = ID_Grafica;
+    set @param5 = ID_Procesador;
+    set @param6 = ID_PlacaMadre;
+    set @param7 = ID_Disipador;
+    set @param8 = ID_Gabinete;
+    set @param9 = ID_Ventilador;
+    set @param10 = ID_Ssdm2;
+    set @param11 = Nombre;
+    set @param12 = Descripcion;
+    set @param13 = Imagen;
+    prepare stm from @bigQuery;
+    execute stm using @param,@param1,@param2,@param3,@param4,@param5,@param6,@param7,@param8,@param9,@param10,@param11,@param12,@param13;
+    deallocate prepare stm;
+end $$
+DELIMITER ;
+
+-- Use this to retrieve some components for every category of the build creator
+DELIMITER $$
+drop procedure if exists SelectComponents $$
+create procedure SelectComponents(in tableToConsult varchar(50))
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message, aut;
+        end;
+ 	set @query0 = concat('SELECT ID, modelo, marca, imagen, link FROM `', tableToConsult,'` ORDER BY rand() LIMIT 5');
+ 	set @param = tableToConsult;
+	prepare stm1 from @query0;
+	execute stm1;
+	deallocate prepare stm1;
+end $$
+DELIMITER ;
+
+
+-- -----------------
+-- Creador de builds
+-- -----------------
+
+-- -------------------------
+-- Inicio de sesion/registro
+-- -------------------------
 
 -- Use this to log in into the page
 -- Takes 1- Username 2- Password
 -- aut -> false: user isn't registered OR password isn't correct(Check message) true: login succesfull
--- Cuidado con la inyeccion sql xd
 DELIMITER $$
 drop procedure if exists LogIn $$
 create procedure LogIn(in username varchar(50),in passIn varchar(50))
@@ -114,10 +211,6 @@ begin
     end if;
 end $$
 DELIMITER ;
-
--- delete from usuarios where ID=3; 
--- call LogIn("umrgrs","owo1");
--- call UserRegister("umrgrs","owo1","umrgrs@gmail.com");
 
 -- Use this to register new users
 -- Takes 1- username 2- password 3- email
@@ -174,148 +267,13 @@ begin
 end $$
 DELIMITER ;
 
+-- -------------------------
+-- Inicio de sesion/registro
+-- -------------------------
 
--- Use this to update the user's data
-DELIMITER $$
-drop procedure if exists UpdateUsersInfo $$
-create procedure UpdateUsersInfo(in UserID int, in UpUsername varchar(100), in UpPassword blob,in UpEmail varchar(100))
-begin
-	declare status_code int default 0;
-    declare message varchar(50);
-    
-    declare continue handler for sqlexception
-		begin
-			set status_code = -1;
-            set message = "Ocurrio un error";
-			select status_code, message;
-        end;
-        
-    set @updateQuery = concat('UPDATE usuarios SET username = ?, password = MD5(?), email = ? where ID = ?');
-    set @param1 = UpUsername;
-    set @param2 = UpPassword;
-    set @param3 = UpEmail;
-    set @param4 = UserID;
-    
-    prepare stm from @updateQuery;
-    execute stm using @param1, @param2, @param3, @param4;
-    deallocate prepare stm;
-    if (status_code = 0) then
-		set message = "User's info updated correctly";
-        select status_code, message;
-    end if;
-end $$
-DELIMITER ; 
-
-
--- Use this to register a new build
--- Just insert the data in the right order xd
-DELIMITER $$
-drop procedure if exists RegisterBuild $$
-create procedure RegisterBuild(in ID_Usuario int, in ID_Almacenamiento_Sata int, in ID_Fuentes_poder int, in ID_Ram int, in ID_Tarjeta_grafica int, in ID_procesador int,
-in ID_PlacaMadre int, in ID_Disipador int, in ID_Gabinete int, in ID_Ventilador int, in ID_Ssdm2 int, in Nombre varchar(100), in Descripcion longtext)
-begin
-	declare aut bool default 0;
-    declare status_code int default 0;
-    declare message varchar(50);
-    
-    declare continue handler for sqlexception
-		begin
-			set status_code = -1;
-            set message = "Ocurrio un error";
-			select status_code, message, aut;
-        end;
-        
-    declare continue handler for 1062
-		begin
-			set status_code = 1062;
-            set message = "Something is null";
-            select status_code, message, aut;
-        end;
-        
-	declare continue handler for 1048
-		begin
-			set status_code = 1048;
-            set message = "Couldn't register build";
-            select status_code, message, aut;
-        end;
-        
-	set @bigQuery = concat(
-    "INSERT INTO `Builds` (`ID_Usuario`, `ID_Almacenamiento_Sata`, `ID_Fuentes_poder`, `ID_Ram`, `ID_Tarjeta_grafica`, `ID_procesador`, `ID_PlacaMadre`, 
-    `ID_Disipador`, `ID_Gabinete`, `ID_Ventilador`, `ID_Ssdm2`, `Nombre`, `Descripcion`) 
-    VALUES (",quote(ID_Usuario),", ",quote(ID_Almacenamiento_Sata),", ",quote(ID_Fuentes_poder),", ",quote(ID_Ram),", ",quote(ID_Tarjeta_grafica),", ",quote(ID_procesador),", 
-    ",quote(ID_PlacaMadre),", ",quote(ID_Disipador),", ",quote(ID_Gabinete),", ",quote(ID_Ventilador),", ",quote(ID_Ssdm2),", ",quote(Nombre),", ",quote(Descripcion),")");
-    
-    prepare stm from @bigQuery;
-    execute stm;
-    deallocate prepare stm;
-end $$
-DELIMITER ;
-
-
--- Use this to select the neccesary data from a build
-DELIMITER $$
-drop procedure if exists SelectDataFromBuild $$
-create procedure SelectDataFromBuild(in BuildId int)
-begin
-	declare status_code int default 0;
-    declare message varchar(50);
-    
-    declare continue handler for sqlexception
-		begin
-			set status_code = -1;
-            set message = "Ocurrio un error";
-			select status_code, message, aut;
-        end;
-	
-	set @fulldataquery= concat('SELECT
-    a.ID AS IDSata,
-    a.modelo AS ModeloSata,
-    f.ID AS IDFuente,
-    f.modelo AS ModeloFuente,
-    r.ID AS IDRam,
-    r.modelo AS ModeloRam,
-    tg.ID AS IDGrafica,
-    tg.modelo AS ModeloGrafica,
-    p.ID AS IDProcesador,
-    p.modelo AS ModeloProcesador,
-    pm.ID AS IDPlacaMadre,
-    pm.modelo AS ModeloPlacaMadre,
-    d.ID AS IDDisipador,
-    d.modelo AS ModeloDisipador,
-    g.ID AS IDGabinete,
-    g.modelo AS ModeloGabinete,
-    v.ID AS IDVentilador,
-    v.modelo AS ModeloVentilador,
-    s.ID AS IDSsdm2,
-    s.modelo AS ModeloSsdm2
-FROM
-    Builds b
-JOIN
-    Almacenamiento_sata a ON b.ID_Almacenamiento_Sata = a.ID
-JOIN
-    Fuentes f ON b.ID_Fuentes_poder = f.ID
-JOIN
-    Ram r ON b.ID_Ram = r.ID
-JOIN
-    grafica tg ON b.ID_Tarjeta_grafica = tg.ID
-JOIN
-    Procesador p ON b.ID_procesador = p.ID
-JOIN
-    Placa pm ON b.ID_PlacaMadre = pm.ID
-JOIN
-    Disipador d ON b.ID_Disipador = d.ID
-JOIN
-    Gabinete g ON b.ID_Gabinete = g.ID
-JOIN
-    Ventilador v ON b.ID_Ventilador = v.ID
-JOIN
-    Ssdm2 s ON b.ID_Ssdm2 = s.ID where b.ID= ?');
-    set @param = BuildId;
-    prepare stm from @fulldataquery;
-    execute stm using @param;
-    deallocate prepare stm;
-end $$
-DELIMITER ;
+-- ------------------
+-- Perfil del usuario
+-- ------------------
 
 -- Use this to get name and description of every build the user has created
 DELIMITER $$
@@ -331,7 +289,7 @@ begin
             set message = "Ocurrio un error";
 			select status_code, message, aut;
         end;
-    set @buildsquery = ('SELECT ID, Nombre, Descripcion from builds where ID_Usuario = ?');
+    set @buildsquery = ('SELECT ID, Nombre, Descripcion, imagen from builds where ID_Usuario = ?');
    	set @param =  UserID;
    	prepare stm from @buildsquery;
   	execute stm using @param;
@@ -339,7 +297,186 @@ begin
 end $$
 DELIMITER ;
 
+-- Use this to update the user's data
+-- Change to only password
+DELIMITER $$
+drop procedure if exists UpdateUserInfo $$
+create procedure UpdateUserInfo(in UserID int, in UpPassword varchar(20))
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+        
+    set @updateQuery = ('UPDATE usuarios SET password = MD5(?) where ID = ?');
+    set @param = UpPassword;
+	set @param1 = UserID;
+    prepare stm from @updateQuery;
+    execute stm using @param, @param1;
+    deallocate prepare stm;
+end $$
+DELIMITER ; 
+
+-- Use this to delete builds
+DELIMITER $$
+drop procedure if exists deleteBuild $$
+create procedure deleteBuild(in buildID int)
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+        
+    set @deleteQuery = ('DELETE FROM builds where ID = ?');
+    set @param = buildID;
+
+    prepare stm from @deleteQuery;
+    execute stm using @param;
+    deallocate prepare stm;
+end $$
+DELIMITER ; 
+
+-- ------------------
+-- Perfil del usuario
+-- ------------------
+
+-- --------------
+-- Detalles build
+-- --------------
+
+-- Use this to select the neccesary data from a build
+DELIMITER $$
+drop procedure if exists SelectDataFromBuild $$
+create procedure SelectDataFromBuild(in BuildId int)
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+	
+	set @fulldataquery= concat('SELECT
+    a.ID AS IDSata,
+    a.modelo AS modeloSata,
+	a.imagen AS imgSata,
+	a.link AS linkSata,
+
+    f.ID AS IDFuente,
+    f.modelo AS modeloFuente,
+	f.imagen AS imgFuente,
+	f.link AS linkFuente,
+
+    r.ID AS IDRam,
+    r.modelo AS modeloRam,
+    r.imagen AS imgRam,
+    r.link AS linkRam,
+
+    tg.ID AS IDGrafica,
+    tg.modelo AS modeloGrafica,
+    tg.imagen AS imgGrafica,
+    tg.link AS linkGrafica,
+
+    p.ID AS IDProcesador,
+    p.modelo AS modeloProcesador,
+    p.imagen AS imgProcesador,
+    p.link AS linkProcesador,
+
+    pm.ID AS IDPlacaMadre,
+    pm.modelo AS modeloPlacaMadre,
+    pm.imagen AS imgPlacaMadre,
+    pm.link AS linkPlacaMadre,
+
+    d.ID AS IDDisipador,
+    d.modelo AS modeloDisipador,
+    d.imagen AS imgDisipador,
+    d.link AS linkDisipador,
+
+    g.ID AS IDGabinete,
+    g.modelo AS modeloGabinete,
+    g.imagen AS imgGabinete,
+    g.link AS linkGabinete,
+
+    v.ID AS IDVentilador,
+    v.modelo AS modeloVentilador,
+    v.imagen AS imgVentilador,
+    v.link AS linkVentilador,
+
+    s.ID AS IDSsdm2,
+    s.modelo AS modeloSsdm2,
+	s.imagen AS imgSsdm2,
+    s.link AS linkSsdm2
+FROM
+    builds b
+JOIN
+    `almacenamiento sata` a ON b.ID_Almacenamiento_Sata = a.ID
+JOIN
+    fuentes f ON b.ID_Fuentes_poder = f.ID
+JOIN
+    ram r ON b.ID_Ram = r.ID
+JOIN
+    grafica tg ON b.ID_grafica = tg.ID
+JOIN
+    procesador p ON b.ID_procesador = p.ID
+JOIN
+    placa pm ON b.ID_PlacaMadre = pm.ID
+JOIN
+    disipador d ON b.ID_Disipador = d.ID
+JOIN
+    gabinete g ON b.ID_Gabinete = g.ID
+JOIN
+    ventilador v ON b.ID_Ventilador = v.ID
+JOIN
+    Ssdm2 s ON b.ID_Ssdm2 = s.ID where b.ID= ?');
+    set @param = BuildId;
+    prepare stm from @fulldataquery;
+    execute stm using @param;
+    deallocate prepare stm;
+end $$
+DELIMITER ;
+
+-- Get random components as recomendations
+DELIMITER $$
+drop procedure if exists GetRecomendations $$
+create procedure GetRecomendations(in tableToConsult varchar(50))
+begin
+	declare status_code int default 0;
+    declare message varchar(50);
+    
+    declare continue handler for sqlexception
+		begin
+			set status_code = -1;
+            set message = "Ocurrio un error";
+			select status_code, message;
+        end;
+ 	set @query0 = concat('SELECT ID,modelo,imagen,link FROM `', tableToConsult,'` ORDER BY rand() LIMIT 3');
+ 	set @param = tableToConsult;
+	prepare stm1 from @query0;
+	execute stm1;
+	deallocate prepare stm1;
+end $$
+DELIMITER ;
+
+-- --------------
+-- Detalles build
+-- --------------
+
+-- ---------
 -- Triggers
+-- ---------
 DELIMITER $$
 DROP TRIGGER IF EXISTS after_update_almacenamiento_sata $$
 CREATE TRIGGER after_update_almacenamiento_sata
@@ -449,3 +586,6 @@ BEGIN
     VALUES (concat('Tabla ventilador actualizada en la ID ',old.ID), concat('Usuario = ',user(),' Connection ID = ',connection_id()), NOW());
 END $$
 DELIMITER ;
+-- ---------
+-- Triggers
+-- ---------

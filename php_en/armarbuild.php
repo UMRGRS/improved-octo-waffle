@@ -16,17 +16,17 @@ include_once("../php_important/connection.php");
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/css/templatemo-tale-seo-agency.css">
-    <title>Nueva build</title>
+    <title>New PC</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
 
-    <?php include("../Archives_include/header.php"); ?>
+    <?php include("../Archives_include_en/header.php"); ?>
     <div class="container-fluid mt-4">
         <div class="row mx-0 mb-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <h4 class="mb-0">Configurador de PC</h4>
+                    <h4 class="mb-0">PC builder</h4>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 <?php XorR(isset($_SESSION['buildArray']['procesador']))?>
-                                <p class="fw-bold fs-5">Procesador</p>
+                                <p class="fw-bold fs-5">CPU</p>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -63,7 +63,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowPro["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowPro["marca"]."</p>
@@ -72,11 +72,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowPro["ID"]."&componentType=procesador' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowPro["ID"]."&componentType=procesador' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[procesador]' value='".$rowPro["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[procesador]' value='".$rowPro["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -97,7 +97,7 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <?php XorR(isset($_SESSION['buildArray']['placa']))?>
-                                <p class="fw-bold fs-5">Placa madre</p>
+                                <p class="fw-bold fs-5">Motherboard</p>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -123,7 +123,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowMother["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowMother["marca"]."</p>
@@ -132,11 +132,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowMother["ID"]."&componentType=placa' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowMother["ID"]."&componentType=placa' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[placa]' value='".$rowMother["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[placa]' value='".$rowMother["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -158,7 +158,7 @@ include_once("../php_important/connection.php");
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['ram']))?>
                                 <p class="fw-bold fs-5">RAM</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['procesador'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona un procesador para comenzar";}?></p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['procesador'])){echo "The components in this section may not be compatible. Please select a processor to begin.";}?></p>
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -184,7 +184,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowRam["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowRam["marca"]."</p>
@@ -193,11 +193,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowRam["ID"]."&componentType=ram' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowRam["ID"]."&componentType=ram' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[ram]' value='".$rowRam["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[ram]' value='".$rowRam["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -218,8 +218,8 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['disipador']))?>
-                                <p class="fw-bold fs-5">Disipador</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona una placa madre para comenzar";}?></p>
+                                <p class="fw-bold fs-5">Cooler</p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "The components in this section may not be compatible. Please select a motherboard to begin.";}?></p>
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -245,7 +245,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowDisipador["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowDisipador["marca"]."</p>
@@ -254,11 +254,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowDisipador["ID"]."&componentType=disipador' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowDisipador["ID"]."&componentType=disipador' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[disipador]' value='".$rowDisipador["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[disipador]' value='".$rowDisipador["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -280,7 +280,7 @@ include_once("../php_important/connection.php");
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['ssdm2']))?>
                                 <p class="fw-bold fs-5">SSDM2</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona una placa madre para comenzar";}?></p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "The components in this section may not be compatible. Please select a motherboard to begin";}?></p>
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -306,7 +306,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowSsdm2["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowSsdm2["marca"]."</p>
@@ -315,11 +315,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowSsdm2["ID"]."&componentType=ssdm2' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowSsdm2["ID"]."&componentType=ssdm2' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[ssdm2]' value='".$rowSsdm2["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[ssdm2]' value='".$rowSsdm2["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -340,7 +340,7 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['almacenamiento sata']))?>
-                                <p class="fw-bold fs-5">Almacenamiento SATA</p>
+                                <p class="fw-bold fs-5">SATA storage</p>
                             </button>
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -362,7 +362,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowSata["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowSata["marca"]."</p>
@@ -371,11 +371,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowSata["ID"]."&componentType=almacenamiento%20sata' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowSata["ID"]."&componentType=almacenamiento%20sata' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[almacenamiento sata]' value='".$rowSata["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[almacenamiento sata]' value='".$rowSata["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -396,8 +396,8 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['gabinete']))?>
-                                <p class="fw-bold fs-5">Gabinete</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona una placa madre para comenzar";}?></p>
+                                <p class="fw-bold fs-5">Case</p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['placa'])){echo "The components in this section may not be compatible. Please select a motherboard to beginr";}?></p>
                             </button>
                         </h2>
                         <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -423,7 +423,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowGabinete["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowGabinete["marca"]."</p>
@@ -432,11 +432,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowGabinete["ID"]."&componentType=gabinete' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowGabinete["ID"]."&componentType=gabinete' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[gabinete]' value='".$rowGabinete["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[gabinete]' value='".$rowGabinete["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -457,8 +457,8 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['grafica']))?>
-                                <p class="fw-bold fs-5">Tarjerta grafica</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['gabinete']) || !isset($_SESSION['buildArray']['procesador'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona un gabinete y procesador para comenzar";}?></p>
+                                <p class="fw-bold fs-5">GPU</p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['gabinete']) || !isset($_SESSION['buildArray']['procesador'])){echo "The components in this section may not be compatible. Please select a case and processor to begin.";}?></p>
                             </button>
                         </h2>
                         <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -484,7 +484,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowGrafica["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowGrafica["marca"]."</p>
@@ -493,11 +493,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowGrafica["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowGrafica["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[grafica]' value='".$rowGrafica["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[grafica]' value='".$rowGrafica["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -518,8 +518,8 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
                                 <?php XorR(isset($_SESSION['buildArray']['ventilador']))?>
-                                <p class="fw-bold fs-5">Ventiladores</p>
-                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['gabinete'])){echo "Las piezas de esta seccion podrian no ser compatibles, selecciona un gabinete para comenzar";}?></p>
+                                <p class="fw-bold fs-5">Fans</p>
+                                <p class="text-danger ms-5"><?php if(!isset($_SESSION['buildArray']['gabinete'])){echo "The components in this section may not be compatible. Please select a case to begin.";}?></p>
                             </button>
                         </h2>
                         <div id="collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -545,7 +545,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowVentilador["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowVentilador["marca"]."</p>
@@ -554,11 +554,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowVentilador["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowVentilador["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[ventilador]' value='".$rowVentilador["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[ventilador]' value='".$rowVentilador["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -579,8 +579,8 @@ include_once("../php_important/connection.php");
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseThree" <?php if(UnlockPower()){echo 'disabled';}?>>
                                 <?php XorR(isset($_SESSION['buildArray']['fuentes']))?>
-                                <p class="fw-bold fs-5">Fuente de poder</p>
-                                <p class="text-danger ms-5"><?php if(UnlockPower()){echo 'Selecciona todas las piezas para tu PC para conocer la mejor fuente de poder';}?></p>
+                                <p class="fw-bold fs-5">Power supply</p>
+                                <p class="text-danger ms-5"><?php if(UnlockPower()){echo 'Select all the parts for your PC to determine the best power supply.';}?></p>
                             </button>
                         </h2>
                         <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -602,7 +602,7 @@ include_once("../php_important/connection.php");
                                                                 <h5 class='card-title fs-2 mb-4'>".$rowFuente["modelo"]."</h5>
                                                                 <div class='row'>
                                                                     <div class='col'>
-                                                                        <p class='mb-3 fs-5'>Marca</p>
+                                                                        <p class='mb-3 fs-5'>Brand</p>
                                                                     </div>
                                                                     <div class='col'>
                                                                         <p class='text-muted mb-0'>".$rowFuente["marca"]."</p>
@@ -611,11 +611,11 @@ include_once("../php_important/connection.php");
                                                                 <hr>
                                                                 <div class='row'>
                                                                     <div class='col-lg-6'>
-                                                                        <a href='espec.php?componentID=".$rowFuente["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                                        <a href='espec.php?componentID=".$rowFuente["ID"]."&componentType=grafica' class='btn btn-primary mb-2'>Full specifications</a>
                                                                     </div>
                                                                     <div class='col-lg-6'>
                                                                         <form method='post' action='../php_important/assignBuildArray.php'>
-                                                                            <button name='array[fuentes]' value='".$rowFuente["ID"]."' class='btn btn-secondary mb-2'>Agregar</button>
+                                                                            <button name='array[fuentes]' value='".$rowFuente["ID"]."' class='btn btn-secondary mb-2'>Add</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -637,27 +637,27 @@ include_once("../php_important/connection.php");
             <div class="col-lg-3">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <h4 class="mb-0">Guarda tu PC</h4>
+                        <h4 class="mb-0">Save your PC</h4>
                     </div>
                 </div>
                 <div class="mb-4">
                     <form method="post" action="../php_important/connection.php">
                         <div class="mb-4">
-                            <label class="form-label fs-5 fw-bold">Nombre</label>
+                            <label class="form-label fs-5 fw-bold">Name</label>
                             <input class="form-control" type="text" name="buildName" maxlength="30" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label fs-5 fw-bold">Descripcion</label>
+                            <label class="form-label fs-5 fw-bold">Description</label>
                             <input class="form-control" type="text" name="description" maxlength="50" required>
                         </div>
                         <div class="mb-4">
-                            <button class="btn btn-primary" type="submit" name="saveBuild" <?php if(UnlockSave()){echo"disabled";}?>>Guardar</button>
+                            <button class="btn btn-primary" type="submit" name="saveBuild" <?php if(UnlockSave()){echo"disabled";}?>>Save</button>
                         </div>
                     </form>
                 </div>
                 <div class="card mb-4">
                     <div class="card-body border border-info">
-                        <p class="mb-0 fs-5">Recuerda seguir las instrucciones del configurador de PC en todo momento, puedes explorar componentes tanto como quieras, tus cambios siempre se guardaran!</p>
+                        <p class="mb-0 fs-5">Remember to follow the PC builder instructions at all times. You can explore components as much as you want, your changes will always be saved!</p>
                     </div>
                 </div>
             </div>
@@ -668,12 +668,13 @@ include_once("../php_important/connection.php");
                     <div class="col-lg-12">
                         <div class="card mb-2">
                             <div class="card-body text-center">
-                                <h5 class="mb-0">Componentes seleccionados</h5>
+                                <h5 class="mb-0">Selected components</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <?php
+                        //Crear funcion para traducir al ingles el tipo de componente
                         if(isset( $_SESSION["buildArray"])){
                             $parameters = $_SESSION["buildArray"];
                             foreach($parameters as $paramName => $value){
@@ -686,7 +687,7 @@ include_once("../php_important/connection.php");
                                         </div>
                                         <div class='col-lg-8'>
                                             <div class='card-body'>
-                                                <h5 class='card-title fs-5 mb-4 text-capitalize'>".$paramName."</h5>
+                                                <h5 class='card-title fs-5 mb-4 text-capitalize'>".GetComponentName($paramName)."</h5>
                                                 <div class='row'>
                                                     <div class='col'>
                                                         <p class='mb-3 fs-5'>Modelo</p>
@@ -698,11 +699,11 @@ include_once("../php_important/connection.php");
                                                 <hr>
                                                 <div class='row'>
                                                     <div class='col-lg-7'>
-                                                        <a href='espec.php?componentID=".$row["ID"]."&componentType=".$paramName."' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                        <a href='espec.php?componentID=".$row["ID"]."&componentType=".$paramName."' class='btn btn-primary mb-2'>Full specifications</a>
                                                     </div>
                                                     <div class='col-lg-2'>
                                                         <form method='post' action='../php_important/deassignBuildArray.php'>
-                                                            <button name='del".$paramName."' class='btn btn-secondary mb-2'>Eliminar</button>
+                                                            <button name='del".$paramName."' class='btn btn-secondary mb-2'>Delete</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -719,7 +720,7 @@ include_once("../php_important/connection.php");
             </div>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html");?>
+    <?php include("../Archives_include_en/footer.html");?>
 </body>
 
 </html>

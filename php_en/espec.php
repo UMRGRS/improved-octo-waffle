@@ -21,7 +21,7 @@ $reco = GetRecomendations($_GET["componentType"]);
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="background-color: #eee;">
-    <?php include("../Archives_include/header.php");?>
+    <?php include("../Archives_include_en/header.php");?>
     <?php echo ComponentTemplate($_GET["componentType"]);?>
     <!--Recuadro recomendaciones-->
     <div class="container-fluid">
@@ -29,7 +29,7 @@ $reco = GetRecomendations($_GET["componentType"]);
             <div class="col">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <h5 class="my-3">Productos recomendados</h5>
+                        <h5 class="my-3">Recommended products</h5>
                     </div>
                 </div>
             </div>
@@ -47,10 +47,10 @@ $reco = GetRecomendations($_GET["componentType"]);
                                 </div>
                                 <div class='col-lg-8'>
                                     <div class='card-body'>
-                                        <h5 class='card-title fs-2 mb-4'>Recomendado</h5>
+                                        <h5 class='card-title fs-2 mb-4'>Recommended</h5>
                                         <div class='row'>
                                             <div class='col-4'>
-                                                <p class='mb-3 fs-5'>Modelo</p>
+                                                <p class='mb-3 fs-5'>Model</p>
                                             </div>
                                             <div class='col'>
                                                 <p class='text-muted mb-0'>".$row["modelo"]."</p>
@@ -59,12 +59,12 @@ $reco = GetRecomendations($_GET["componentType"]);
                                         <hr>
                                         <div class='row'>
                                             <div class='col'>
-                                                <a href='espec.php?componentID=".$row["ID"]."&componentType=".$_GET["componentType"]."' class='btn btn-primary mb-2'>Especificaciones completas</a>
+                                                <a href='espec.php?componentID=".$row["ID"]."&componentType=".$_GET["componentType"]."' class='btn btn-primary mb-2'>Full specifications</a>
                                             </div>
                                             <div class='col'>
                                                 <div class='dropdown'>
                                                     <button class='btn btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                                        Links de compra
+                                                        Purchase links
                                                     </button>
                                                     <ul class='dropdown-menu'>
                                                         <li><a class='dropdown-item' href=".$row["link"]." target='blanck'>Cyberpuerta</a></li>
@@ -83,7 +83,7 @@ $reco = GetRecomendations($_GET["componentType"]);
             ?>
         </div>
     </div>
-    <?php include("../Archives_include/footer.html");?>
+    <?php include("../Archives_include_en/footer.html");?>
 </body>
 
 </html>
