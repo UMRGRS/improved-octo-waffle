@@ -29,17 +29,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     UpdatePwd();
   }
   else if(isset($_POST["changeLan"])){
-    session_start();
-    switch($_SESSION["Idioma"]){
-      case "EN":
-        $_SESSION["Idioma"] = "ES";
-        header("Location: ../php/index.php");
-        break;
-      case "ES":
-        $_SESSION["Idioma"] = "EN";
-        header("Location: ../php_en/index.php");
-        break;
-    }
+    ChangeLan();
   }
 }
 
@@ -331,5 +321,35 @@ function SelectEnWord($paramName){
       return "Power supply";
   }
 }
-
+//Use this to change the laanguaje of the page
+function ChangeLan(){
+  session_start();
+  $prevUrl = $_SERVER['HTTP_REFERER'];
+  $url = explode("/",$prevUrl);
+    switch($_SESSION["Idioma"]){
+      case "EN":
+        $_SESSION["Idioma"] = "ES";
+        for ($i = 0; $i < count($url); $i++){
+          if($url[$i] == "php_en"){
+            $url[$i] = 'php';
+            echo $url[$i];
+          }
+        }
+        $url2 = implode('/',$url);
+        header("Location: $url2");
+        break;
+      case "ES":
+        $_SESSION["Idioma"] = "EN";
+        for ($i = 0; $i < count($url); $i++){
+          if($url[$i] == "php"){
+            $url[$i] = 'php_en';
+            echo $url[$i];
+          }
+        }
+        $url2 = implode('/',$url);
+        header("Location: $url2");
+        break;
+    }
+    
+}
 ?>
