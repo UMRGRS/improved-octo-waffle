@@ -71,6 +71,7 @@ function LogIn($username,$password){
   $data   = $DBC->query("CALL LogIn('$username','$password')");
   $DBC -> close();
   $row = $data->fetch_assoc();
+  session_start();
   if($row["aut"] == true){
     session_start();
     $_SESSION["userID"] = $row["@id"];
